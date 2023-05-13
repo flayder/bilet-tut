@@ -1,0 +1,9 @@
+<div class="loading" style="position: absolute; left: 0; top: 0; z-index: 9; height: 4px; width: 100%;" *ngIf="loading">
+  <mat-progress-bar
+    color="primary" mode="indeterminate" [value]=50 [bufferValue]=75>
+  </mat-progress-bar>
+</div>
+
+<div data-app-modal></div>
+<div data-app-global-message></div>
+<router-outlet></router-outlet>

@@ -1,0 +1,23 @@
+<div class="group__main">
+    <table class="table_custom table_event-price" *ngIf="items.length > 0">
+        <thead>
+        <tr>
+            <th class="no-wrap">Цена</th>
+            <th class="no-wrap">Цвет</th>
+            <th class="no-wrap">Повысить после n
+                продаж
+            </th>
+            <th class="no-wrap">По дате</th>
+            <th class="no-wrap">Действия</th>
+            <th class="no-wrap"></th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr 
+                data-app-price-table-item 
+                [item]="item" 
+                *ngFor="let item of items"
+            ></tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,127 @@
+<div class="layout__section section">
+    <div class="section__header">
+        <div class="wysiwyg">
+            <h1>Логирование</h1>
+        </div>
+    </div>
+    <div class="section__main">
+        <div class="account">
+            <div class="account__logging">
+                <div class="formular">
+                    <form class="search__form">
+                        <div class="form__group group">
+                            <div class="group__main">
+                                <div class="row">
+                                    <div class="col col_2 col_hd-desktop-3 col_tab-6 col_mob-12">
+                                        <div class="form-item  form-item_before">
+                                            <div class="form-item__header">
+                                                <label class="form-item__title"
+                                                       for="mailing__time">Период поиска от</label>
+                                            </div>
+                                            <div class="form-item__main">
+                                                <div class="form-item__field">
+                                                    <div data-app-input-date
+                                                        setClass="form-item__input"
+                                                        placeholder="Период поиска от"
+                                                        [dateIsOpen]="true"
+                                                        (data)="getDateFrom($event)"
+                                                    ></div>
+                                                </div>
+                                                <div class="form-item__media media">
+                                                    <svg class="media__ico">
+                                                        <use xlink:href="/assets/img/sprite.svg#date"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col col_2 col_hd-desktop-3 col_tab-6 col_mob-12">
+                                        <div class="form-item  form-item_before">
+                                            <div class="form-item__header">
+                                                <label class="form-item__title"
+                                                       for="mailing__time">Период поиска до</label>
+                                            </div>
+                                            <div class="form-item__main">
+                                                <div class="form-item__field">
+                                                    <div data-app-input-date
+                                                        setClass="form-item__input"
+                                                        placeholder="Период поиска до"
+                                                        [dateIsOpen]="true"
+                                                        (data)="getDateTo($event)"
+                                                    ></div>
+                                                </div>
+                                                <div class="form-item__media media">
+                                                    <svg class="media__ico">
+                                                        <use xlink:href="/assets/img/sprite.svg#date"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col col_2 col_hd-desktop-3 col_tab-6 col_mob-12">
+                                        <div class="form-item  form-item_before">
+                                            <div class="form-item__header">
+                                                <label class="form-item__title"
+                                                       for="mailing__time">Время</label>
+                                            </div>
+                                            <div class="form-item__main">
+                                                <div class="form-item__field">
+                                                    <div data-app-select
+                                                        placeholder="Выберите время"
+                                                        [values]="times"
+                                                        (data)="getTime($event)"
+                                                    ></div>
+                                                </div>
+                                                <div class="form-item__media media">
+                                                    <svg class="media__ico">
+                                                        <use xlink:href="/assets/img/sprite.svg#location"></use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div><!-- //form-item -->
+                                    </div>
+                                    <div class="col col_6 col_hd-desktop-3 col_tab-6 col_mob-12">
+                                        <div class="form-item">
+                                            <div class="form-item__header">
+                                                <label class="form-item__title"
+                                                       for="mailing__event">Должность</label>
+                                            </div>
+                                            <div class="form-item__main">
+                                                <div class="form-item__field">
+                                                    <div data-app-select
+                                                        placeholder="Выберите должность"
+                                                        [values]="positions"
+                                                        (data)="getPosition($event)"
+                                                    ></div>
+                                                </div>
+                                            </div>
+                                        </div><!-- //form-item -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="table" *ngIf="items.length > 0">
+                    <table class="table_custom table_logging">
+                        <thead>
+                            <tr>
+                                <th class="no-wrap">Фамилия Имя</th>
+                                <th class="no-wrap">Должность</th>
+                                <th class="no-wrap">Дата</th>
+                                <th class="no-wrap">Время</th>
+                                <th class="no-wrap">Действие</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-app-logging-item
+                                *ngFor="let item of items"
+                                [item]="item"
+                            ></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

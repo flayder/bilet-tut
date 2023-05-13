@@ -1,0 +1,42 @@
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item">{{ item.surname }} {{ item.username }} {{ item.lastname }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap">{{ item.phone }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap">{{ item.email }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap">{{ item.login }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <a href="#" class="btn btn_secondary no-wrap" (click)="edit(item.id, $event)">Редактировать</a>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <a href="#" class="btn btn_tertiary no-wrap" (click)="delete(item.id, $event)">Удалить</a>
+        </div>
+    </div>
+</td>

@@ -1,0 +1,101 @@
+<div class="events__item">
+    <!-- events media -->
+    <div class="events__header">
+        <div class="events__media">
+            <a class="media__link" [routerLink]="['/account/event', item.id]">
+                <div data-app-image
+                    class="media__img"
+                    [src]="item.preview.image.medium"
+                ></div>
+            </a>
+        </div>
+
+        <div class="events__date date" *ngIf="item.start_date != 0">
+            <span class="date__day">{{ item.start_date | date: "d" }}</span>
+            <span class="date__month">{{ setMonth(item.start_date | date: "M") }}</span>
+        </div>
+        <div class="event-block">
+            <div class="events__type events__type_concert type" *ngIf="item.type">
+                <span class="type__text">{{ item.type.name }}</span>
+            </div>
+        </div>
+        <div class="events__status events__status_300 status">
+            <span class="status__text">{{ item.status.name }}</span>
+        </div>
+
+        <div class="events__edit edit">
+            <a class="edit__btn btn" [routerLink]="['/account/event', item.id]">Редактировать</a>
+        </div>
+
+    </div>
+    <div class="events__main">
+
+        <div class="events__title title">
+            <a class="title__text" [routerLink]="['/event', item.id]">
+                {{ item.name }}
+            </a>
+        </div>
+        <div class="events__location location">
+            <div class="location__media media">
+                <svg class="media__ico">
+                    <use xlink:href="/assets/img/sprite.svg#location"></use>
+                </svg>
+            </div>
+            <div class="location__title title">
+                <span class="title__text">{{ item.area.name }}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col_8">
+                <div class="events__price price">
+                    <span class="price__text" *ngIf="total == 0">от {{ item.price[0] }} р</span>
+                    <span class="price__text" *ngIf="total > 0">{{ total }} р</span>
+                </div>
+            </div>
+            <div class="col col_4">
+                <div class="events__sales sales justify-right">
+                    <div class="sales__media media">
+                        <svg class="media__ico">
+                            <use xlink:href="/assets/img/sprite.svg#sales"></use>
+                        </svg>
+                    </div>
+                    <div class="sales__title title">
+                        <span class="title__text" *ngIf="checkouts > -1">{{ checkouts }}</span>
+                        <svg style="fill: #fff;
+                            stroke: #00BA34;
+                            width: 25px;
+                            height: 25px;
+                            cursor: pointer;
+                            "
+                            (click)="showPay()"
+                            *ngIf="checkouts == -1"
+                        >
+                            <use xlink:href="/assets/img/sprite.svg#eye"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="events__swipe swipe" *ngIf="isAdmin()">
+            <label class="swipe__label">
+                <div class="swipe__main">
+                    <span class="swipe__title">Статус:</span>
+                    <span class="swipe__value">Активно</span>
+                </div>
+                <div class="swipe__action">
+                    <div class="toggle">
+                        <label class="toggle__label">
+                            <input class="toggle__input"
+                                type="checkbox"
+                                name="toggle"
+                                [checked]="item.status.id == 1"
+                                (change)="toActive($event)"
+                            >
+                            <span class="toggle__text"></span>
+                        </label>
+                    </div>
+                </div>
+            </label>
+        </div>
+    </div>
+</div>

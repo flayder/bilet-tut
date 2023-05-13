@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col col_10 col_tab-12">
+        <div class="formular">
+            <form action="#">
+                <fieldset>
+                    <div class="form__group group">
+                        <div class="group__header">
+                            <div class="wysiwyg">
+                                <h3>Афиша</h3>
+                            </div>
+                        </div>
+                        <div class="group__main">
+                            <div class="form-item">
+                                <div class="form-item__main">
+                                    <div 
+                                        data-app-photo-component
+                                        [multiple]="true"
+                                        [value]="getPreview()" 
+                                        (onFile)="previewImage($event)" 
+                                        (onDelete)="previewDelete($event)"
+                                    ></div>
+                                </div>
+                            </div><!-- //form-item -->
+                        </div>
+                    </div>
+                    <div class="set__footer">
+                        <div class="row">
+                            <div class="col col_12">
+                                <button type="button" class="btn" (click)="save()">Сохранить
+                                    изменения
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+    </div>
+</div>

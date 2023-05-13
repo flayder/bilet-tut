@@ -1,0 +1,39 @@
+<div class="params">
+    <div class="params__list">
+        <div class="params__item">
+            <span class="params__title">№ билета</span>
+            <span class="params__value">{{ item.id }}</span>
+        </div>
+        <div class="params__item">
+            <span class="params__title">Статус</span>
+            <span class="params__value">{{ item.status.name }}</span>
+        </div>
+        <div class="params__item">
+            <span class="params__title">Название мероприятия</span>
+            <span class="params__value" [innerHTML]="getNames()"></span>
+        </div>
+        <div class="params__item">
+            <span class="params__title">Причина</span>
+            <span class="params__value">{{ item.reason.name }}</span>
+        </div>
+        <div class="params__item">
+            <span class="params__title">Дата отправки заявления</span>
+            <span class="params__value">{{ item.date | date: "dd.MM.y" }}</span>
+        </div>
+        <div class="params__item">
+            <span class="params__title">Сумма возврата</span>
+            <span class="params__value">{{ item.checkout.price }} р.</span>
+        </div>
+        <div class="params__item" style="display: none;">
+            <span class="params__title">Чек</span>
+            <div class="file">
+                <div class="file__media media">
+                    <img class="media__img" data-src="img/content/gallery/gallery__img01.jpg" src="img/content/gallery/gallery__img01.jpg" alt="image description">
+                </div>
+                <div class="file__title title">
+                    <span class="title__text">Клиенты 1.xlsx</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

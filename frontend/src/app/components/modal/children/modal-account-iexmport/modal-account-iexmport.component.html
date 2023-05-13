@@ -1,0 +1,89 @@
+<!-- modal header -->
+<div class="modal__header">
+    <div class="modal__title title">
+        <span class="title__text h3">Уведомление</span>
+    </div>
+    <div class="modal__action action" (click)="close($event)">
+        <svg class="action__icon">
+            <use xlink:href="/assets/img/sprite.svg#close"></use>
+        </svg>
+    </div>
+</div>
+<!-- modal content -->
+<div class="modal__main">
+    <div class="formular">
+        <form action="#">
+            <fieldset>
+                <div class="form__group group">
+                    <div class="group__main">
+                        <div class="form-item">
+                            <div class="form-item__header">
+                                <label class="form-item__title" for="import__event">Выберете мероприятие</label>
+                            </div>
+                            <div class="form-item__main">
+                                <div class="form-item__field">
+                                    <select id="import__event" class="jcf-hidden">
+                                        <option value="v1">“Виктор Цой. Путь героя”</option>
+                                        <option value="v2">“Виктор Цой. Путь героя”</option>
+                                        <option value="v3">“Виктор Цой. Путь героя”</option>
+                                    </select><span class="jcf-select jcf-unselectable"><span class="jcf-select-text"><span class="">“Виктор Цой. Путь героя”</span></span><span class="jcf-select-opener"></span></span>
+                                </div>
+                            </div>
+                        </div><!-- //form-item -->
+                        <div class="form-item">
+                            <div class="form-item__main">
+                                <div class="attach attach_multiple">
+                                    <div class="attach__init attach__init_second">
+                                        <div class="attach__header">
+                                            <div class="wysiwyg">
+                                                <h6>Перетащите файл сюда или нажмите Добавить файл</h6>
+                                            </div>
+                                        </div>
+                                        <div class="attach__main">
+                                            <div class="wysiwyg">
+                                                <p>Максимум файлов: 1 ; Максимальный размер - 5 Мб</p>
+                                            </div>
+                                        </div>
+                                        <div class="attach__footer">
+                                            <span class="btn">Добавить файл</span>
+                                        </div>
+                                    </div>
+                                    <div class="attach__list attach__list_second">
+                                        <div class="attach__item">
+                                            <div class="attach__input">
+                                                <input type="file" class="input">
+                                            </div>
+                                            <div class="attach__media media">
+                                                <svg class="media__ico">
+                                                    <use xlink:href="img/sprite.svg#closeTertiary"></use>
+                                                </svg>
+                                            </div>
+                                            <div class="attach__title title">
+                                                <span class="title__text"></span>
+                                            </div>
+                                            <div class="attach__action action">
+                                                <svg class="action__ico">
+                                                    <use xlink:href="img/sprite.svg#basket"></use>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- //form-item -->
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<div class="modal__footer">
+    <div class="row">
+        <div class="col col_6">
+            <a href="#" class="btn btn_secondary modal__action" (click)="close($event)">Отмена</a>
+        </div>
+        <div class="col col_6">
+            <button type="button" class="btn">Импортировать</button>
+        </div>
+    </div>
+</div>

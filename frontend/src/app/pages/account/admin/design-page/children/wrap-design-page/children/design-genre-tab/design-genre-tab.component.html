@@ -1,0 +1,60 @@
+<div class="formular">
+    <div class="row">
+        <div class="col col_12">
+            <div class="form__group group">
+                <div class="group__main">
+                    <div class="form-item">
+                        <div class="form-item__main">
+                            <button type="button" class="btn" routerLink="/account/design/genre/add">Создать</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="genres">
+    <div class="genres__filter filter">
+        <div class="filter__list">
+            <div class="filter__item" *ngIf="actives.length == 0">
+                <div class="form-item form-item_tiny h-auto mb-0">
+                    <div class="form-item__main">
+                        <div class="form-item__field">
+                            <a href="#" class="btn">Все</a>
+                        </div>
+                    </div>
+                </div><!-- //form-item -->
+            </div>
+            <div class="filter__item filter__item_active"
+                (click)="clearFilter()"
+                *ngIf="actives.length > 0"
+            >
+                <span class="filter__title">Все</span>
+            </div>
+            <div class="filter__item filter__item_active"
+                *ngFor="let item of items | keyvalue"
+                (click)="toggleFilter(item.key)"
+            >
+                <span class="filter__title" *ngIf="!isActive(item.key)">{{ getLetter(item.key) }}</span>
+                <div class="form-item form-item_tiny h-auto mb-0" *ngIf="isActive(item.key)">
+                    <div class="form-item__main">
+                        <div class="form-item__field">
+                            <button type="button" class="btn">{{ getLetter(item.key) }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="genres__groups groups">
+        <div class="groups__list">
+            <div class="row">
+                <div class="col col_3 col_desktop-4 col_tab-6 col_mob-12" *ngFor="let item of getItems() | keyvalue ">
+                    <div data-app-genre-page-item
+                        [item]="item"
+                    ></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

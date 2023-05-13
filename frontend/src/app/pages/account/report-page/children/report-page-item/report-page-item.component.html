@@ -1,0 +1,31 @@
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item">{{ item.type.name }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item">{{ item.period.name }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <div class="toggle">
+                <label class="toggle__label">
+                    <input class="toggle__input"
+                        type="checkbox"
+                        name="toggle"
+                        [checked]="item.active"
+                        (change)="toActivate($event)"
+                    >
+                    <span class="toggle__text"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+</td>

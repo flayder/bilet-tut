@@ -1,0 +1,30 @@
+<div class="search__preview preview">
+    <div class="preview__media media">
+      <svg class="media__ico">
+        <use xlink:href="/assets/img/sprite.svg#search"></use>
+      </svg>
+    </div>
+  </div>
+  <div class="search__dropdown">
+    <div class="search__formular">
+      <div class="search__form">
+        <div class="form-item form-item_tiny form-item_before" style="margin-bottom: 0;">
+          <div class="form-item__main">
+            <div class="form-item__field">
+              <input class="form-item__input" 
+                type="text"
+                placeholder="Поиск" 
+                (keyup)="getSearch($event)"
+                [value]="searching"
+              >
+            </div>
+            <div class="form-item__media media" (click)="search()">
+              <svg class="media__ico">
+                <use xlink:href="/assets/img/sprite.svg#search"></use>
+              </svg>
+            </div>
+          </div>
+        </div><!-- //form-item -->
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,26 @@
+<div class="formular">
+    <div class="row">
+        <div class="col col_12">
+            <div class="form__group group">
+                <div class="group__main">
+                    <div class="form-item">
+                        <div class="form-item__main">
+                            <a routerLink="/account/design/slider/add" class="btn">Создать</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="slides" *ngIf="items.length > 0">
+    <div class="slides__list">
+        <div class="row">
+            <div class="col col_4 col_tab-6 col_mob-12" *ngFor="let item of items">
+                <div data-app-slider-page-item
+                    [item]="item"
+                ></div>
+            </div>
+        </div>
+    </div>
+</div>

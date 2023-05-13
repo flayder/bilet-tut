@@ -1,0 +1,68 @@
+<div class="layout">
+    <div data-app-header></div>
+    
+  
+    <main class="layout__main">
+        <div data-app-breadcrumbs></div>
+        <div class="layout__section section">
+            <div class="section__header">
+
+                    <div class="row">
+                        <div class="col col_8 col_tab-12">
+                            <div class="wysiwyg">
+                                <h1>Часто задаваемые вопросы</h1>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+
+            <div class="section__main">
+
+                    <div class="faq">
+                        <div class="row">
+                            <div class="col col_8 col_big-desktop-7 col_tab-12">
+                                <div class="faq__main" *ngIf="page">
+                                    <div class="faq__accordion accordion">
+                                        <div class="accordion__list">
+                                            <div data-app-accordion-item
+                                                class="accordion__item"
+                                                *ngFor="let elem of page.elements"
+                                                [title]="elem.field"
+                                            >
+                                            <div [innerHTML]="elem.html_field"></div>
+                                        </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col_4 col_big-desktop-5 col_tab-12">
+                                <aside class="faq__sidebar">
+                                    <div class="sidebar__header">
+                                        <div class="sidebar__title title">
+                                            <span class="title__text h2">Не нашли ответ на ваш вопрос</span>
+                                        </div>
+                                    </div>
+                                    <div class="sidebar__main">
+                                        <div class="wysiwyg">
+                                            <p>
+                                                Оставьте заявку и мы ответим
+                                                на все вопросы
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="sidebar__footer">
+                                        <a class="btn" routerLink="/feedback">Оставить заявку</a>
+                                    </div>
+                                </aside>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </main><!-- //middle -->
+
+    <div data-app-footer></div>
+</div>  

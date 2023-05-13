@@ -1,0 +1,45 @@
+<div class="layout__section section" *ngIf="item">
+    <div class="section__main">
+        <div class="container">
+            <div class="event">
+                <div class="event__banner event__banner_second">
+                    <a class="banner__link" target="_blank" [href]="item.link">
+                        <div class="banner__media media">
+                            <div data-app-image
+                                class="media__img" 
+                                [src]="item.image.image.large"
+                            ></div>
+                        </div>
+                        <div class="banner__layout">
+                            <div class="row">
+                                <div class="col col_2 col_mob-12">
+                                    <div class="banner__sidebar">
+                                        <div class="banner__date date">
+                                            <span class="date__day">{{ item.date | date: "d" }}</span>
+                                            <span class="date__month">{{ getMonth(item.date | date: "M") }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col_10 col_mob-12">
+                                    <div class="banner__header">
+                                        <div class="banner__type banner__type_concert type" *ngIf="item.type">
+                                            <span class="type__text">{{ item.type.name }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="banner__main">
+                                        <div class="banner__content">
+                                            <div class="wysiwyg">
+                                                <h1 *ngIf="item.title">{{ item.title }}</h1>
+                                                <p *ngIf="item.subtitle">{{ item.subtitle }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

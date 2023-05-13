@@ -1,0 +1,264 @@
+<div class="layout__section section">
+    <div class="section__header">
+        <div class="wysiwyg">
+            <h1 *ngIf="id == 0">Создание слайда</h1>
+            <h1 *ngIf="id > 0">Редактирование слайда</h1>
+        </div>
+    </div>
+    <div class="section__main">
+        <div class="account">
+            <div class="account__design design">
+                <div class="formular">
+                    <form [formGroup]="form">
+                        <fieldset>
+                            <div class="row">
+                                <div class="col col_10 col_tab-12">
+                                    <div class="form__group group">
+                                        <div class="group__header">
+                                            <div class="wysiwyg">
+                                                <h3>1. Название и дата</h3>
+                                            </div>
+                                        </div>
+                                        <div class="group__main">
+                                            <div class="row">
+                                                <div class="col col_6 col_tab-12">
+                                                    <div class="form-item">
+                                                        <div class="form-item__header">
+                                                            <label class="form-item__title"
+                                                                   for="slide__name">Название слайда</label>
+                                                        </div>
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <div data-app-input
+                                                                    [defaultValue]="defaultValue"
+                                                                    [submitSubject]="formSubmit"
+                                                                    setClass="form-item__input"
+                                                                    [inputErrors]="errors"
+                                                                    [c]="form.controls.name"
+                                                                    placeholder="Введите данные"
+                                                                    formControlName="name"
+                                                                >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+                                                <div class="col col_6 col_tab-12">
+                                                    <div class="form-item form-item_after">
+                                                        <div class="form-item__header">
+                                                            <label class="form-item__title"
+                                                                   for="slide__date">Дата на слайде</label>
+                                                        </div>
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <div data-app-input-date
+                                                                    [dateIsOpen]="true"
+                                                                    [defaultValue]="defaultValue"
+                                                                    [submitSubject]="formSubmit"
+                                                                    setClass="form-item__input"
+                                                                    [inputErrors]="errors"
+                                                                    [c]="form.controls.date"
+                                                                    placeholder="Введите данные"
+                                                                    formControlName="date"
+                                                                >
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-item__media media">
+                                                                <svg class="media__ico">
+                                                                    <use xlink:href="/assets/img/sprite.svg#date"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form__group group">
+                                        <div class="group__header">
+                                            <div class="wysiwyg">
+                                                <h3>2. Позиция на главной странице</h3>
+                                            </div>
+                                        </div>
+                                        <div class="group__main">
+                                            <div class="row">
+                                                <div class="col col_12">
+                                                    <div class="form-item">
+                                                        <div class="form-item__header">
+                                                            <label class="form-item__title">Порядковый номер
+                                                                блока</label>
+                                                        </div>
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <div data-app-counter
+                                                                    [defaultValue]="defaultValue"
+                                                                    [submitSubject]="formSubmit"
+                                                                    setClass="form-item__input"
+                                                                    [inputErrors]="errors"
+                                                                    [c]="form.controls.position"
+                                                                    formControlName="position"
+                                                                >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form__group group">
+                                        <div class="group__header">
+                                            <div class="wysiwyg">
+                                                <h3>3. Заголовок и подзаголовок</h3>
+                                            </div>
+                                        </div>
+                                        <div class="group__main">
+                                            <div class="row">
+                                                <div class="col col_6 col_tab-12">
+                                                    <div class="form-item">
+                                                        <div class="form-item__header">
+                                                            <label class="form-item__title"
+                                                                   for="slide__name">Заголовок на слайде</label>
+                                                        </div>
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <div data-app-input
+                                                                    [defaultValue]="defaultValue"
+                                                                    [submitSubject]="formSubmit"
+                                                                    setClass="form-item__input"
+                                                                    [inputErrors]="errors"
+                                                                    [c]="form.controls.title"
+                                                                    placeholder="Введите данные"
+                                                                    formControlName="title"
+                                                                >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+                                                <div class="col col_6 col_tab-12">
+                                                    <div class="form-item">
+                                                        <div class="form-item__header">
+                                                            <label class="form-item__title"
+                                                                   for="slide__subtitle">Подзаголовок на слайде</label>
+                                                        </div>
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <div data-app-input
+                                                                    [defaultValue]="defaultValue"
+                                                                    [submitSubject]="formSubmit"
+                                                                    setClass="form-item__input"
+                                                                    [inputErrors]="errors"
+                                                                    [c]="form.controls.subtitle"
+                                                                    placeholder="Введите данные"
+                                                                    formControlName="subtitle"
+                                                                >
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+                                                <div class="col col_6 col_tab-12">
+                                                    <div class="form-item">
+                                                        <div class="form-item__header">
+                                                            <label class="form-item__title"
+                                                                   for="slide__subtitle">Сслыка слайда</label>
+                                                        </div>
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <div data-app-input
+                                                                    [defaultValue]="defaultValue"
+                                                                    [submitSubject]="formSubmit"
+                                                                    setClass="form-item__input"
+                                                                    [inputErrors]="errors"
+                                                                    [c]="form.controls.link"
+                                                                    placeholder="Введите данные"
+                                                                    formControlName="link"
+                                                                >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+                                                <div class="col col_6 col_tab-12">
+                                                    <div class="form-item">
+                                                        <div class="form-item__header">
+                                                            <label class="form-item__title"
+                                                                   for="slide__subtitle">Мероприятие для покупки</label>
+                                                        </div>
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <div data-app-input
+                                                                    sugg_url="/api/event/"
+                                                                    [get_data]="{
+                                                                        name: 'name',
+                                                                        value: 'id'
+                                                                    }"
+                                                                    [defaultValue]="defaultValue"
+                                                                    [submitSubject]="formSubmit"
+                                                                    setClass="form-item__input"
+                                                                    [inputErrors]="errors"
+                                                                    [c]="form.controls.event"
+                                                                    placeholder="Введите данные"
+                                                                    formControlName="event"
+                                                                >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+                                                <div class="col col_12">
+                                                <div class="form-item">
+                                                    <div class="form-item__main">
+                                                        <div class="form-item__field">
+                                                            <div data-app-photo-component
+                                                                [defaultValue]="defaultValue"
+                                                                [submitSubject]="formSubmit"
+                                                                setClass="form-item__input"
+                                                                [inputErrors]="errors"
+                                                                [c]="form.controls.image"
+                                                                formControlName="image"
+                                                            >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- //form-item -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="group__footer">
+                                            <div class="row">
+                                                <div class="col col_2 col_desktop-3 col_tab-6 col_mob-12">
+                                                    <div class="form-item">
+                                                        <div class="form-item__main">
+                                                            <button type="button" (click)="delete()" class="btn btn_tertiary">Удалить</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col col_10 col_desktop-10 col_tab-6 col_mob-12">
+                                                    <div class="form-item">
+                                                        <div class="form-item__main">
+                                                            <button type="button" (click)="save()" class="btn">
+                                                                <span *ngIf="id == 0">
+                                                                    Создать
+                                                                </span>
+                                                                <span *ngIf="id > 0">
+                                                                    Обновить
+                                                                </span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

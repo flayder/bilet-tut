@@ -1,0 +1,15 @@
+<div class="accordion__item" [ngClass]="{accordion__item_active: active}">
+    <div class="accordion__header" (click)="setState()">
+        <div class="accordion__title">
+            <span class="title__text">{{ title }}</span>
+        </div>
+        <div class="accordion__media">
+            <svg class="media__ico">
+                <use xlink:href="/assets/img/sprite.svg#arrowBottom"></use>
+            </svg>
+        </div>
+    </div>
+    <div class="accordion__main">
+        <ng-content></ng-content>
+    </div>
+</div>

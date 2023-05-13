@@ -1,0 +1,23 @@
+<div class="scene__main" [id]="identical" >
+    <div class="scene__media">
+
+        <div class="scene__image" 
+            [innerHTML]="html | safe"
+        ></div>
+
+        <div class="scene__size">
+            <div class="size__list">
+                <div class="size__item size__item_plus">
+                    <svg class="size__ico">
+                        <use xlink:href="/assets/img/sprite.svg#plus"></use>
+                    </svg>
+                </div>
+                <div class="size__item size__item_minus">
+                    <svg class="size__ico">
+                        <use xlink:href="/assets/img/sprite.svg#minus"></use>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,221 @@
+<div class="row">
+    <div class="col col_10 col_tab-12">
+        <div class="formular">
+            <form [formGroup]="form">
+                <fieldset>
+                    <div class="form__group group">
+                        <div class="group__main">
+                            <div class="row">
+                                <div class="col col_6 col_tab-12" *ngIf="user && user.role == 'admin'">
+                                    <div class="form-item">
+                                        <div class="form-item__header">
+                                            <label class="form-item__title"
+                                                   for="event__status">Статус</label>
+                                        </div>
+                                        <div class="form-item__main">
+                                            <div class="form-item__field">
+                                                <div data-app-select
+                                                    sugg_url="/api/event_status"
+                                                    [get_data]="{
+                                                        name: 'name',
+                                                        value: 'id'
+                                                    }"
+                                                    [defaultValue]="defaultValue"
+                                                    [submitSubject]="formSubmit"
+                                                    setClass="form-item__input"
+                                                    [inputErrors]="errors"
+                                                    [c]="form.controls.status"
+                                                    placeholder="Выберите статус"
+                                                    formControlName="status"
+                                                    
+                                                >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- //form-item -->
+                                </div>
+                                <div class="col col_tab-12" [ngClass]="{'col_6': user && user.role == 'admin', 'col_12': user && user.role != 'admin'}">
+                                    <div class="form-item">
+                                        <div class="form-item__header">
+                                            <label class="form-item__title"
+                                                   for="event__genre">Жанр</label>
+                                        </div>
+                                        <div class="form-item__main">
+                                            <div class="form-item__field">
+                                                <div data-app-select
+                                                    sugg_url="/api/event_genre"
+                                                    [get_data]="{
+                                                        name: 'name',
+                                                        value: 'id'
+                                                    }"
+                                                    [multiple]="true"
+                                                    [defaultValue]="defaultValue"
+                                                    [submitSubject]="formSubmit"
+                                                    setClass="form-item__input"
+                                                    [inputErrors]="errors"
+                                                    [c]="form.controls.genre"
+                                                    placeholder="Выберите жанр"
+                                                    formControlName="genre"
+                                                >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- //form-item -->
+                                </div>
+                                <div class="col col_6 col_tab-12">
+                                    <div class="form-item">
+                                        <div class="form-item__header">
+                                            <label class="form-item__title"
+                                                   for="event__category">Возрастная
+                                                категория</label>
+                                        </div>
+                                        <div class="form-item__main">
+                                            <div class="form-item__field">
+                                                <div data-app-select
+                                                    sugg_url="/api/event_age"
+                                                    [get_data]="{
+                                                        name: 'name',
+                                                        value: 'id'
+                                                    }"
+                                                    [defaultValue]="defaultValue"
+                                                    [submitSubject]="formSubmit"
+                                                    setClass="form-item__input"
+                                                    [inputErrors]="errors"
+                                                    [c]="form.controls.age"
+                                                    placeholder="Выберите возраст"
+                                                    formControlName="age"
+                                                >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- //form-item -->
+                                </div>
+                                <div class="col col_6 col_tab-12">
+                                    <div class="form-item">
+                                        <div class="form-item__header">
+                                            <label class="form-item__title"
+                                                   for="event__category">Тип мероприятия</label>
+                                        </div>
+                                        <div class="form-item__main">
+                                            <div class="form-item__field">
+                                                <div data-app-select
+                                                    sugg_url="/api/event_type/"
+                                                    [get_data]="{
+                                                        name: 'name',
+                                                        value: 'id'
+                                                    }"
+                                                    [defaultValue]="defaultValue"
+                                                    [submitSubject]="formSubmit"
+                                                    setClass="form-item__input"
+                                                    [inputErrors]="errors"
+                                                    [c]="form.controls.type"
+                                                    placeholder="Выберите тип"
+                                                    formControlName="type"
+                                                >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- //form-item -->
+                                </div>
+                                <div class="col col_12">
+                                    <div class="form-item">
+                                        <div class="form-item__header">
+                                            <label class="form-item__title"
+                                                   for="event__title">Название
+                                                мероприятия</label>
+                                        </div>
+                                        <div class="form-item__main">
+                                            <div class="form-item__field">
+                                                <div data-app-input
+                                                    [defaultValue]="defaultValue"
+                                                    [submitSubject]="formSubmit"
+                                                    setClass="form-item__input"
+                                                    [inputErrors]="errors"
+                                                    [c]="form.controls.name"
+                                                    placeholder="Название"
+                                                    formControlName="name"
+                                                >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- //form-item -->
+                                </div>
+                                <div class="col col_12">
+                                    <div class="form-item">
+                                        <div class="form-item__header">
+                                            <label class="form-item__title"
+                                                   for="admin__surname">Описание
+                                                мероприятия</label>
+                                        </div>
+                                        <div class="form-item__main">
+                                            <div class="form-item__field">
+                                                <div data-app-input
+                                                    [defaultValue]="defaultValue"
+                                                    [submitSubject]="formSubmit"
+                                                    setClass="form-item__input"
+                                                    [inputErrors]="errors"
+                                                    type="textarea"
+                                                    [c]="form.controls.description"
+                                                    placeholder="Описание"
+                                                    formControlName="description"
+                                                >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- //form-item -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form__group group">
+                        <div class="group__header">
+                            <div class="wysiwyg">
+                                <h3>Способ оплаты</h3>
+                            </div>
+                        </div>
+                        <div class="group__main">
+                            <div 
+                                data-app-account-payment 
+                                (payment)="setPayment($event)"
+                            ></div>
+                            <div class="row">
+                                <div class="col col_4 col_tab-12">
+                                    <div class="form-item">
+                                        <div class="form-item__header">
+                                            <label class="form-item__title"
+                                                   for="event__procent">Сервисный
+                                                сбор, %</label>
+                                        </div>
+                                        <div class="form-item__main">
+                                            <div class="form-item__field">
+                                                <div data-app-input
+                                                    [defaultValue]="defaultValue"
+                                                    [submitSubject]="formSubmit"
+                                                    setClass="form-item__input"
+                                                    [inputErrors]="errors"
+                                                    type="number"
+                                                    [c]="form.controls.tax"
+                                                    placeholder="Описание"
+                                                    formControlName="tax"
+                                                >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- //form-item -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group__footer">
+                            <button 
+                                type="button" 
+                                (click)="save()" 
+                                class="btn">Сохранить
+                                изменения
+                            </button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

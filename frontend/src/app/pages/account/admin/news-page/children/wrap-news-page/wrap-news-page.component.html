@@ -1,0 +1,30 @@
+
+<div class="layout__section section">
+    <div class="section__header">
+        <div class="row">
+            <div class="col col_10 col_tab-8 col_mob-12">
+                <div class="wysiwyg">
+                    <h1>Новости и статьи</h1>
+                </div>
+            </div>
+            <div class="col col_2 col_tab-4 col_mob-12">
+                <a routerLink="/account/news/add" class="btn">Создать</a>
+            </div>
+        </div>
+    </div>
+    <div class="section__main" *ngIf="items.length > 0">
+        <div class="account">
+            <div class="account__news">
+                <div class="news">
+                    <div class="news__list">
+                        <div class="row">
+                            <div class="col col_4 col_big-desktop-6 col_mob-12" *ngFor="let item of items">
+                                <div data-app-new-item [is_admin]="true" [item]="item"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

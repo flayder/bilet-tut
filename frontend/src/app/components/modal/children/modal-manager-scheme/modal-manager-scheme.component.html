@@ -1,0 +1,21 @@
+<div data-app-loader *ngIf="loader"></div>
+<!-- modal header -->
+<div class="modal__header">
+    <div class="modal__title title">
+        <span class="title__text h3" *ngIf="schem">{{ schem.name }}</span>
+    </div>
+    <div class="modal__action action" (click)="close($event)">
+        <svg class="action__icon">
+            <use xlink:href="/assets/img/sprite.svg#close"></use>
+        </svg>
+    </div>
+</div>
+<!-- modal content -->
+<div class="modal__main">
+    <div data-app-modal-manager-scheme-create
+        *ngIf="schem && action && action == 'create'"
+        [schem]="schem"
+        [event]="event"
+        (cancel)="getCancel($event)"
+    ></div>
+</div>

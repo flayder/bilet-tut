@@ -1,0 +1,94 @@
+<div class="row">
+    <div class="col col_10 col_tab-12">
+        <form>
+            <fieldset>
+                <div class="form__group group">
+                    <div class="group__header">
+                        <div class="row">
+                            <div class="col col_10 col_tab-12">
+                                <div class="wysiwyg">
+                                    <h3>Цены</h3>
+                                </div>
+                            </div>
+                            <div class="col col_2 col_tab-12">
+                        <span class="btn modal-init"
+                              (click)="openModal('account-price-tiny')">Добавить</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-app-price-table
+                        (data)="setPrices($event)"
+                    ></div>
+                </div>
+                
+                <div class="form__group group">
+                    <div class="group__header">
+                        <div class="row">
+                            <div class="col col_10 col_tab-12">
+                                <div class="wysiwyg">
+                                    <h3>Категории цен</h3>
+                                </div>
+                            </div>
+                            <div class="col col_2 col_tab-12">
+
+                        <span class="btn modal-init"
+                               (click)="openModal('account-category-tiny')">Добавить</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-app-area-category-table
+                        (data)="setCategories($event)"
+                    ></div>
+                </div>
+
+                <div class="form__group group" *ngIf="isArea > 0">
+                    <div class="group__header">
+                        <div class="row">
+                            <div class="col col_9 col_tab-12">
+                                <div class="wysiwyg">
+                                    <h3>Схемы залов</h3>
+                                </div>
+                            </div>
+                            <div class="col col_3 col_tab-12">
+                                <a class="btn">Запросить создание
+                                    схемы</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-app-schem-area
+                        (data)="setSchema($event)"
+                        [isArea]="getArea()"
+                    ></div>
+                </div>
+                
+                <div class="form__group group">
+                    <div class="group__header">
+                        <div class="row">
+                            <div class="col col_10 col_tab-12">
+                                <div class="wysiwyg">
+                                    <h3>Промокоды</h3>
+                                </div>
+                            </div>
+                            <div class="col col_2 col_tab-12">
+                        <span class="btn modal-init"
+                        (click)="openModal('account-promocod-tiny')">Добавить</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-app-discount-table
+                        (data)="setDiscounts($event)"
+                    ></div>
+                    <div class="set__footer">
+                        <div class="row">
+                            <div class="col col_12">
+                                <button type="button" class="btn" (click)="save()">Сохранить
+                                    изменения
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

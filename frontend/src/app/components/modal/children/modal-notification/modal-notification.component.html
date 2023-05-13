@@ -1,0 +1,41 @@
+<div class="modal__header">
+    <div class="modal__title title">
+        <span class="title__text h3">Уведомление</span>
+    </div>
+    <div class="modal__action action" (click)="close()">
+        <svg class="action__icon">
+            <use xlink:href="/assets/img/sprite.svg#close"></use>
+        </svg>
+    </div>
+</div>
+<!-- modal content -->
+<div class="modal__content modal__main">
+    <div class="wysiwyg text-center">
+        <svg class="media__ico" *ngIf="params.params.type == 'success'">
+            <use xlink:href="/assets/img/sprite.svg#notificationSucces"></use>
+        </svg>
+        <svg class="media__ico" *ngIf="params.params.type == 'error'">
+            <use xlink:href="/assets/img/sprite.svg#notificationError"></use>
+        </svg>
+        <svg class="media__ico" *ngIf="params.params.type == 'delete'">
+            <use xlink:href="/assets/img/sprite.svg#notificationDelete"></use>
+        </svg>
+        <h6>{{ title }}</h6>
+
+        <p *ngIf="params.params.text">
+            {{ params.params.text }}
+        </p>
+        <br/>
+    </div>
+</div>
+
+<div class="modal__footer" *ngIf="this.params.params.buttonText">
+    <div class="row">
+        <div class="col col_6">
+            <button type="button" (click)="close()" class="btn btn_secondary modal__action">Отмена</button>
+        </div>
+        <div class="col col_6">
+            <button type="button" (click)="clicking()" class="btn">{{ this.params.params.buttonText }}</button>
+        </div>
+    </div>
+</div>

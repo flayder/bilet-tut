@@ -1,0 +1,82 @@
+<div class="form__group group">
+    <div class="group__header" *ngIf="getRealPrice() != 0">
+        <div class="wysiwyg">
+            <h3>3. Способ оплаты</h3>
+        </div>
+    </div>
+    <div class="group__main">
+        <div class="row" *ngIf="getRealPrice() != 0">
+            <ng-container *ngFor="let payment of payments | keyvalue">
+                <div class="col col_6 col_mob-12" *ngIf="getValue(payment.value, 'code') != 'free'">
+                    <div class="form-item">
+                        <div class="form-item__main form-item__main_second">
+                            <div class="custom-check">
+                                <label class="custom-check__label">
+                                    <input
+                                        class="custom-check__input"
+                                        type="radio"
+                                        name="radio"
+                                        [checked]="defaultCheck(payment.key)"
+                                        (change)="setValue(getValue(payment.value, 'id'))"
+                                    >
+                                    <svg class="custom-check__ico custom-check__ico_before">
+                                        <use xlink:href="/assets/img/sprite.svg#radioBefore"></use>
+                                    </svg>
+                                    <svg class="custom-check__ico custom-check__ico_after">
+                                        <use xlink:href="/assets/img/sprite.svg#radioAfter"></use>
+                                    </svg>
+                                    <span class="custom-check__text">{{ getValue(payment.value, 'name') }}</span>
+                                </label>
+                                <div class="custom-check__media media">
+                                    <div class="media__list">
+                                        <div class="media__item">
+                                            <div
+                                                data-app-image
+                                                [src]="getValue(payment.value, 'logo').image.url"
+                                                class="media__img"
+                                             ></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- //form-item -->
+                </div>
+            </ng-container>
+        </div>
+        <div class="row">
+            <div class="col col_6 col_mob-12">
+                <div class="form-item">
+                    <div class="form-item__main">
+                        <div class="custom-check">
+                            <label class="custom-check__label">
+                                <input id="checkout__agree"
+                                       class="custom-check__input"
+                                       type="checkbox"
+                                       name="chekbox"
+                                       required checked>
+                                <svg class="custom-check__ico custom-check__ico_before">
+                                    <use xlink:href="/assets/img/sprite.svg#checkboxBefore"></use>
+                                </svg>
+                                <svg class="custom-check__ico custom-check__ico_after">
+                                    <use xlink:href="/assets/img/sprite.svg#checkboxAfter"></use>
+                                </svg>
+                                <span class="custom-check__text">Я согласен(а) с <a
+                                        href="#">договором-офертой</a></span>
+                            </label>
+                        </div>
+                    </div>
+                </div><!-- //form-item -->
+            </div>
+            <div class="col col_6 col_mob-12">
+                <div class="form-item">
+                    <div class="form-item__main">
+                        <button type="button" [disabled]="click" (click)="submitForm()" class="btn">
+                            Оплатить
+                        </button>
+                    </div>
+                </div><!-- //form-item -->
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="layout__section section">
+    <div class="section__header">
+        <div class="wysiwyg">
+            <h1>Статистика</h1>
+        </div>
+    </div>
+    <div class="section__main">
+        <div class="account">
+            <div class="account__statistics">
+                <div class="tabs">
+                    <div class="tabs__header">
+                        <div class="tabs__list">
+                            <div class="tabs__item" (click)="setType('items')" [ngClass]="{tabs__item_active: type == 'items'}">
+                                <div class="tabs__title title">
+                                    <span class="title__text">Продажи</span>
+                                </div>
+                            </div><!-- //item -->
+                            <div class="tabs__item" (click)="setType('users')" [ngClass]="{tabs__item_active: type == 'users'}">
+                                <div class="tabs__title title">
+                                    <span class="title__text">Пользователи</span>
+                                </div>
+                            </div><!-- //item -->
+                            <div class="tabs__item" (click)="setType('checks')" [ngClass]="{tabs__item_active: type == 'checks'}">
+                                <div class="tabs__title title">
+                                    <span class="title__text">Чекин</span>
+                                </div>
+                            </div><!-- //item -->
+                        </div>
+                    </div><!-- //tabs-header -->
+                    <div class="tabs__body">
+                        <div class="tabs__list">
+                            <div class="tabs__item" [ngClass]="{tabs__item_active: type == 'items'}">
+                                <div data-app-wrap-filter-product></div>
+                            </div><!-- //tabs-body__item -->
+                            <div class="tabs__item" [ngClass]="{tabs__item_active: type == 'users'}">
+                                <div data-app-wrap-statistic-user></div>
+                            </div><!-- //tabs-body__item -->
+                            <div class="tabs__item" [ngClass]="{tabs__item_active: type == 'checks'}">
+                                <div data-app-wrap-statistic-checkin></div>
+                            </div><!-- //tabs-body__item -->
+                        </div>
+                    </div><!-- //tabs-body -->
+                </div><!-- //tabs -->
+            </div>
+        </div>
+    </div>
+</div>

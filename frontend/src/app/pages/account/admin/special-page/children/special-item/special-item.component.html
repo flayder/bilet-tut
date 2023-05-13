@@ -1,0 +1,28 @@
+<td>
+    <div class="table__group group w-100">
+        <div class="group__main">
+            <span class="group__item">{{ item.name }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap" [innerHTML]="configurateGenres()"></span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap" [innerHTML]="configurateEvents()"></span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <a href="#" (click)="getDetail($event)" class="btn btn_secondary no-wrap">Подробнее</a>
+        </div>
+    </div>
+</td>

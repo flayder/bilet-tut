@@ -1,0 +1,379 @@
+<div class="layout__section section">
+    <div class="section__header">
+        <div class="row">
+            <div class="col col_8 col_tab-12">
+                <div class="wysiwyg">
+                    <h1>Возврат билетов</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section__main">
+        <div class="account">
+            <div class="account__return">
+                <div class="formular">
+                <form [formGroup]="form">
+                    <div class="row">
+                        <div class="col col_tab-12"
+                            [ngClass]="{
+                                'col_10': id == 0,
+                                'col_8': id > 0
+                            }"
+                        >
+                            <div class="form__group group">
+                                <div class="group__header">
+                                    <div class="wysiwyg">
+                                        <h3>1. Данные билета</h3>
+                                    </div>
+                                </div>
+                                <div class="group__main">
+                                    <div class="row">
+                                        <div class="col col_6 col_tab-12">
+                                            <div class="form-item">
+                                                <div class="form-item__header">
+                                                    <label class="form-item__title" for="return-text-1">Заказ</label>
+                                                </div>
+                                                <div class="form-item__main">
+                                                    <div class="form-item__field">
+                                                        <div data-app-select
+                                                            [defaultValue]="defaultValue"
+                                                            [submitSubject]="formSubmit"
+                                                            setClass="form-item__input"
+                                                            [inputErrors]="errors"
+                                                            [c]="form.controls.checkout"
+                                                            placeholder="Выберите заказ"
+                                                            formControlName="checkout"
+                                                            [values]="checkouts"
+                                                            *ngIf="checkouts.length > 0"
+                                                        >
+                                                        </div>
+                                                        <div data-app-select
+                                                            [defaultValue]="defaultValue"
+                                                            [submitSubject]="formSubmit"
+                                                            setClass="form-item__input"
+                                                            [inputErrors]="errors"
+                                                            [c]="form.controls.checkout"
+                                                            placeholder="Выберите заказ"
+                                                            formControlName="checkout"
+                                                            *ngIf="checkouts.length == 0"
+                                                        >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- //form-item -->
+                                        </div>
+                                        <div class="col col_6 col_tab-12">
+                                            <div class="form-item">
+                                                <div class="form-item__header">
+                                                    <label class="form-item__title" for="return-text-2">Причина
+                                                        возврата</label>
+                                                </div>
+                                                <div class="form-item__main">
+                                                    <div class="form-item__field">
+                                                        <div data-app-select
+                                                            [defaultValue]="defaultValue"
+                                                            [submitSubject]="formSubmit"
+                                                            setClass="form-item__input"
+                                                            [inputErrors]="errors"
+                                                            [c]="form.controls.reason"
+                                                            placeholder="Выберите причину"
+                                                            formControlName="reason"
+                                                            [values]="reasons"
+                                                        >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- //form-item -->
+                                        </div>
+                                        <div class="col col_12">
+                                            <div class="form-item">
+                                                <div class="form-item__header">
+                                                    <label class="form-item__title" for="return-text-3">Краткое
+                                                        описание</label>
+                                                </div>
+                                                <div class="form-item__main">
+                                                    <div class="form-item__field">
+                                                        <div data-app-input
+                                                            [defaultValue]="defaultValue"
+                                                            [submitSubject]="formSubmit"
+                                                            setClass="form-item__input"
+                                                            [inputErrors]="errors"
+                                                            [c]="form.controls.description"
+                                                            placeholder="Введите данные"
+                                                            type="textarea"
+                                                            formControlName="description"
+                                                        >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- //form-item -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form__group group">
+                                <div class="group__header">
+                                    <div class="wysiwyg">
+                                        <h3>2. Данные о плательщикке</h3>
+                                    </div>
+                                </div>
+                                <div class="group__main">
+                                    <div class="row">
+                                        <div class="col col_12">
+                                            <div class="form-item">
+                                                <div class="form-item__header">
+                                                    <label class="form-item__title" for="return-text-4">Фамилия
+                                                        Имя
+                                                        Отчество</label>
+                                                </div>
+                                                <div class="form-item__main">
+                                                    <div class="form-item__field">
+                                                        <div data-app-input
+                                                            [defaultValue]="defaultValue"
+                                                            [submitSubject]="formSubmit"
+                                                            setClass="form-item__input"
+                                                            [inputErrors]="errors"
+                                                            [c]="form.controls.name"
+                                                            placeholder="Введите данные"
+                                                            formControlName="name"
+                                                        >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- //form-item -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form__group group">
+                                <div class="group__header">
+                                    <div class="wysiwyg">
+                                        <h3>Паспорт</h3>
+                                    </div>
+                                </div>
+                                <div class="group__main">
+                                    <div class="row">
+                                        <div class="col col_4 col_tab-6 col_mob-12">
+                                            <div class="form-item">
+                                                <div class="form-item__header">
+                                                    <label class="form-item__title" for="return-text-5">Серия</label>
+                                                </div>
+                                                <div class="form-item__main">
+                                                    <div class="form-item__field">
+                                                        <div data-app-input
+                                                            [defaultValue]="defaultValue"
+                                                            [submitSubject]="formSubmit"
+                                                            setClass="form-item__input"
+                                                            [inputErrors]="errors"
+                                                            [c]="form.controls.seria_passport"
+                                                            placeholder="Введите данные"
+                                                            formControlName="seria_passport"
+                                                        >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- //form-item -->
+                                        </div>
+                                        <div class="col col_4 col_tab-6 col_mob-12">
+                                            <div class="form-item">
+                                                <div class="form-item__header">
+                                                    <label class="form-item__title" for="return-text-6">Номер</label>
+                                                </div>
+                                                <div class="form-item__main">
+                                                    <div class="form-item__field">
+                                                        <div data-app-input
+                                                            [defaultValue]="defaultValue"
+                                                            [submitSubject]="formSubmit"
+                                                            setClass="form-item__input"
+                                                            [inputErrors]="errors"
+                                                            [c]="form.controls.number_passport"
+                                                            placeholder="Введите данные"
+                                                            formControlName="number_passport"
+                                                        >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- //form-item -->
+                                        </div>
+                                        <div class="col col_4 col_tab-6 col_mob-12">
+                                            <div class="form-item  form-item_before">
+                                                <div class="form-item__header">
+                                                    <label class="form-item__title"
+                                                           for="return__date">Дата выдачи</label>
+                                                </div>
+                                                <div class="form-item__main">
+                                                    <div class="form-item__field">
+                                                        <div data-app-input-date
+                                                            [defaultValue]="defaultValue"
+                                                            [submitSubject]="formSubmit"
+                                                            setClass="form-item__input"
+                                                            [inputErrors]="errors"
+                                                            [c]="form.controls.date_passport"
+                                                            placeholder="Введите данные"
+                                                            formControlName="date_passport"
+                                                            [dateIsOpen]="true"
+                                                        >
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-item__media media">
+                                                        <svg class="media__ico">
+                                                            <use xlink:href="/assets/img/sprite.svg#date"></use>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col col_12">
+                                            <div class="form-item">
+                                                <div class="form-item__header">
+                                                    <label class="form-item__title" for="return-text-7">Кем
+                                                        выдан</label>
+                                                </div>
+                                                <div class="form-item__main">
+                                                    <div class="form-item__field">
+                                                        <div data-app-input
+                                                            [defaultValue]="defaultValue"
+                                                            [submitSubject]="formSubmit"
+                                                            setClass="form-item__input"
+                                                            [inputErrors]="errors"
+                                                            [c]="form.controls.given_passport"
+                                                            placeholder="Введите данные"
+                                                            formControlName="given_passport"
+                                                        >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- //form-item -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form__group group">
+                                <div class="group__header">
+                                    <div class="wysiwyg">
+                                        <h3>Банковские реквизиты</h3>
+                                    </div>
+                                </div>
+                                <div class="group__main">
+                                    <div class="row">
+                                        <div class="col col_6 col_mob-12">
+                                            <div class="form-item">
+                                                <div class="form-item__header">
+                                                    <label class="form-item__title"
+                                                           for="return-text-8">ИНН</label>
+                                                </div>
+                                                <div class="form-item__main">
+                                                    <div class="form-item__field">
+                                                        <div data-app-input
+                                                            [defaultValue]="defaultValue"
+                                                            [submitSubject]="formSubmit"
+                                                            setClass="form-item__input"
+                                                            [inputErrors]="errors"
+                                                            [c]="form.controls.inn_bank"
+                                                            placeholder="Введите данные"
+                                                            formControlName="inn_bank"
+                                                        >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- //form-item -->
+                                        </div>
+                                        <div class="col col_6 col_mob-12">
+                                            <div class="form-item">
+                                                <div class="form-item__header">
+                                                    <label class="form-item__title"
+                                                           for="return-text-9">БИК</label>
+                                                </div>
+                                                <div class="form-item__main">
+                                                    <div class="form-item__field">
+                                                        <div data-app-input
+                                                            [defaultValue]="defaultValue"
+                                                            [submitSubject]="formSubmit"
+                                                            setClass="form-item__input"
+                                                            [inputErrors]="errors"
+                                                            [c]="form.controls.bik_bank"
+                                                            placeholder="Введите данные"
+                                                            formControlName="bik_bank"
+                                                        >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- //form-item -->
+                                        </div>
+                                        <div class="col col_6 col_mob-12">
+                                            <div class="form-item">
+                                                <div class="form-item__header">
+                                                    <label class="form-item__title" for="return-text-10">Расчётный
+                                                        счёт</label>
+                                                </div>
+                                                <div class="form-item__main">
+                                                    <div class="form-item__field">
+                                                        <div data-app-input
+                                                            [defaultValue]="defaultValue"
+                                                            [submitSubject]="formSubmit"
+                                                            setClass="form-item__input"
+                                                            [inputErrors]="errors"
+                                                            [c]="form.controls.receipt_bank"
+                                                            placeholder="Введите данные"
+                                                            formControlName="receipt_bank"
+                                                        >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- //form-item -->
+                                        </div>
+                                        <div class="col col_6 col_mob-12">
+                                            <div class="form-item">
+                                                <div class="form-item__header">
+                                                    <label class="form-item__title" for="return-text-11">Корр.
+                                                        счёт</label>
+                                                </div>
+                                                <div class="form-item__main">
+                                                    <div class="form-item__field">
+                                                        <div data-app-input
+                                                            [defaultValue]="defaultValue"
+                                                            [submitSubject]="formSubmit"
+                                                            setClass="form-item__input"
+                                                            [inputErrors]="errors"
+                                                            [c]="form.controls.korr_bank"
+                                                            placeholder="Введите данные"
+                                                            formControlName="korr_bank"
+                                                        >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- //form-item -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="group__footer">
+                                    <div class="row">
+                                        <div class="col col_12">
+                                            <div class="form-item">
+                                                <div class="form-item__main">
+                                                    <div class="form-item__field">
+                                                        <button type="button" (click)="save()" class="btn">
+                                                            <span *ngIf="id == 0">Отправить</span>
+                                                            <span *ngIf="id > 0">Обновить</span>
+                                                            запрос
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col_4 col_tab-12" *ngIf="item && id > 0">
+                            <div data-app-params-return-page-item [item]="item"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

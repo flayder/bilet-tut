@@ -1,0 +1,7 @@
+.table_orders tbody td div {
+    margin-bottom: 10px;
+}
+
+.table_orders tbody td div:last-child {
+    margin-bottom: 0;
+}

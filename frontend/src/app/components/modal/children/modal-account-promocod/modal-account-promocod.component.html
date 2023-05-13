@@ -1,0 +1,217 @@
+<div class="modal__header">
+    <div class="modal__title title">
+        <span class="title__text h3">Добавить пормокод</span>
+    </div>
+    <div class="modal__action action" (click)="close($event)">
+        <svg class="action__icon">
+            <use xlink:href="/assets/img/sprite.svg#close"></use>
+        </svg>
+    </div>
+</div>
+<!-- modal content -->
+<div class="modal__main">
+    <div class="formular">
+        <form [formGroup]="form">
+            <fieldset>
+                <div class="form__group group">
+
+                    <div class="group__main">
+
+                        <div class="row">
+                            <div class="col col_12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="promo__name">Название</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.name"
+                                                placeholder="Введите данные"
+                                                formControlName="name"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col_6 col_mob-12">
+                                <div class="form-item  form-item_after">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="promo__start">Начало действия</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input-date
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.start_date"
+                                                placeholder="Введите данные"
+                                                formControlName="start_date"
+                                            >
+                                            </div>
+                                        </div>
+                                        <div class="form-item__media media">
+                                            <svg class="media__ico">
+                                                <use xlink:href="/assets/img/sprite.svg#date"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col_6 col_mob-12">
+                                <div class="form-item  form-item_after">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="promo__end">Начало конца</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input-date
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.finish_date"
+                                                placeholder="Введите данные"
+                                                formControlName="finish_date"
+                                            >
+                                            </div>
+                                        </div>
+                                        <div class="form-item__media media">
+                                            <svg class="media__ico">
+                                                <use xlink:href="/assets/img/sprite.svg#date"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" style="display: none;">
+                            <div class="col col_12">
+                                <div class="form-item">
+                                    <div class="form-item__separator line">
+                                        <span class="line__text">или войдите через ваш аккаунт</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col_12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="promo__length">Количество использваний</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                type="number"
+                                                [c]="form.controls.count"
+                                                placeholder="Введите данные"
+                                                formControlName="count"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form__group group">
+                    <div class="group__header">
+                        <div class="wysiwyg">
+                            <h3>Размер скидки</h3>
+                        </div>
+                    </div>
+                    <div class="group__main">
+
+
+                        <div class="row">
+                            <div class="col col_12">
+                                <div class="form-item">
+                                    <div class="form-item__main">
+                                        <div class="switcher">
+                                            <div class="switcher__list">
+                                                <div class="switcher__item">
+                                                    <label class="switcher__label">
+                                                        <input class="switcher__input"
+                                                               type="radio"
+                                                               [checked]="form.value.point == 'cash'"
+                                                               name="switcher" (change)="changePoint('cash')">
+                                                        <span class="switcher__text">Точная сумма</span>
+                                                    </label>
+                                                </div>
+                                                <div class="switcher__item">
+                                                    <label class="switcher__label">
+                                                        <input class="switcher__input"
+                                                               type="radio"
+                                                               [checked]="form.value.point == 'percent'"
+                                                               name="switcher" (change)="changePoint('percent')">
+                                                        <span class="switcher__text">Процент</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col_12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="promo__sale">Размер скидки</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                type="number"
+                                                [c]="form.controls.value"
+                                                placeholder="Введите данные"
+                                                formControlName="value"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<div class="modal__footer">
+    <div class="row">
+        <div class="col col_6">
+            <a href="#" class="btn btn_secondary modal__action" (click)="close($event)">Отмена</a>
+        </div>
+        <div class="col col_6">
+            <button class="btn" (click)="save()">Добавить</button>
+        </div>
+    </div>
+</div>

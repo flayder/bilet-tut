@@ -1,0 +1,113 @@
+<div class="row">
+    <div class="col col_10 col_tab-12">
+        <div class="formular">
+            <fieldset>
+                <div class="form__group group">
+                    <div class="group__main">
+                        <form [formGroup]="form">
+                            <div class="row">
+                                <div class="col col_6 col_tab-12">
+                                    <div class="form-item">
+                                        <div class="form-item__header">
+                                            <label class="form-item__title"
+                                                   for="event__status">Выберете
+                                                город</label>
+                                        </div>
+                                        <div class="form-item__main">
+                                            <div class="form-item__field">
+                                                <div data-app-input
+                                                    sugg_url="/api/geo/city"
+                                                    [get_data]="{
+                                                        name: 'name',
+                                                        value: 'id'
+                                                    }"
+                                                    [defaultValue]="defaultValue"
+                                                    [submitSubject]="formSubmit"
+                                                    setClass="form-item__input"
+                                                    [inputErrors]="errors"
+                                                    [c]="form.controls.city"
+                                                    placeholder="Введите данные"
+                                                    formControlName="city"
+                                                    (data)="getCity($event)"
+                                                >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- //form-item -->
+                                </div>
+                                <div class="col col_6 col_tab-12">
+                                    <div class="form-item">
+                                        <div class="form-item__header">
+                                            <label class="form-item__title"
+                                                   for="event__location">Место
+                                                проведения</label>
+                                        </div>
+                                        <div class="form-item__main">
+                                            <div class="form-item__field">
+                                                <div data-app-select
+                                                    [defaultValue]="defaultValue"
+                                                    [submitSubject]="formSubmit"
+                                                    setClass="form-item__input"
+                                                    [inputErrors]="errors"
+                                                    [c]="form.controls.area"
+                                                    [values]="areas"
+                                                    placeholder="Выберите площадку"
+                                                    formControlName="area"
+                                                    (data)="getArea($event)"
+                                                    *ngIf="areas.length > 0"
+                                                >
+                                                </div>
+                                                <div data-app-select
+                                                    [defaultValue]="defaultValue"
+                                                    [submitSubject]="formSubmit"
+                                                    setClass="form-item__input"
+                                                    [inputErrors]="errors"
+                                                    [c]="form.controls.area"
+                                                    placeholder="Выберите площадку"
+                                                    formControlName="area"
+                                                    *ngIf="areas.length == 0"
+                                                >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div data-app-date-tab-item 
+                            [ngClass]="{'date-item': dates.length > 1}"
+                            *ngFor="let item of dates | keyvalue: returnZero"
+                            [key]="item.key"
+                            [item]="setDate(item.value)"
+                            (data)="getDate(setDate($event))"
+                            (deleted)="deleteDate($event, item.key)"
+                        ></div>
+                    </div>
+                    <div class="group__footer">
+                        <div class="row">
+                            <div class="col col_6 col_tab-12">
+                                <button 
+                                    type="button" 
+                                    (click)="addDate()" 
+                                    class="btn btn_secondary"
+                                >
+                                    Добавить дату
+                                </button>
+                            </div>
+                            <div class="col col_6 col_tab-12">
+                                <button 
+                                    type="button" 
+                                    (click)="save()" 
+                                    class="btn"
+                                    [disabled]="!init"
+                                >
+                                Сохранить дату    
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>

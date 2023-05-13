@@ -1,0 +1,37 @@
+<div style="position: relative;">
+  <!-- [class]="setClass" -->
+  <input 
+    [ngClass]="{'ng-invalid ng-dirty': errors.length > 0}"
+    [id]="$id"
+    #input 
+    type="number"
+    (keyup)="update(input.value, $event)" 
+    [value]="value"
+    [disabled]="disabled"
+    [maxLength]="max_length"
+    [minLength]="min_length"
+    style="padding: 0; text-align: center;"
+    [ngStyle]="{opacity: !initiat ? 0 : 1, position: !initiat ? 'absolute' : 'static'}"
+  >
+  <span class="jcf-number" *ngIf="!initiat">
+    <input type="number" 
+      style="padding: 0; text-align: center;" 
+      class="jcf-real-element"
+      [value]="value"
+    >
+    <span class="jcf-btn-dec">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M3 8H13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </span>
+    <span class="jcf-btn-inc">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M8 3V13" stroke="#7A828A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M3 8H13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </span>
+  </span>
+  <div class="col_12" *ngIf="errors.length > 0">
+    <div class="col_12" style="color: red" *ngFor="let error of errors">{{ error }}</div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="layout__section section">
+    <div class="section__header">
+        <div class="row">
+            <div class="col col_10 col_hd-desktop-9 col_tab-12">
+                <div class="wysiwyg">
+                    <h1>Промоакции</h1>
+                </div>
+            </div>
+            <div class="col col_2 col_tab-12">
+                <a class="btn" routerLink="/account/promocode/add">Создать промоакцию</a>
+            </div>
+        </div>
+    </div>
+    <div class="section__main">
+        <div class="account">
+            <div class="account__promotions promotions">
+                <div class="promotions__table">
+                    <div class="row">
+                        <table class="table_custom table_promotions" *ngIf="items.length > 0">
+                            <thead>
+                            <tr>
+                                <th class="no-wrap">Промоакция</th>
+                                <th class="no-wrap">Название мероприятия</th>
+                                <th class="no-wrap">Размер скидки</th>
+                                <th class="no-wrap">Начало</th>
+                                <th class="no-wrap">Окончание</th>
+                                <th class="no-wrap">Вид</th>
+                                <th class="no-wrap">Действия</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr
+                                    data-app-wrap-promocode-page-item
+                                    *ngFor="let item of items"
+                                    [item]="item"
+                                ></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

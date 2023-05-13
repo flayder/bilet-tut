@@ -1,0 +1,62 @@
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap">№ {{ item.id }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item" [innerHTML]="getProducts()"></span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap">{{ getUserInfo() }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap" [innerHTML]="getTimes()"></span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap" [innerHTML]="getDates()"></span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap" [innerHTML]="getQuantity()"></span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap" [innerHTML]="getPrices()"></span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="badge" 
+                [ngClass]="{
+                    'badge_300': item.status.id == 2,
+                    'badge_400': item.status.id == 1,
+                    'badge_500': item.status.id == 3
+                }"
+            >{{ item.status.name }}</span>
+        </div>
+    </div>
+</td>

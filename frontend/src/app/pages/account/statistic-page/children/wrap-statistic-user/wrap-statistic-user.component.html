@@ -1,0 +1,79 @@
+<div class="row">
+    <div class="col col_5 col_tab-12">
+        <div class="form-item">
+            <div class="form-item__main">
+                <div class="form-item__field">
+                    <div data-app-select
+                        placeholder="Выберите мероприятие"
+                        [values]="order_list"
+                        (data)="getEvent($event)"
+                        *ngIf="user && user.role != 'admin'"
+                    ></div>
+                    <div data-app-select
+                        placeholder="Выберите мероприятие"
+                        sugg_url="/api/event/"
+                        [get_data]="{
+                            name: 'name',
+                            value: 'id'
+                        }"
+                        (data)="getEvent($event)"
+                        *ngIf="user && user.role == 'admin'"
+                    ></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col col_7 col_tab-12">
+        <div class="form-item form-item_before">
+            <div class="form-item__main">
+                <div class="form-item__field">
+                    <input class="form-item__input" type="text"
+                        placeholder="Поиск по данным пользователям"
+                        (keyup)="getName($event)"
+                    >
+                </div>
+                <div class="form-item__media media">
+                    <svg class="media__ico">
+                        <use xlink:href="/assets/img/sprite.svg#search"></use>
+                    </svg>
+                </div>
+            </div>
+        </div><!-- //form-item -->
+    </div>
+</div>
+<div class="row">
+    <div class="col col_12">
+        <table class="table_custom table_users" *ngIf="order_list.length > 0 && user && user.role != 'admin'">
+            <thead>
+            <tr>
+                <th>Пользователь</th>
+                <th>Email</th>
+                <th>Телефон</th>
+                <th>Действия</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr data-app-filter-user-item
+                    *ngFor="let item of items"
+                    [item]="item"
+                ></tr>
+            </tbody>
+        </table>
+        <table class="table_custom table_users" *ngIf="users.length > 0 && user && user.role == 'admin'">
+            <thead>
+            <tr>
+                <th>Пользователь</th>
+                <th>Email</th>
+                <th>Телефон</th>
+                <th>Действия</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr data-app-filter-usual-user-item  
+                    *ngFor="let item of users"
+                    [item]="item"
+                ></tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+.modal-wrap-item {
+    width: 100%;
+    position: relative;
+}
+
+.layout__modal {
+    z-index: 99991;
+}
+
+.modal__main,
+.layout__modal {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+@media screen and (min-width: 1024px) and (min-height: 40rem) {
+    .modal-wrap-item.modal__layout_tiny {
+      max-width: 26.25rem;
+    }
+  }

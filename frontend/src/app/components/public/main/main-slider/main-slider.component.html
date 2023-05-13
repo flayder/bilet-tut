@@ -1,0 +1,31 @@
+<div class="layout__section section">
+    <div class="section__header">
+        <div class="container">
+            <div class="row">
+                <div class="col col_6 col_big-desktop-8 col_tab-12">
+                    <div class="wysiwyg">
+                        <h1>{{ item.name }}</h1>
+                    </div>
+                </div>
+                <div class="col col_6 col_big-desktop-4 col_tab-12">
+                    <div class="section__action"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section__main" [ngStyle]="{
+        opacity: (!initiate) ? 0 : 1
+    }">
+        <div class="container">
+            <div class="events">
+                <div class="events__list events__list_carousel" [id]="$id">
+                    <ng-container *ngFor="let item of item.events">
+                        <div class="events__slide" *ngIf="is_correct(item)">
+                            <div data-app-event-block [item]="item"></div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,123 @@
+<div class="layout__section section">
+    <div class="section__header">
+        <div class="row">
+            <div class="col col_10 col_hd-desktop-9 col_tab-12">
+                <div class="wysiwyg">
+                    <h1>Отчёты</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section__main">
+        <div class="account">
+            <div class="account__reports reports">
+                <div class="formular">
+                    <form [formGroup]="form" class="authorization__form">
+                        <fieldset>
+                            <div class="row">
+                                <div class="col col_10 col_tab-12">
+                                    <div class="form__group group">
+                                        <div class="group__main">
+                                            <div class="row">
+                                                <div class="col col_8 col_desktop-6 col_tab-12">
+                                                    <div class="form-item">
+                                                        <div class="form-item__header">
+                                                            <label class="form-item__title"
+                                                                   for="report__type">Вид отчёта</label>
+                                                        </div>
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <div data-app-select
+                                                                sugg_url="/api/report_type/"
+                                                                [get_data]="{
+                                                                    name: 'name',
+                                                                    value: 'id'
+                                                                }"
+                                                                placeholder="Введите данные"
+                                                                [defaultValue]="defaultValue"
+                                                                [submitSubject]="formSubmit"
+                                                                setClass="form-item__input"
+                                                                [inputErrors]="errors"
+                                                                [c]="form.controls.type"
+                                                                placeholder="Введите данные"
+                                                                formControlName="type"
+                                                                ></div>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+                                                <div class="col col_4 col_desktop-6 col_tab-12">
+                                                    <div class="form-item">
+                                                        <div class="form-item__header">
+                                                            <label class="form-item__title"
+                                                                   for="report__period">Период</label>
+                                                        </div>
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <div data-app-select
+                                                                sugg_url="/api/report_period/"
+                                                                [get_data]="{
+                                                                    name: 'name',
+                                                                    value: 'id'
+                                                                }"
+                                                                [defaultValue]="defaultValue"
+                                                                [submitSubject]="formSubmit"
+                                                                setClass="form-item__input"
+                                                                [inputErrors]="errors"
+                                                                type="number"
+                                                                [c]="form.controls.period"
+                                                                placeholder="Введите данные"
+                                                                formControlName="period"
+                                                                ></div>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+                                                <div class="col col_4 col_desktop-6 col_tab-12">
+                                                    <div class="form-item">
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <button class="btn" (click)="save()" type="button">Скачать отчет</button>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+
+                <div class="table" style="display: none;">
+                    <div class="row">
+                        <div class="col col_10 col_tab-12" *ngIf="items.length > 0">
+                            <div class="wysiwyg">
+                                <h3>Активные рассылки</h3>
+                            </div>
+                            <table class="table_custom table_reports" >
+                                <thead>
+                                <tr>
+                                    <th>Вид отчёта</th>
+                                    <th>Период</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr data-app-report-page-item
+                                    *ngFor="let item of items"
+                                    [item]="item"
+                                >    
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="filter__main">
+    <div class="accordion accordion_second">
+        <div class="accordion__list">
+            <div data-app-accordion-item
+                class="accordion__item" 
+                title="Место проведения"
+                *ngIf="cities.length > 0"
+            >
+                <div class="form-item" *ngFor="let item of cities">
+                    <div class="form-item__main">
+                        <div class="custom-check">
+                            <label class="custom-check__label">
+                                <input class="custom-check__input"
+                                    type="checkbox"
+                                    name="chekbox"
+                                    (change)="getItem($event, item, 'area')"
+                                    [checked]="ifActive(item, 'area')"
+                                >
+                                <svg class="custom-check__ico custom-check__ico_before">
+                                    <use xlink:href="/assets/img/sprite.svg#checkboxBefore"></use>
+                                </svg>
+                                <svg class="custom-check__ico custom-check__ico_after">
+                                    <use xlink:href="/assets/img/sprite.svg#checkboxAfter"></use>
+                                </svg>
+                                <span class="custom-check__text">{{ item.name }}</span>
+                            </label>
+                        </div>
+                    </div>
+                </div><!-- //form-item -->
+            </div>
+            <div data-app-accordion-item
+                class="accordion__item" 
+                title="Жанры"
+                *ngIf="genres.length > 0"
+            >
+                <div class="form-item" *ngFor="let item of genres">
+                    <div class="form-item__main">
+                        <div class="custom-check">
+                            <label class="custom-check__label">
+                                <input class="custom-check__input"
+                                    type="checkbox"
+                                    name="chekbox"
+                                    (change)="getItem($event, item, 'genre')"
+                                    [checked]="ifActive(item, 'genre')"
+                                >
+                                <svg class="custom-check__ico custom-check__ico_before">
+                                    <use xlink:href="/assets/img/sprite.svg#checkboxBefore"></use>
+                                </svg>
+                                <svg class="custom-check__ico custom-check__ico_after">
+                                    <use xlink:href="/assets/img/sprite.svg#checkboxAfter"></use>
+                                </svg>
+                                <span class="custom-check__text">{{ item.name }}</span>
+                            </label>
+                        </div>
+                    </div>
+                </div><!-- //form-item -->
+            </div>
+            <div data-app-accordion-item
+                class="accordion__item" 
+                title="Цена"
+                *ngIf="max_price > 0"
+            >
+                <div data-app-according-range-block
+                    (data)="getPrices($event)"
+                    [min_val]="min_price"
+                    [max_val]="max_price"
+                ></div>
+            </div>
+        </div>
+    </div>
+</div>

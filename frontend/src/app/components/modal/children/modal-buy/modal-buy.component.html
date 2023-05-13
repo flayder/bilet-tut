@@ -1,0 +1,251 @@
+<div data-app-loader *ngIf="dates.length == 0"></div>
+<div class="modal__header">
+    <div class="modal__title title">
+        <span class="title__text h3">Покупка билета</span>
+    </div>
+    <div class="modal__action action" (click)="close()">
+        <svg class="action__icon">
+            <use xlink:href="/assets/img/sprite.svg#close"></use>
+        </svg>
+    </div>
+</div>
+<!-- modal content -->
+<div class="modal__content modal__main">
+    <div class="modal__formular">
+        <div class="tabs">
+            <div class="tabs__header" style="margin-bottom: 30px;" *ngIf="getScheme() && prices.length > 0">
+                <div class="tabs__list">
+                    <div class="tabs__item" (click)="setTab('main')" [ngClass]="{tabs__item_active: tab == 'main'}">
+                        <div class="tabs__title title"><span class="title__text">Выбор времени</span>
+                        </div>
+                    </div><!-- //item -->
+                    <div class="tabs__item" (click)="setTab('scene')" [ngClass]="{tabs__item_active: tab == 'scene'}">
+                        <div class="tabs__title title"><span class="title__text">Выбор места</span></div>
+                    </div><!-- //item -->
+                </div>
+            </div>
+            <div class="tabs__body">
+                <div class="tabs__list">
+                    <div class="tabs__item" 
+                        [ngStyle]="{padding: this.dates.length == 1 && this.times.length == 1 ? '0' : '2rem 0'}"
+                        [ngClass]="{tabs__item_active: tab == 'main'}"
+                    >
+                        <div class="formular">
+                            <div data-app-select 
+                                [values]="areas" 
+                                (data)="getArea($event)"
+                                *ngIf="areas.length > 1"
+                            ></div>
+                            <div class="row" *ngIf="dates.length == 1">
+                                <div class="col col_6 col_tab-12">
+                                    <div class="form-item form-item_after">
+                                        <div class="form-item__header">
+                                            <label class="form-item__title" for="buy__date">Дата мероприятия</label>
+                                        </div>
+                                        <div class="form-item__main">
+                                            <div data-app-input 
+                                                [value]="getActualDate()"
+                                                setClass="form-item__input"
+                                                [disabled]="true"
+                                            ></div>
+                                            <div class="form-item__media media">
+                                                <svg class="media__ico">
+                                                    <use xlink:href="/assets/img/sprite.svg#date"></use>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col col_6 col_tab-12">
+                                    <div class="form-item form-item_after">
+                                        <div class="form-item__header">
+                                            <label class="form-item__title" for="buy__date">Время посещения</label>
+                                        </div>
+                                        <div class="form-item__main">
+                                            <div data-app-input 
+                                                [value]="getActualTime()"
+                                                setClass="form-item__input"
+                                                [disabled]="true"
+                                            ></div>
+                                            <div class="form-item__media media">
+                                                <svg class="media__ico">
+                                                    <use xlink:href="/assets/img/sprite.svg#date"></use>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="dates.length > 1">
+                                <div class="col col_7 col_mob-12">
+                                    <div class="form__group group">
+                                        <div class="group__header">
+                                            <div class="wysiwyg">
+                                                <h3>Дата посещения</h3>
+                                            </div>
+                                        </div>
+                                        <div class="group__main" *ngIf="dates.length > 0">
+                                            <div 
+                                                data-app-date-buy 
+                                                [items]="dates"
+                                                [select_date]="select_date"
+                                                (data)="getDate($event)"
+                                            ></div>
+                                        </div>
+                                        <div class="group__main" *ngIf="dates.length == 0">
+                                            <div data-app-date-buy></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col_5 col_mob-12">
+                                    <div class="form__group group">
+                                        <div class="group__header">
+                                            <div class="wysiwyg">
+                                                <h3>Время посещения</h3>
+                                            </div>
+                                        </div>
+                                        <div class="group__main">
+                                            <div class="timepicker">
+                                                <div class="timepicker__list">
+                                                    <div class="timepicker__item" [ngClass]="{unactive: toDateTimestamp(t.start_date) < getNow()}" *ngFor="let t of times">
+                                                        <div class="custom-check">
+                                                            <label class="timepicker__label">
+                                                                <input class="timepicker__input"
+                                                                    type="radio"
+                                                                    name="buy-time"
+                                                                    style="opacity: 0;"
+                                                                    (change)="getTime(t)"
+                                                                    *ngIf="toDateTimestamp(t.start_date) > getNow()"
+                                                                >
+                                                                <span class="timepicker__text">{{ toDateTime(t.start_date) }}</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- //item -->
+                    <div class="tabs__item" [ngClass]="{tabs__item_active: tab == 'scene'}">
+                        <div class="scene">
+                            <div class="scene__header">
+                                <div class="form-item">
+                                    <div class="scene__categories categories">
+                                        <div class="categories__list justify-center">
+                                            <div class="categories__item" *ngFor="let price of prices">
+                                                <label class="categories__label">
+                                                    <div class="categories__main">
+                                                        <span class="categories__background"
+                                                            [ngStyle]="{'background-color': price.color}"
+                                                        ></span>
+                                                        <span class="categories__title">{{ price.price }} р.</span>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                            <div class="categories__item" *ngFor="let cat of categories">
+                                                <label class="categories__label">
+                                                    <div class="categories__main">
+                                                        <span class="categories__background" 
+                                                            [ngStyle]="{'background-color': cat.color}"
+                                                        ></span>
+                                                        <span class="categories__title">{{ cat.name }}</span>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-app-scheme-block
+                                *ngIf="getScheme()"
+                                [html]="getScheme().schem"
+                                [identical]="$id"
+                                (update)="getUpdated($event)"
+                            >
+                            </div>
+                        </div>
+                    </div><!-- //item -->
+                </div>
+            </div>
+        </div>
+        <table class="table_custom table_events" *ngIf="places.length > 0 || categories.length > 0">
+            <thead>
+            <tr>
+                <th style="width: 70%;">
+                    Тип билета
+                </th>
+                <th style="width: 15%;">
+                    Стоимость
+                </th>
+                <th style="width: 15%;">
+                    Количество
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let cat of categories">
+                <td>
+                    <p><strong>{{ cat.name }}</strong></p>
+                    <p *ngIf="cat.description">{{ cat.description }}</p>
+                </td>
+                <td>
+                    <p><strong>{{ getCategoryPrice(cat) }} р.</strong></p>
+                </td>
+                <td>
+                    <div class="form-item">
+                        <div class="form-item__main">
+                            <div class="form-item__field">
+                                <div 
+                                    data-app-counter
+                                    [value]="getCatQuantity(cat)"
+                                    [max_length]="getCatAvailable(cat)"
+                                    (data)="getQuantity($event, cat)"
+                                ></div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr *ngFor="let item of places">
+                <td>
+                    <p><strong>{{ getPlaceInfo(item).row }} ряд, {{ getPlaceInfo(item).name }} место</strong></p>
+                    
+                </td>
+                <td>
+                    <p><strong>{{ getPriceInfo(item).price }} р.</strong></p>
+                </td>
+                <td>
+                    <div 
+                        data-app-counter
+                        [max_length]="1"
+                        [disabled]="true"
+                    ></div>
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td><h3>Итого:</h3></td>
+                <td><h3>{{ getTotalPrice() }} р.</h3></td>
+                <td><h3>Билетов: {{ getTotalCount() }}</h3></td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+<div class="modal__footer">
+    <div class="buttons">
+        <div class="buttons__list">
+            <div class="buttons__item">
+                <button class="btn btn_secondary modal__action" type="button" (click)="close()">Отмена</button>
+            </div>
+            <div class="buttons__item">
+                <button class="btn" [disabled]="clickto" (click)="buy()">Купить билеты</button>
+            </div>
+        </div>
+    </div>
+</div>

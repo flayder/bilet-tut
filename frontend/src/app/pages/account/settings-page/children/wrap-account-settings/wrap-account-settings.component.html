@@ -1,0 +1,40 @@
+<div class="section__main">
+    <div class="account">
+        <div class="account__settings">
+            <div class="tabs">
+                <div class="tabs__header">
+                    <div class="tabs__list">
+                        <div class="tabs__item" [ngClass]="{tabs__item_active: type == 'lk'}" (click)="setType('lk')">
+                            <div class="tabs__title title">
+                                <span class="title__text">Личные данные</span>
+                            </div>
+                        </div><!-- //item -->
+                        <div class="tabs__item" [ngClass]="{tabs__item_active: type == 'rp'}" (click)="setType('rp')">
+                            <div class="tabs__title title">
+                                <span class="title__text">Аккаунт</span>
+                            </div>
+                        </div><!-- //item -->
+                        <div class="tabs__item" *ngIf="getRole('manager')" [ngClass]="{tabs__item_active: type == 'rk'}" (click)="setType('rk')">
+                            <div class="tabs__title title">
+                                <span class="title__text">Реквезиты</span>
+                            </div>
+                        </div><!-- //item -->
+                    </div>
+                </div><!-- //tabs-header -->
+                <div class="tabs__body">
+                    <div class="tabs__list">
+                        <div class="tabs__item" [ngClass]="{tabs__item_active: type == 'lk'}">
+                            <div data-app-account-form></div>
+                        </div><!-- //tabs-body__item -->
+                        <div class="tabs__item" [ngClass]="{tabs__item_active: type == 'rp'}">
+                            <div data-app-change-password-form></div>
+                        </div><!-- //tabs-body__item -->
+                        <div class="tabs__item" *ngIf="getRole('manager')" [ngClass]="{tabs__item_active: type == 'rk'}">
+                            <div data-app-detail-page></div>
+                        </div><!-- //tabs-body__item -->
+                    </div>
+                </div><!-- //tabs-body -->
+            </div><!-- //tabs -->
+        </div>
+    </div>
+</div>

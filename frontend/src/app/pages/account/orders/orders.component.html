@@ -1,0 +1,75 @@
+<div data-app-header class="account-menu"></div>
+<div class="layout layout_account">
+    <main class="layout__main">
+        <div data-app-sidebar class="layout__sidebar sidebar"></div>
+        <!-- partial -->
+        <div class="layout__content">
+            <!-- СЕКЦИЯ ЗАКАЗЫ -->
+            <div class="layout__section section">
+                <div class="section__header">
+                    <div class="row">
+                        <div class="col col_7 col_hd-desktop-6 col_big-desktop-12">
+                            <div class="wysiwyg">
+                                <h1>История заказов</h1>
+                            </div>
+                        </div>
+                        <div class="col col_5 col_hd-desktop-6 col_big-desktop-12">
+                            <div class="row">
+                                <div class="col col_7 col_mob-12">
+                                    <div class="form-item form-item_before">
+                                        <div class="form-item__main">
+                                            <div class="form-item__field">
+                                                <input class="form-item__input" type="text"
+                                                       placeholder="Поиск" (keyup)="search($event)">
+                                            </div>
+                                            <div class="form-item__media media">
+                                                <svg class="media__ico">
+                                                    <use xlink:href="/assets/img/sprite.svg#search"></use>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col_5 col_mob-12">
+                                    <div class="form-item">
+                                        <div class="form-item__main">
+                                            <div class="form-item__field">
+                                                <div data-app-select [values]="categories" (data)="setCategory($event)"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section__main">
+                    <div class="account">
+                        <div class="account__orders">
+                            <div class="table">
+                                <table class="table_custom table_orders">
+                                    <thead>
+                                    <tr>
+                                        <th>Название</th>
+                                        <th>Дата</th>
+                                        <th>Место</th>
+                                        <th>Количество</th>
+                                        <th>Сумма</th>
+                                        <th>Действия</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr data-app-checkout-block 
+                                            [item]="item" 
+                                            *ngFor="let item of items"
+                                        ></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

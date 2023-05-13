@@ -1,0 +1,1 @@
+export type DiscountPointType = "percent" | "cash"

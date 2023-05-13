@@ -1,0 +1,57 @@
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item">{{ item.name }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item">{{ item.event.name }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap">{{ getDiscountValue() }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap">{{ item.start_date | date: "d.MM.YY" }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap">{{ item.finish_date | date: "d.MM.YY" }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap">{{ getTypeValue() }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <a href="#" class="btn btn_secondary" (click)="edit($event)">Изменить</a>
+        </div>
+    </div>
+</td>
+
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <a href="#" class="btn btn_quaternary no-wrap" (click)="delete($event)">Удалить</a>
+        </div>
+    </div>
+</td>

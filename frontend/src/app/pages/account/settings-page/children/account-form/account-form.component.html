@@ -1,0 +1,197 @@
+<div class="formular" *ngIf="user">
+    <form [formGroup]="form">
+        <div class="row">
+            <div class="col col_10 col_tab-12">
+                <div class="form__group group">
+                    <div class="group__main">
+                        <div class="row">
+                            <div class="col col_6 col_mob-12">
+                                <div class="form-item">
+                                    <div class="form-item__main">
+                                    <div class="attach attach_single">
+                                        <div class="attach__avatar">
+                                            <div 
+                                                data-app-input-file 
+                                                class="avatar__input"
+                                                formControlName="photo"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.photo"
+                                                [submitSubject]="formSubmit"
+                                                [form]="form"
+                                            ></div>
+                                            <div data-app-image 
+                                                class="avatar__img" 
+                                                src="/assets/img/content/avatar/avatar.png"
+                                                *ngIf="!isPhoto()"
+                                            ></div>
+                                            <div data-app-image 
+                                                class="avatar__img" 
+                                                *ngIf="isPhoto()"
+                                                [src]="getPhoto()"
+                                            ></div>
+                                        </div>
+                                        <div class="attach__main">
+                                            <button class="btn btn_secondary">
+                                                Изменить
+                                            </button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col_6 col_mob-12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="admin__name">Имя</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.username"
+                                                placeholder="Введите имя"
+                                                formControlName="username"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="admin__surname">Фамилия</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.surname"
+                                                placeholder="Введите фамилию"
+                                                formControlName="surname"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="admin__parent">Отчество</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.lastname"
+                                                placeholder="Введите отчество"
+                                                formControlName="lastname"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                            <div class="col col_6 col_mob-12">
+                                <div class="form-item  form-item_after">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="admin__name">Дата
+                                            рождения</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input-date
+                                                [dateIsOpen]="true"
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.birthday"
+                                                placeholder="Дата рождения"
+                                                formControlName="birthday"
+                                            >
+                                            </div>
+                                        </div>
+                                        <div class="form-item__media media">
+                                            <svg class="media__ico">
+                                                <use xlink:href="/assets/img/sprite.svg#date"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="admin__email">Email</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.email"
+                                                placeholder="Введите электронную почту"
+                                                formControlName="email"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="admin__phone">Телефон</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input-phone
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.phone"
+                                                formControlName="phone"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group__footer">
+                        <div class="row">
+                            <div class="col col_12">
+                                <div class="form-item">
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <button type="button"
+                                                    class="btn" (click)="save()">
+                                                Сохранить
+                                                изменения
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

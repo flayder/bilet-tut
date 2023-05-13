@@ -1,0 +1,98 @@
+<div class="layout__modal" *ngIf="types.length > 0" (click)="clickOutForm($event)">
+        <div *ngFor="let val of types | keyvalue: returnZero">
+            <div 
+                class="modal__main modal__layout modal__layout_active" 
+                *ngIf="toNum(val.key) == 0"
+                [ngClass]="{modal__layout_tiny: isTiny(val.value)}"
+            >
+            <div 
+                class="modal-wrap-item"
+                [ngStyle]="{zIndex: val.key}"
+                (data)="close($event)"
+                [params]="getParams(val.key)"
+                data-app-modal-buy 
+                *ngIf="val.value == 'buy'"
+            ></div>
+            <div 
+                class="modal-wrap-item"
+                [ngStyle]="{zIndex: val.key}"
+                (data)="close($event)"
+                [params]="getParams(val.key)"
+                data-app-modal-text
+                *ngIf="val.value == 'text'"
+            ></div>
+            <div 
+                class="modal-wrap-item"
+                [ngStyle]="{zIndex: val.key}"
+                (data)="close($event)"
+                [params]="getParams(val.key)"
+                data-app-modal-account-price
+                *ngIf="val.value == 'account-price-tiny'"
+            ></div>
+            <div 
+                class="modal-wrap-item"
+                [ngStyle]="{zIndex: val.key}"
+                (data)="close($event)"
+                [params]="getParams(val.key)"
+                data-app-modal-account-category
+                *ngIf="val.value == 'account-category-tiny'"
+            ></div>
+            <div 
+                class="modal-wrap-item"
+                [ngStyle]="{zIndex: val.key}"
+                (data)="close($event)"
+                [params]="getParams(val.key)"
+                data-app-modal-account-promocod
+                *ngIf="val.value == 'account-promocod-tiny'"
+            ></div>
+            <div 
+                class="modal-wrap-item"
+                [ngStyle]="{zIndex: val.key}"
+                (data)="close($event)"
+                [params]="getParams(val.key)"
+                data-app-modal-checker
+                *ngIf="val.value == 'account-checker-tiny'"
+            ></div>
+            <div 
+                class="modal-wrap-item"
+                [ngStyle]="{zIndex: val.key}"
+                (data)="close($event)"
+                [params]="getParams(val.key)"
+                data-app-modal-account-iexmport
+                *ngIf="val.value == 'account-iexmport-tiny'"
+            ></div>
+            <div 
+                class="modal-wrap-item"
+                [ngStyle]="{zIndex: val.key}"
+                (data)="close($event)"
+                [params]="getParams(val.key)"
+                data-app-modal-account-mailing-item
+                *ngIf="val.value == 'account-mailing-item-tiny'"
+            ></div>
+            <div 
+                class="modal-wrap-item"
+                [ngStyle]="{zIndex: val.key}"
+                (data)="close($event)"
+                [params]="getParams(val.key)"
+                data-app-modal-account-user-short
+                *ngIf="val.value == 'account-user-short'"
+            ></div>
+            <div 
+                class="modal-wrap-item"
+                [ngStyle]="{zIndex: val.key}"
+                (data)="close($event)"
+                [params]="getParams(val.key)"
+                data-app-modal-manager-scheme
+                *ngIf="val.value == 'manager-scheme'"
+            ></div>
+            <div 
+                class="modal-wrap-item"
+                [ngStyle]="{zIndex: val.key}"
+                (data)="close($event)"
+                [params]="getParams(val.key)"
+                data-app-modal-notification
+                *ngIf="val.value == 'notification-tiny'"
+            ></div>
+        </div>
+    </div>
+</div>

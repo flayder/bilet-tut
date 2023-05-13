@@ -1,0 +1,142 @@
+<!-- modal header -->
+<div class="modal__header">
+    <div class="modal__title title">
+        <span class="title__text h3">Добавить цены</span>
+    </div>
+    <div class="modal__action action" (click)="close($event)">
+        <svg class="action__icon">
+            <use xlink:href="/assets/img/sprite.svg#close"></use>
+        </svg>
+    </div>
+</div>
+<!-- modal content -->
+<div class="modal__main">
+    <div class="formular">
+        <form [formGroup]="form">
+            <fieldset>
+                <div class="form__group group">
+                    <div class="group__main">
+                        <div class="row">
+                            <div class="col col_12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title" for="promo__price">Цена</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                type="number"
+                                                [c]="form.controls.price"
+                                                placeholder="Введите данные"
+                                                formControlName="price"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col_12">
+                                <div class="form-item">
+                                    <div class="form-item__main">
+                                        <div class="custom-check">
+                                            <div data-app-input-checkbox 
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.up_price"
+                                                placeholder="Повысить цену после"
+                                                formControlName="up_price"
+                                            ></div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col_6 col_mob-12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title" for="promo__lengthSales">n продаж</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.raising"
+                                                placeholder="Введите данные"
+                                                formControlName="raising"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                            <div class="col col_6 col_mob-12">
+                                <div class="form-item  form-item_after">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title" for="promo__date">По дате</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input-date
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.date_to"
+                                                placeholder="По дате"
+                                                formControlName="date_to"
+                                            >
+                                            </div>
+                                        </div>
+                                        <div class="form-item__media media">
+                                            <svg class="media__ico">
+                                                <use xlink:href="/assets/img/sprite.svg#date"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col_12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title">Выбор цвета</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-color-list
+                                                (data)="getColor($event)"
+                                                [color]="color"
+                                            ></div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<div class="modal__footer">
+    <div class="row">
+        <div class="col col_6">
+            <a href="#" class="btn btn_secondary modal__action" (click)="close($event)">Отмена</a>
+        </div>
+        <div class="col col_6">
+            <button type="button" class="btn" (click)="save()">Добавить</button>
+        </div>
+    </div>
+</div>

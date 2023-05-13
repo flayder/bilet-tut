@@ -1,0 +1,17 @@
+<!-- modal header -->
+<div class="modal__header">
+    <div class="modal__title title">
+        <span class="title__text h3">Пользователи</span>
+    </div>
+    <div class="modal__action action" (click)="close($event)">
+        <svg class="action__icon">
+            <use xlink:href="/assets/img/sprite.svg#close"></use>
+        </svg>
+    </div>
+</div>
+<!-- modal content -->
+<div class="modal__main">
+    <div class="wysiwyg">
+        <p *ngFor="let user of users">{{ user.email ? user.email : user.phone }}</p>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+.datepicker_full td.selectable a, 
+.datepicker_full td.selectable.ui-datepicker-today a:not(.ui-state-active) {
+    background-color: #EE2828;
+    color: #fff;
+}
+
+.datepicker_full td.selectable.ui-datepicker-today a.ui-state-active {
+    background-color: #EE2828;
+    color: #fff;
+}

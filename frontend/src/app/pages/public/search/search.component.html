@@ -1,0 +1,330 @@
+<div class="layout">
+    <div data-app-header></div>
+    <main class="layout__main">
+        <!-- // ХЛЕБНЫЕ КРОШКИ -->
+        <div data-app-breadcrumbs></div>
+        <!-- partial -->
+        <!-- СЕКЦИЯ ТОВАРОВ ( Ожидаемые мероприятия ) -->
+        <div data-app-filter-search-block (data)="getQuery($event)"></div>
+        <div class="layout__section section">
+            <div class="section__main">
+                <div class="container">
+                    <div class="events">
+                        <div class="wysiwyg">
+                            <h6>По запросу<span *ngIf="query.search"> "{{ query.search }}"</span> найдено {{ items.length }} мероприятия(й).</h6>
+                        </div>
+                        <div class="events__list">
+                            <div class="row">
+                                <div class="col col_4 col_tab-6 col_mob-12" *ngFor="let item of items">
+                                    <div data-app-event-block [item]="item"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- СЕКЦИЯ ТОВАРОВ ( Ожидаемые мероприятия ) -->
+        <!-- <div class="layout__section section" style="display: none;">
+            <div class="section__header">
+                <div class="container">
+                    <div class="wysiwyg">
+                        <h1>Ранее вы искали</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="section__main">
+                <div class="container">
+                    <div class="events">
+                        <div class="events__list">
+                            <div class="row">
+                                <div class="col col_4 col_tab-6 col_mob-12">
+                                    <div class="events__item">
+                                        <div class="events__header">
+                                            <div class="events__media">
+                                                <a class="media__link" href="#">
+                                                    <img class="media__img"
+                                                         data-src="img/content/events/events__img01.jpg"
+                                                         src="img/preview.jpg"
+                                                         alt="image description"/>
+                                                </a>
+                                            </div>
+                                            <div class="events__favorite favorite">
+                                                <svg class="favorite__ico">
+                                                    <use xlink:href="img/sprite.svg#favorite"></use>
+                                                </svg>
+                                            </div>
+                                            <div class="events__date date">
+                                                <span class="date__day">3</span>
+                                                <span class="date__month">Авг</span>
+                                            </div>
+                                            <div class="events__type events__type_concert type">
+                                                <span class="type__text">Концерт</span>
+                                            </div>
+                                        </div>
+                                        <div class="events__main">
+                                            <div class="events__price price">
+                                                <span class="price__text">от 1000 р</span>
+                                            </div>
+                                            <div class="events__title title">
+                                                <a class="title__text" href="#"
+                                                   title="Полное название мероприятия">Название концерта</a>
+                                            </div>
+                                            <div class="events__location location">
+                                                <div class="location__media media">
+                                                    <svg class="media__ico">
+                                                        <use xlink:href="img/sprite.svg#location"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="location__title title">
+                                                    <span class="title__text">Место проведения концерта</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col_4 col_tab-6 col_mob-12">
+                                    <div class="events__item">
+                                        <div class="events__header">
+                                            <div class="events__media">
+                                                <a class="media__link" href="#">
+                                                    <img class="media__img"
+                                                         data-src="img/content/events/events__img01.jpg"
+                                                         src="img/preview.jpg"
+                                                         alt="image description"/>
+                                                </a>
+                                            </div>
+                                            <div class="events__favorite favorite">
+                                                <svg class="favorite__ico">
+                                                    <use xlink:href="img/sprite.svg#favorite"></use>
+                                                </svg>
+                                            </div>
+                                            <div class="events__date date">
+                                                <span class="date__day">3</span>
+                                                <span class="date__month">Авг</span>
+                                            </div>
+                                            <div class="events__type events__type_concert type">
+                                                <span class="type__text">Концерт</span>
+                                            </div>
+                                        </div>
+                                        <div class="events__main">
+                                            <div class="events__price price">
+                                                <span class="price__text">от 1000 р</span>
+                                            </div>
+                                            <div class="events__title title">
+                                                <a class="title__text" href="#"
+                                                   title="Полное название мероприятия">Название концерта</a>
+                                            </div>
+                                            <div class="events__location location">
+                                                <div class="location__media media">
+                                                    <svg class="media__ico">
+                                                        <use xlink:href="img/sprite.svg#location"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="location__title title">
+                                                    <span class="title__text">Место проведения концерта</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col_4 col_tab-6 col_mob-12">
+                                    <div class="events__item">
+                                        <div class="events__header">
+                                            <div class="events__media">
+                                                <a class="media__link" href="#">
+                                                    <img class="media__img"
+                                                         data-src="img/content/events/events__img01.jpg"
+                                                         src="img/preview.jpg"
+                                                         alt="image description"/>
+                                                </a>
+                                            </div>
+                                            <div class="events__favorite favorite">
+                                                <svg class="favorite__ico">
+                                                    <use xlink:href="img/sprite.svg#favorite"></use>
+                                                </svg>
+                                            </div>
+                                            <div class="events__date date">
+                                                <span class="date__day">3</span>
+                                                <span class="date__month">Авг</span>
+                                            </div>
+                                            <div class="events__type events__type_concert type">
+                                                <span class="type__text">Концерт</span>
+                                            </div>
+                                        </div>
+                                        <div class="events__main">
+                                            <div class="events__price price">
+                                                <span class="price__text">от 1000 р</span>
+                                            </div>
+                                            <div class="events__title title">
+                                                <a class="title__text" href="#"
+                                                   title="Полное название мероприятия">Название концерта</a>
+                                            </div>
+                                            <div class="events__location location">
+                                                <div class="location__media media">
+                                                    <svg class="media__ico">
+                                                        <use xlink:href="img/sprite.svg#location"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="location__title title">
+                                                    <span class="title__text">Место проведения концерта</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col col_4 col_tab-6 col_mob-12">
+                                    <div class="events__item">
+                                        <div class="events__header">
+                                            <div class="events__media">
+                                                <a class="media__link" href="#">
+                                                    <img class="media__img"
+                                                         data-src="img/content/events/events__img01.jpg"
+                                                         src="img/preview.jpg"
+                                                         alt="image description"/>
+                                                </a>
+                                            </div>
+                                            <div class="events__favorite favorite">
+                                                <svg class="favorite__ico">
+                                                    <use xlink:href="img/sprite.svg#favorite"></use>
+                                                </svg>
+                                            </div>
+                                            <div class="events__date date">
+                                                <span class="date__day">3</span>
+                                                <span class="date__month">Авг</span>
+                                            </div>
+                                            <div class="events__type events__type_concert type">
+                                                <span class="type__text">Концерт</span>
+                                            </div>
+                                        </div>
+                                        <div class="events__main">
+                                            <div class="events__price price">
+                                                <span class="price__text">от 1000 р</span>
+                                            </div>
+                                            <div class="events__title title">
+                                                <a class="title__text" href="#"
+                                                   title="Полное название мероприятия">Название концерта</a>
+                                            </div>
+                                            <div class="events__location location">
+                                                <div class="location__media media">
+                                                    <svg class="media__ico">
+                                                        <use xlink:href="img/sprite.svg#location"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="location__title title">
+                                                    <span class="title__text">Место проведения концерта</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col_4 col_tab-6 col_mob-12">
+                                    <div class="events__item">
+                                        <div class="events__header">
+                                            <div class="events__media">
+                                                <a class="media__link" href="#">
+                                                    <img class="media__img"
+                                                         data-src="img/content/events/events__img01.jpg"
+                                                         src="img/preview.jpg"
+                                                         alt="image description"/>
+                                                </a>
+                                            </div>
+                                            <div class="events__favorite favorite">
+                                                <svg class="favorite__ico">
+                                                    <use xlink:href="img/sprite.svg#favorite"></use>
+                                                </svg>
+                                            </div>
+                                            <div class="events__date date">
+                                                <span class="date__day">3</span>
+                                                <span class="date__month">Авг</span>
+                                            </div>
+                                            <div class="events__type events__type_concert type">
+                                                <span class="type__text">Концерт</span>
+                                            </div>
+                                        </div>
+                                        <div class="events__main">
+                                            <div class="events__price price">
+                                                <span class="price__text">от 1000 р</span>
+                                            </div>
+                                            <div class="events__title title">
+                                                <a class="title__text" href="#"
+                                                   title="Полное название мероприятия">Название концерта</a>
+                                            </div>
+                                            <div class="events__location location">
+                                                <div class="location__media media">
+                                                    <svg class="media__ico">
+                                                        <use xlink:href="img/sprite.svg#location"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="location__title title">
+                                                    <span class="title__text">Место проведения концерта</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col_4 col_tab-6 col_mob-12">
+                                    <div class="events__item">
+                                        <div class="events__header">
+                                            <div class="events__media">
+                                                <a class="media__link" href="#">
+                                                    <img class="media__img"
+                                                         data-src="img/content/events/events__img01.jpg"
+                                                         src="img/preview.jpg"
+                                                         alt="image description"/>
+                                                </a>
+                                            </div>
+                                            <div class="events__favorite favorite">
+                                                <svg class="favorite__ico">
+                                                    <use xlink:href="img/sprite.svg#favorite"></use>
+                                                </svg>
+                                            </div>
+                                            <div class="events__date date">
+                                                <span class="date__day">3</span>
+                                                <span class="date__month">Авг</span>
+                                            </div>
+                                            <div class="events__type events__type_concert type">
+                                                <span class="type__text">Концерт</span>
+                                            </div>
+                                        </div>
+                                        <div class="events__main">
+                                            <div class="events__price price">
+                                                <span class="price__text">от 1000 р</span>
+                                            </div>
+                                            <div class="events__title title">
+                                                <a class="title__text" href="#"
+                                                   title="Полное название мероприятия">Название концерта</a>
+                                            </div>
+                                            <div class="events__location location">
+                                                <div class="location__media media">
+                                                    <svg class="media__ico">
+                                                        <use xlink:href="img/sprite.svg#location"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="location__title title">
+                                                    <span class="title__text">Место проведения концерта</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        
+        <div 
+            *ngIf="response"
+            data-app-pagination 
+            dataType="events"
+            [parameters]="params"
+            [response]="response"
+            [elements]="elements"
+        ></div>
+    </main><!-- //middle -->
+  
+    <div data-app-footer></div>
+  </div>  

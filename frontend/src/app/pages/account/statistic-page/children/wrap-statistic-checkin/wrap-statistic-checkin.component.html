@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="col col_9 col_big-desktop-8 col_tab-12">
+        <div class="row">
+            <div class="col col_12">
+                <div class="form-item">
+                    <div class="form-item__main">
+                        <div class="form-item__field">
+                            <div 
+                                data-app-select
+                                [values]="events"
+                                placeholder="Выберите мероприятие"
+                                (data)="getEvent($event)"
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="items.length > 0">
+            <div class="col col_12">
+                <!-- // ТАБЛИЦА ЧЕКИНА -->
+                <table class="table_custom table_checkin">
+                    <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Проверяющий</th>
+                        <th>Статус</th>
+                        <th>Дата и время</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-app-statistic-checkin-item
+                            *ngFor="let item of items"
+                            [item]="item"
+                        ></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col col_3 col_big-desktop-4 col_tab-12">
+        <!-- // СТАТИСТИКА -->
+        <div class="stat">
+            <div class="stat__group group">
+                <div class="group__header">
+                    <span class="group__title">Статистика</span>
+                </div>
+                <div class="group__main">
+                    <div class="stat__list">
+                        <div class="stat__item">
+                            <span class="stat__title">Проверено</span>
+                            <span class="stat__value">{{ getStatus(1) }}</span>
+                        </div>
+                        <div class="stat__item">
+                            <span class="stat__title">Не проверено</span>
+                            <span class="stat__value">{{ getStatus(2) }}</span>
+                        </div>
+                        <div class="stat__item">
+                            <span class="stat__title">Дубликаты</span>
+                            <span class="stat__value">{{ getStatus(3) }}</span>
+                        </div>
+                        <div class="stat__item">
+                            <span class="stat__title">Нет в БД</span>
+                            <span class="stat__value">{{ getStatus(4) }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="stat__group group" *ngIf="items.length > 0">
+                <div class="group__header">
+                    <span class="group__title">Продано билетов</span>
+                </div>
+                <div class="group__main">
+                    <div class="stat__list">
+                        <div class="stat__item" *ngFor="let item of order_list">
+                            <span class="stat__title">{{ getUserName(item.user) }}</span>
+                            <span class="stat__value">{{ item.products.length }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

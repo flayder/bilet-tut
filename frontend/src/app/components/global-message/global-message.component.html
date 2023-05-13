@@ -1,0 +1,17 @@
+<div class="message-block">
+    <div style="position: relative; width: 100%;">
+        <div class="message-ng"
+            *ngFor="let err of messages"
+            [ngClass]="{
+                danger: err.type === 'error',
+                success: err.type === 'success',
+                warning: err.type === 'warning'
+            }"
+        >
+            <div class="wrap">
+                {{ err.message }}
+            </div>
+            <button type="button" class="close-ng" (click)="close(err.key)">&times;</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+<div class="formular">
+    <div class="form">
+        <fieldset>
+            <div class="form__group group">
+                <div class="group__main">
+                    <form [formGroup]="form" class="row">
+                        <div class="col col_10 col_tab-8 col_mob-12">
+                            <div class="form-item form-item_before">
+                                <div class="form-item__main">
+                                    <div class="form-item__field">
+                                        <input class="form-item__input" type="text"
+                                               placeholder="Введите название мероприятия"
+                                               formControlName="search">
+                                    </div>
+                                    <div class="form-item__media media">
+                                        <svg class="media__ico">
+                                            <use xlink:href="/assets/img/sprite.svg#search"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div><!-- //form-item -->
+                        </div>
+                        <div class="col col_2 col_tab-4 col_mob-12">
+                            <!-- Отправка формы -->
+                            <div class="form-item">
+                                <div class="form-item__main">
+                                    <button type="button" (click)="search()" class="btn">Поиск</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col col_6 col_mob-12">
+                            <div class="form-item">
+                                <div class="form-item__header">
+                                    <label class="form-item__title"
+                                           for="promotions__genres">Жанры</label>
+                                </div>
+                                <div class="form-item__main">
+                                    <div class="form-item__field">
+                                        <div data-app-select
+                                            [values]="genres"
+                                            placeholder="Выберите жанр"
+                                            (data)="getGenre($event)"
+                                        ></div>
+                                    </div>
+                                </div>
+                            </div><!-- //form-item -->
+                        </div>
+                        <div class="col col_6 col_mob-12">
+                            <div class="form-item">
+                                <div class="form-item__header">
+                                    <label class="form-item__title"
+                                           for="promotions__events">Мероприятия</label>
+                                </div>
+                                <div class="form-item__main">
+                                    <div class="form-item__field">
+                                        <div data-app-select
+                                            [values]="events"
+                                            placeholder="Выберите мероприятие"
+                                            (data)="getEvent($event)"
+                                        ></div>
+                                    </div>
+                                </div>
+                            </div><!-- //form-item -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</div>

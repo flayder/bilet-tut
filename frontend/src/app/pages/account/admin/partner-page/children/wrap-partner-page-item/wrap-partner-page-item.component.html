@@ -1,0 +1,28 @@
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item">{{ getName() }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap">{{ item.phone }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap">{{ item.email }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <a href="#" (click)="detail($event)" class="btn btn_secondary">Подробнее</a>
+        </div>
+    </div>
+</td>

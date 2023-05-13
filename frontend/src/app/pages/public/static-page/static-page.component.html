@@ -1,0 +1,16 @@
+<div class="layout">
+    <div data-app-header></div>
+    
+  
+    <main class="layout__main">
+        <div data-app-breadcrumbs></div>
+        <div class="col col_12" *ngIf="page">
+            <div class="wysiwyg">
+                <h1>{{ page.h1 }}</h1>
+                <div [innerHTML]="page.content"></div>
+            </div>
+        </div>
+    </main><!-- //middle -->
+
+    <div data-app-footer></div>
+</div>  

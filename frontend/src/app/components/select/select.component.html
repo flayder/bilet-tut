@@ -1,0 +1,18 @@
+<select 
+    (change)="change($event)" 
+    [id]="$id" 
+    #select 
+    [ngClass]="{'ng-invalid ng-dirty': errors.length > 0}"
+    [disabled]="disabled"
+    [attr.placeholder]="(multiple && placeholder) ? placeholder : ''"
+>
+    <option class="placeholder" value="" *ngIf="placeholder.length && !multiple">{{ placeholder }}</option>
+    <option value="" *ngIf="placeholder.length && multiple"></option>
+    <option 
+        [value]="sel.value" *ngFor="let sel of values" 
+        [selected]="setValue(sel)"
+    >{{ sel.name }}</option>
+</select>
+<div class="col_12" *ngIf="errors.length > 0">
+    <div class="col_12" style="color: red" *ngFor="let error of errors">{{ error }}</div>
+</div>

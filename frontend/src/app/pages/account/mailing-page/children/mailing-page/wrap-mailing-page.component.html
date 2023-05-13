@@ -1,0 +1,85 @@
+<div class="layout__section section">
+    <div class="section__header">
+        <div class="row">
+            <div class="col col_8 col_tab-12">
+                <div class="wysiwyg">
+                    <h1>Рассылки</h1>
+                </div>
+            </div>
+            <div class="col col_4 col_tab-12">
+                <a routerLink="/account/mailing/add" class="btn">Создать рассылку</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="section__main">
+        <div class="account">
+            <div class="account__mailing">
+                <div class="tabs">
+                    <div class="tabs__header">
+                        <div class="tabs__list">
+                            <div class="tabs__item" [ngClass]="{tabs__item_active: type == 'sms-tab'}">
+                                <div class="tabs__title title" (click)="setType('sms-tab')">
+                                    <span class="title__text">SMS рассылка</span>
+                                </div>
+                            </div><!-- //item -->
+                            <div class="tabs__item" [ngClass]="{tabs__item_active: type == 'email-tab'}">
+                                <div class="tabs__title title" (click)="setType('email-tab')">
+                                    <span class="title__text">Email рассылка</span>
+                                </div>
+                            </div><!-- //item -->
+                        </div>
+                    </div><!-- //tabs-header -->
+                    <div class="tabs__body">
+                        <div class="tabs__list">
+                            <div class="tabs__item" [ngClass]="{tabs__item_active: type == 'sms-tab'}">
+                                <div class="table">
+                                    <table class="table_custom table_mailing">
+                                        <thead>
+                                        <tr>
+                                            <th>№</th>
+                                            <th>Создано</th>
+                                            <th>Название мероприятия</th>
+                                            <th>Вид</th>
+                                            <th class="text-center">Пользователи</th>
+                                            <th>Действия</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr data-app-mailing-item
+                                                *ngFor="let item of getSMS()"
+                                                [item]="item"
+                                            ></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div><!-- //tabs-body__item -->
+                            <div class="tabs__item" [ngClass]="{tabs__item_active: type == 'email-tab'}">
+                                <div class="table">
+                                <table class="table_custom table_mailing" *ngIf="items.length > 0">
+                                    <thead>
+                                    <tr>
+                                        <th>№</th>
+                                        <th>Создано</th>
+                                        <th>Название мероприятия</th>
+                                        <th>Вид</th>
+                                        <th class="text-center">Пользователи</th>
+                                        <th>Действия</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr data-app-mailing-item
+                                            *ngFor="let item of getEmail()"
+                                            [item]="item"
+                                        ></tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div><!-- //tabs-body__item -->
+                        </div>
+                    </div><!-- //tabs-body -->
+                </div><!-- //tabs -->
+            </div>
+        </div>
+    </div>
+</div>

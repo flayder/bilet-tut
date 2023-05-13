@@ -1,0 +1,144 @@
+<div class="modal__header">
+    <div class="modal__title title">
+        <span class="title__text h3">Добавить категорию цен</span>
+    </div>
+    <div class="modal__action action" (click)="close($event)">
+        <svg class="action__icon">
+            <use xlink:href="/assets/img/sprite.svg#close"></use>
+        </svg>
+    </div>
+</div>
+<!-- modal content -->
+<div class="modal__main">
+    <div class="formular">
+        <form [formGroup]="form">
+            <fieldset>
+                <div class="form__group group">
+                    <div class="group__main">
+                        <div class="form-item">
+                            <div class="form-item__header">
+                                <label class="form-item__title"
+                                       for="promo__categoryName">Название категории</label>
+                            </div>
+                            <div class="form-item__main">
+                                <div class="form-item__field">
+                                    <div data-app-input
+                                        [defaultValue]="defaultValue"
+                                        [submitSubject]="formSubmit"
+                                        setClass="form-item__input"
+                                        [inputErrors]="errors"
+                                        [c]="form.controls.name"
+                                        placeholder="Введите данные"
+                                        formControlName="name"
+                                    >
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- //form-item -->
+                        <div class="form-item">
+                            <div class="form-item__header">
+                                <label class="form-item__title"
+                                       for="promo__categoryDescription">Описание категории</label>
+                            </div>
+                            <div class="form-item__main">
+                                <div class="form-item__field">
+                                    <div data-app-input
+                                        [defaultValue]="defaultValue"
+                                        [submitSubject]="formSubmit"
+                                        setClass="form-item__input form-item__input_textarea"
+                                        [inputErrors]="errors"
+                                        type="textarea"
+                                        [c]="form.controls.description"
+                                        placeholder="Введите данные"
+                                        formControlName="description"
+                                    >
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- //form-item -->
+                        <div class="form-item">
+                            <div class="form-item__header">
+                                <label class="form-item__title"
+                                       for="promo__categoryLength">Количество билетов</label>
+                            </div>
+                            <div class="form-item__main">
+                                <div class="form-item__field">
+                                    <div data-app-input
+                                        [defaultValue]="defaultValue"
+                                        [submitSubject]="formSubmit"
+                                        setClass="form-item__input"
+                                        [inputErrors]="errors"
+                                        type="number"
+                                        [c]="form.controls.count"
+                                        placeholder="Введите данные"
+                                        formControlName="count"
+                                    >
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- //form-item -->
+                        <div class="form-item">
+                            <div class="form-item__header">
+                                <label class="form-item__title"
+                                       for="promo__categoryPrice">Цена</label>
+                            </div>
+                            <div class="form-item__main">
+                                <div class="form-item__field">
+                                    <div data-app-input
+                                        [defaultValue]="defaultValue"
+                                        [submitSubject]="formSubmit"
+                                        setClass="form-item__input"
+                                        [inputErrors]="errors"
+                                        [c]="form.controls.price"
+                                        placeholder="Введите данные"
+                                        formControlName="price"
+                                        type="number"
+                                    >
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- //form-item -->
+                        <div class="form-item">
+                            <div class="form-item__header">
+                                <label class="form-item__title">Выбор цвета</label>
+                            </div>
+                            <div class="form-item__main">
+                                <div class="form-item__field">
+                                    <div data-app-color-list
+                                        (data)="getColor($event)"
+                                        [color]="color"
+                                    ></div>
+                                </div>
+                            </div>
+                        </div><!-- //form-item -->
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<div class="modal__footer">
+    <div class="row">
+        <div class="col col_12" style="display: none;">
+            <div class="form-item">
+                <div class="form-item__main">
+                    <span class="btn w-100">Добавить категорию</span>
+                </div>
+            </div>
+        </div>
+        <div class="col col_6">
+            <div class="form-item">
+                <div class="form-item__main">
+                    <a href="#" class="btn btn_secondary modal__action" (click)="close($event)">Отмена</a>
+                </div>
+            </div>
+        </div>
+        <div class="col col_6">
+            <div class="form-item">
+                <div class="form-item__main">
+                    <button class="btn" (click)="save()">Добавить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

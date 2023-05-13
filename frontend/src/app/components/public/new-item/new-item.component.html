@@ -1,0 +1,33 @@
+<div class="news__item">
+    <!-- events media -->
+    <div class="news__header">
+        <div class="news__media media">
+            <div class="media__img" data-app-image [src]="item.image.image.medium"></div>
+        </div>
+        <div class="news__action action" (click)="delete($event)" *ngIf="is_admin">
+            <svg class="action__ico">
+                <use xlink:href="/assets/img/sprite.svg#basket"></use>
+            </svg>
+        </div>
+        <div class="news__edit edit" *ngIf="is_admin">
+            <a href="#" (click)="getDetail($event)" class="btn">Редактировать</a>
+        </div>
+    </div>
+    <div class="news__main">
+        <div class="news__title title">
+            <a class="title__text" href="#" (click)="getDetail($event)">
+                {{ item.title }}
+            </a>
+        </div>
+        <div class="news__content">
+            <div class="wysiwyg">
+                <p>
+                    {{ item.subtitle }}
+                </p>
+            </div>
+        </div>
+        <div class="news__date date">
+            <span class="date__text">{{ item.date | date: "dd.MM.y" }}</span>
+        </div>
+    </div>
+</div>

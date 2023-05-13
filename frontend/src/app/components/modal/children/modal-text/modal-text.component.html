@@ -1,0 +1,16 @@
+<div class="modal__header">
+    <div class="modal__title title">
+        <span class="title__text h3">{{ params.params.title }}</span>
+    </div>
+    <div class="modal__action action" (click)="close()">
+        <svg class="action__icon">
+            <use xlink:href="/assets/img/sprite.svg#close"></use>
+        </svg>
+    </div>
+</div>
+<!-- modal content -->
+<div class="modal__content modal__main">
+    <div class="wysiwyg">
+        <p>{{ params.params.text }}</p>
+    </div>
+</div>

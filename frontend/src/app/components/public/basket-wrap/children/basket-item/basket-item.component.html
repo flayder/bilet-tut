@@ -1,0 +1,76 @@
+<div class="basket__group group" *ngIf="item">
+    <div class="group__main">
+        <div class="group__media media">
+            <a class="media__link" [routerLink]="['/event', item.product.id]">
+                <div 
+                    data-app-image 
+                    class="media__img" 
+                    [src]="item.product.preview.image.small"
+                ></div>
+            </a>
+        </div>
+        <div class="group__content">
+            <div class="group__title title">
+                <a class="title__text h3" [routerLink]="['/event', item.product.id]">
+                    {{ item.product.name }}
+                </a>
+            </div>
+            <div class="group__type type">
+                <span class="type__text">{{ getTypes() }}</span>
+            </div>
+            <div class="group__data data">
+                <div class="data__list">
+                    <div class="data__item">
+                        <span class="data__text">{{ item.date.start_date | date:"dd.MM.Y" }}, {{ item.date.start_date | date:"HH:mm" }}</span>
+                    </div>
+                    <div class="data__item">
+                        <span class="data__text">{{ item.product.area.address }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="group__action action" (click)="removeProduct()">
+            <svg class="action__ico">
+                <use xlink:href="/assets/img/sprite.svg#basket"></use>
+            </svg>
+        </div>
+    </div>
+    <div class="group__second">
+        <table class="table_events">
+            <thead>
+                <th style="width: 60%;"></th>
+                <th style="width: 20%;"></th>
+                <th style="width: 20%;"></th>
+            </thead>
+            <tbody>
+            <tr>
+                <td [innerHTML]="getName()"></td>
+                <td [innerHTML]="getPrice()"></td>
+                <td>
+                    <div class="form-item">
+                        <div class="form-item__main">
+                            <div class="form-item__field">
+                                <div data-app-counter
+                                    (data)="setCount($event)"
+                                    [value]="item.quantity"
+                                    *ngIf="item.category"
+                                    [max_length]="item.available"
+                                    [min_length]="1"
+                                ></div>
+                                <span *ngIf="!item.category"><strong>Количество: {{ item.quantity }}</strong></span>
+                            </div>
+                        </div>
+                    </div><!-- //form-item -->
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td><h3>Итого:</h3></td>
+                <td><h3 [innerHTML]="getTotalPrice()"></h3></td>
+                <td><h3>Билет(ы): {{ item.quantity }}</h3></td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

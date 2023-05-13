@@ -1,0 +1,33 @@
+<div class="layout__section section">
+    <div class="section__header">
+        <div class="wysiwyg">
+            <h1>Просмотр пользователя</h1>
+        </div>
+    </div>
+    <div class="section__main">
+        <div class="account">
+            <div data-app-user-main-block [user_request]="user_request" *ngIf="user_request"></div>
+
+            <div class="table" *ngIf="items.length > 0">
+                <table class="table table_custom table_orders">
+                    <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Дата</th>
+                        <th>Место</th>
+                        <th>Количество</th>
+                        <th>Сумма</th>
+                        <th>Действия</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-app-checkout-block 
+                            [item]="item" 
+                            *ngFor="let item of items"
+                        ></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

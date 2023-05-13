@@ -1,0 +1,122 @@
+<form [formGroup]="form" class="col">
+    <div class="row">
+        <div class="row">
+            <div class="col col_6 col_tab-12">
+                <div class="form-item  form-item_after">
+                    <div class="form-item__header">
+                        <label class="form-item__title" for="event__start">Дата мероприятия</label>
+                    </div>
+                    <div class="form-item__main">
+                        <div class="form-item__field">
+                            <div data-app-input-date
+                                [defaultValue]="defaultValue"
+                                [submitSubject]="formSubmit"
+                                setClass="form-item__input"
+                                [inputErrors]="errors"
+                                [c]="form.controls.start_date"
+                                formControlName="start_date"
+                                
+                            >
+                            <!-- [value]="start_date" -->
+                            </div>
+                        </div>
+                        <div class="form-item__media media">
+                            <svg class="media__ico">
+                                <use xlink:href="/assets/img/sprite.svg#date"></use>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col col_6 col_tab-12">
+                <div class="form-item  form-item_after">
+                    <div class="form-item__header">
+                        <label class="form-item__title" for="event__start">Дата закрытия продаж</label>
+                    </div>
+                    <div class="form-item__main">
+                        <div class="form-item__field">
+                            <div data-app-input-date
+                                [defaultValue]="defaultValue"
+                                [submitSubject]="formSubmit"
+                                setClass="form-item__input"
+                                [inputErrors]="errors"
+                                [c]="form.controls.finish_date"
+                                formControlName="finish_date"
+                                
+                            >
+                            <!-- [value]="finish_date" -->
+                            </div>
+                        </div>
+                        <div class="form-item__media media">
+                            <svg class="media__ico">
+                                <use xlink:href="/assets/img/sprite.svg#date"></use>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col col_6 col_tab-12">
+                <div class="form-item form-item_before">
+                    <div class="form-item__header">
+                        <label class="form-item__title" for="event__time-start">Время мероприятия
+                        </label>
+                    </div>
+                    <div class="form-item__main">
+                        <div class="form-item__field">
+                            <div data-app-input-time
+                                [defaultValue]="defaultValue"
+                                [submitSubject]="formSubmit"
+                                setClass="form-item__input"
+                                [inputErrors]="errors"
+                                [c]="form.controls.start_time"
+                                placeholder="Выберите время"
+                                formControlName="start_time"
+                                [value]="start_time"
+                            >
+                            </div>
+                        </div>
+                        <div class="form-item__media media">
+                            <svg class="media__ico">
+                                <use xlink:href="/assets/img/sprite.svg#time"></use>
+                            </svg>
+                        </div>
+                    </div>
+            
+                </div><!-- //form-item -->
+            </div>
+            <div class="col col_6 col_tab-12">
+                <div class="form-item form-item_before">
+                    <div class="form-item__header">
+                        <label class="form-item__title" for="event__time-end">Время
+                            закрытия продаж</label>
+                    </div>
+                    <div class="form-item__main">
+                        <div class="form-item__field">
+                            <div data-app-input-time
+                                [defaultValue]="defaultValue"
+                                [submitSubject]="formSubmit"
+                                setClass="form-item__input"
+                                [inputErrors]="errors"
+                                [c]="form.controls.finish_time"
+                                placeholder="Выберите время"
+                                formControlName="finish_time"
+                                [value]="finish_time"
+                            >
+                            </div>
+                        </div>
+                        <div class="form-item__media media">
+                            <svg class="media__ico">
+                                <use xlink:href="/assets/img/sprite.svg#time"></use>
+                            </svg>
+                        </div>
+                    </div>
+            
+                </div><!-- //form-item -->
+            </div>
+            <div class="col col_6 col_tab-12"></div>
+            <div class="col col_6 col_tab-12">
+                <button type="button" class="btn btn_tertiary" (click)="delete()"> Удалить дату </button>
+            </div>
+        </div>
+    </div>
+</form>

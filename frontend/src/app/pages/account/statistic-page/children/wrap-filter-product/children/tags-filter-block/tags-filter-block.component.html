@@ -1,0 +1,16 @@
+<div class="tags">
+    <div class="tags__list">
+        <div class="tags__item" *ngFor="let item of items">
+            <div class="tags__main">
+                <span class="tags__title">{{ getFilterName(item) }}:</span>
+                <span class="tags__value">{{ item.name }}</span>
+            </div>
+            <div class="tags__action action" (click)="remove(item)">
+                <svg class="action__ico">
+                    <use xlink:href="/assets/img/sprite.svg#closeSecond"></use>
+                </svg>
+            </div>
+        </div>
+        
+    </div>
+</div>

@@ -1,0 +1,105 @@
+<div class="layout__search search">
+    <div class="search__formular">
+      <form class="search__form" [formGroup]="form" (ngSubmit)="searchForm()">
+        <div class="row">
+          <div [ngClass]="showGenre ? 'col col_4 col_tab-12' : 'col col_3 col_big-desktop-12'">
+            <div class="form-item form-item_m-tiny form-item_before">
+              <div class="form-item__main">
+                <div class="form-item__field">
+                  <div data-app-input 
+                    placeholder="Поиск мероприятия..."
+                    setClass="form-item__input"
+                    formControlName="search"
+                    sugg_url="/api/event/"
+                    [get_data]="{
+                      name: 'name',
+                      value: 'name'
+                    }"
+                    [value]="getQuery('search')"
+                  ></div>
+                </div>
+                <div class="form-item__media media">
+                  <svg class="media__ico">
+                    <use xlink:href="/assets/img/sprite.svg#search"></use>
+                  </svg>
+                </div>
+              </div>
+            </div><!-- //form-item -->
+          </div>
+          <div class="col col_2 col_big-desktop-3 col_desktop-4 col_mob-12" *ngIf="showGenre">
+            <div class="form-item  form-item_before">
+                <div class="form-item__main">
+                    <div class="form-item__field">
+                        <div data-app-select 
+                          placeholder="Жанр" 
+                          [values]="genre"
+                          formControlName="genre"
+                          [value]="getQuery('genre')"
+                        ></div>
+                    </div>
+                    <div class="form-item__media media">
+                        <svg class="media__ico">
+                            <use xlink:href="/assets/img/sprite.svg#star"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div><!-- //form-item -->
+        </div>
+          <div [ngClass]="showGenre ? 'col col_2 col_big-desktop-3 col_desktop-4 col_mob-12' : 'col col_3 col_tab-6 col_mob-12'">
+            <div class="form-item  form-item_m-tiny form-item_before">
+              <div class="form-item__main">
+                <div class="form-item__field">
+                  <div data-app-input-date
+                    setClass="form-item__input datepicker"
+                    placeholder="Дата"
+                    formControlName="dates__start_date"
+                    [value]="getQuery('dates__start_date')"
+                    
+                  ></div>
+                </div>
+                <div class="form-item__media media">
+                  <svg class="media__ico">
+                    <use xlink:href="/assets/img/sprite.svg#date"></use>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div [ngClass]="showGenre ? 'col col_2 col_big-desktop-3 col_desktop-4 col_mob-12' : 'col col_3 col_tab-6 col_mob-12'">
+            <div class="form-item  form-item_m-tiny form-item_before">
+              <div class="form-item__main">
+                <div class="form-item__field">
+                  <div data-app-select 
+                    placeholder="Площадка" 
+                    [values]="area"
+                    formControlName="area"
+                    sugg_url="/api/event_area/"
+                    [get_data]="{
+                      name: 'name',
+                      value: 'id'
+                    }"
+                    [value]="getQuery('area')"
+                  ></div>
+                </div>
+                <div class="form-item__media media">
+                  <svg class="media__ico">
+                    <use xlink:href="/assets/img/sprite.svg#location"></use>
+                  </svg>
+                </div>
+              </div>
+            </div><!-- //form-item -->
+
+          </div>
+          <div class="col col_2 col_tab-12 col_mob-12">
+            <div class="form-item form-item_m-tiny">
+              <div class="form-item__main">
+                <div class="form-item__field">
+                  <button class="btn" type="submit">Поиск</button>
+                </div>
+              </div>
+            </div><!-- //form-item -->
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

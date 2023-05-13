@@ -1,0 +1,21 @@
+<div class="group__main" *ngIf="items.length > 0">
+    <table class="table_custom table_event-promo">
+        <thead>
+        <tr>
+            <th class="no-wrap">Название</th>
+            <th class="no-wrap">Скидка</th>
+            <th class="no-wrap">Начало</th>
+            <th class="no-wrap">Конец</th>
+            <th class="no-wrap">Использования</th>
+            <th class="no-wrap"></th>
+            <th class="no-wrap"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-app-discount-table-item 
+            *ngFor="let item of items"
+            [item]="item"
+        ></tr>
+        </tbody>
+    </table>
+</div>

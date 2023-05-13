@@ -1,0 +1,89 @@
+<aside class="payment" *ngIf="items">
+    <div class="payment__header">
+        <div class="row">
+            <div class="col col_7 col_big-desktop-12 col_tab-7">
+                <div class="payment__title title">
+                    <span class="title__text h3">Ваша корзина</span>
+                </div>
+            </div>
+            <div class="col col_5 col_big-desktop-12 col_tab-5">
+                <div class="payment__amount amount">
+                    <span class="amount__text">Билет(ы): {{ getLength() }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="payment__main">
+        <div class="payment__group group">
+            <div class="group__list">
+                <div class="group__item mb-0">
+                    <div class="group__title title">
+                        <span class="title__text">Билеты</span>
+                    </div>
+                    <div class="group__title group__title_second title">
+                        <span class="title__text" [innerHTML]="getPrice()"></span>
+                    </div>
+                </div>
+                <div class="group__item" *ngIf="getDiscount() > 0">
+                    <div class="group__title title">
+                        <span class="title__text">Скидка</span>
+                    </div>
+                    <div class="group__title group__title_second title">
+                        <span class="title__text">{{ getDiscount() }} р.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="payment__group group">
+            <div class="group__list">
+                <div class="group__item">
+                    <div class="group__title title">
+                        <span class="title__text">Подытог</span>
+                    </div>
+                    <div class="group__title group__title_second title">
+                        <span class="title__text">{{ getRealPrice() - getDiscount() }} р.</span>
+                    </div>
+                </div>
+                <div class="group__item">
+                    <div class="group__title title">
+                        <span class="title__text">Сервисный сбор</span>
+                    </div>
+                    <div class="group__title group__title_second title">
+                        <span class="title__text">{{ getTaxRub() }} р.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="payment__footer">
+
+        <div data-app-basket-discount></div>
+
+        <div class="payment__group group">
+            <div class="group__list">
+                <div class="group__item">
+                    <div class="group__title group__title_second title">
+                        <span class="title__text">Итого</span>
+                    </div>
+                    <div class="group__title group__title_second title">
+                        <span class="title__text">{{ getTotal() }} р.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="payment__action action" *ngIf="is_basket">
+            <div class="row">
+                <div class="col col_12">
+                    <div class="form-item">
+                        <div class="form-item__main">
+                            <div class="form-item__field">
+                                <a routerLink="/checkout" class="btn">Оформить заказ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>

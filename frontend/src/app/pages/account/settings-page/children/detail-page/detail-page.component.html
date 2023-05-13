@@ -1,0 +1,460 @@
+<div class="formular">
+    <form [formGroup]="form">
+        <div class="row">
+            <div class="col col_6 col_tab-12">
+                <div class="form__group group">
+                    <div class="group__header">
+                        <div class="wysiwyg">
+                            <h3>Данные компании</h3>
+                        </div>
+                    </div>
+                    <div class="group__main">
+
+                        <div class="row">
+                            <div class="col col_12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="settings__country">Страна</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                setClass="form-item__input"
+                                                placeholder="Введите страну"
+                                                sugg_url="/api/geo/country/"
+                                                [setErrors]="countryErrors"
+                                                [get_data]="{
+                                                    name: 'name',
+                                                    value: 'id'
+                                                }"
+                                                [value]="country"
+                                                (data)="setCountry($event)"
+                                                >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                            <div class="col col_4 col_tab-12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="settings__type">Название
+                                            организации</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-select
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.org_name_pref"
+                                                formControlName="org_name_pref"
+                                                [values]="getOrganisationSelectDefault()"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                            <div class="col col_8 col_tab-12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="settings__type">Название
+                                            организации</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.organisation_name"
+                                                formControlName="organisation_name"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                            <div class="col col_12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="settings__address">Юридический
+                                            адрес</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.legal_address"
+                                                placeholder="Введите адрес"
+                                                formControlName="legal_address"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                            <div class="col col_4 col_tab-12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="settings__number">ОГРН</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.ogrn"
+                                                placeholder="1234567891012"
+                                                formControlName="ogrn"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                            <div class="col col_4 col_tab-12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="settings__number2">ИНН</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.inn"
+                                                placeholder="1234567891012"
+                                                formControlName="inn"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                            <div class="col col_4 col_tab-12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="settings__number3">КПП</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.kpp"
+                                                placeholder="1234567891012"
+                                                formControlName="kpp"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                            <div class="col col_6 col_tab-12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="settings__system">Система
+                                            налогообложения</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-select
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.tax"
+                                                formControlName="tax"
+                                                placeholder="Выберите налогооблажение"
+                                                [values]="getTaxesListSelectDefault()"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                            <div class="col col_6 col_tab-12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="settings__price">Включать
+                                            в стоимость билетов НДС</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-select
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.nds"
+                                                formControlName="nds"
+                                                [values]="getSelectDefault()"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form__group group">
+                    <div class="group__header">
+                        <div class="wysiwyg">
+                            <h3>Банковские реквизиты</h3>
+                        </div>
+                    </div>
+                    <div class="group__main">
+
+                        <div class="row">
+
+                            <div class="col col_12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="settings__type">Название банка</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.bank_name"
+                                                placeholder="Введите адрес"
+                                                formControlName="bank_name"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                            <div class="col col_4 col_tab-12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="settings__number4">БИК</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.bik"
+                                                placeholder="1234567891012"
+                                                formControlName="bik"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                            <div class="col col_4 col_tab-12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="settings__number5">Расчётный счёт</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.bank_account"
+                                                placeholder="1234567891012"
+                                                formControlName="bank_account"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                            <div class="col col_4 col_tab-12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="settings__number6">Корр. счёт</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.kor_name"
+                                                placeholder="1234567891012"
+                                                formControlName="kor_name"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form__group group">
+                    <div class="group__header">
+                        <div class="wysiwyg">
+                            <h3>Подписывающее лицо</h3>
+                        </div>
+                    </div>
+                    <div class="group__main">
+                        <div class="row">
+                            <div class="col col_4 col_tab-12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="settings__surname">Фамилия</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.legal_first_name"
+                                                placeholder="Введите фамилию"
+                                                formControlName="legal_first_name"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                            <div class="col col_4 col_tab-12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="settings__name">Имя</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.legal_name"
+                                                placeholder="Введите имя"
+                                                formControlName="legal_name"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                            <div class="col col_4 col_tab-12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="settings__parent">Отчество</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.legal_last_name"
+                                                placeholder="Введите отчество"
+                                                formControlName="legal_last_name"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                            <div class="col col_6 col_tab-12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="settings__position">Должность</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.legal_role"
+                                                placeholder="Введите должность"
+                                                formControlName="legal_role"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                            <div class="col col_6 col_tab-12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="settings__occasion">Действующий на основании</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-select
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.legal_state"
+                                                formControlName="legal_state"
+                                                [values]="getLegalStateSelectDefault()"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="group__footer">
+                    <div class="form-item">
+                        <div class="form-item__main">
+                            <div class="form-item__field">
+                                <button type="button" class="btn" (click)="save()">
+                                     Сохранить изменения 
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,73 @@
+<div class="layout__media">
+  <div class="container">
+    <div class="layout__slider slider" 
+      *ngIf="items.length > 0"
+      [id]="$id" 
+      [ngStyle]="{
+        opacity: (!initiation) ? 0 : 1
+      }">
+      <div class="slider__item" *ngFor="let item of items">
+        <div class="slider__media media">
+          <div data-app-image class="media__img" [src]="item.image.image.url"></div>
+        </div>
+        <div class="slider__main">
+          <div class="row">
+            <div class="col col_6 col_middle-desktop-8 col_tab-12">
+              <div class="slider__content">
+                <div class="slider__title title">
+                  <span class="title__text h1">{{ item.title }}</span>
+                </div>
+                <div class="slider__data data">
+                  <div class="data__list">
+                    <div class="data__item">
+                      <div class="data__media media">
+                        <svg class="media__ico">
+                          <use xlink:href="/assets/img/sprite.svg#date"></use>
+                        </svg>
+                      </div>
+                      <div class="data__title title">
+                        <span class="title__text">{{ item.date | date: "dd.MM.Y" }}</span>
+                      </div>
+                    </div>
+                    <div class="data__item">
+                      <div class="data__media media">
+                        <svg class="media__ico">
+                          <use xlink:href="/assets/img/sprite.svg#location"></use>
+                        </svg>
+                      </div>
+                      <div class="data__title title">
+                        <span class="title__text">{{ item.subtitle }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slider__action">
+                <div class="buttons">
+                  <div class="buttons__list">
+                    <div class="buttons__item" *ngIf="item.event">
+                      <span data-buy-btn
+                          [data]="item.event"
+                          setClass="btn"
+                          text="Купить"
+                      ></span>
+                    </div>
+                    <div class="buttons__item">
+                      <a class="btn btn_secondary" target="_blank" [href]="item.link">Подробнее</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div 
+      data-app-filter-block 
+      [showGenre]="showGenre" 
+      [pageType]="pageType"
+      [ngStyle]="{'margin-top': items.length == 0 ? '20px' : 0}"
+    ></div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="schemes__item" *ngFor="let schem of item.schems">
+    <div class="schemes__header">
+        <div class="schemes__media">
+            <div data-app-image 
+                *ngIf="schem.preview.length > 0"
+                [src]="schem.preview[0].image.medium"
+            ></div>
+        </div>
+        <div class="schemes__action">
+            <button 
+                type="button" 
+                (click)="openScheme(schem)" 
+                class="btn"
+            >Смотреть</button>
+        </div>
+    </div>
+    <div class="schemes__main">
+        <div class="schemes__title title">
+            <span class="title__text">{{ schem.name }}</span>
+        </div>
+        <div class="schemes__location location">
+            <div class="location__media media">
+                <svg class="media__ico">
+                    <use xlink:href="/assets/img/sprite.svg#location"></use>
+                </svg>
+            </div>
+            <div class="location__title title">
+                <span class="title__text">{{ item.city.name }}, {{ item.address }}</span>
+            </div>
+        </div>
+    </div>
+</div>

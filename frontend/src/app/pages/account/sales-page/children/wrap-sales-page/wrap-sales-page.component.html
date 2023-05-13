@@ -1,0 +1,37 @@
+<div class="layout__section section">
+    <div class="section__header">
+        <div class="wysiwyg">
+            <h1>Продажи</h1>
+        </div>
+    </div>
+    <div class="section__main">
+        <div class="account">
+            <div class="account__sales">
+                <div class="table">
+                    <table class="table table_custom table_sales" *ngIf="items.length > 0">
+                        <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Мероприятие</th>
+                            <th>Покупатель</th>
+                            <th>Время</th>
+                            <th>Дата</th>
+                            <th>Билеты</th>
+                            <th>Сумма</th>
+                            <th>Статус</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-app-wrap-sales-page-item
+                            *ngFor="let item of items"
+                            [item]="item"
+                        >
+                            
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

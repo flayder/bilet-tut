@@ -1,0 +1,85 @@
+<div class="scene" *ngIf="schem" [id]="$id">
+    <div class="scene__header">
+        <div class="form-item">
+            <div class="scene__categories categories custom__scene_categories">
+                <div class="categories__list justify-center" *ngIf="categories.length > 0">
+                    <h3 class="col col_12 text-center">
+                        Категории цен
+                    </h3>
+                    <div class="categories__item" *ngFor="let category of categories">
+                        <label class="categories__label">
+                            <input class="categories__input" 
+                                type="checkbox"
+                                name="category"
+                                [value]="stringify(category)"
+                                [checked]="isCategoryActive(category)"
+                            >
+                            <div class="categories__main">
+                                <span class="categories__background" [ngStyle]="{'background-color': category.color}"></span>
+                                <span class="categories__title">{{ category.name }}</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="categories__list justify-center" *ngIf="prices.length > 0">
+                    <h3 class="col col_12 text-center">
+                        Цены
+                    </h3>
+                    <div class="categories__item" *ngFor="let price of prices">
+                        <label class="categories__label">
+                            <input class="categories__input" 
+                                type="radio"
+                                name="price"
+                                [value]="price.id"
+                                [attr.data-color]="price.color"
+                            >
+                            <div class="categories__main">
+                                <span class="categories__background" [ngStyle]="{'background-color': price.color}"></span>
+                                <span class="categories__title">{{ price.price }} ₽</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="categories__list justify-center" *ngIf="dates.length > 0">
+                    <h3 class="col col_12 text-center">
+                        Даты
+                    </h3>
+                    <div class="categories__item" *ngFor="let date of dates">
+                        <label class="categories__label">
+                            <input class="categories__input" 
+                                type="checkbox"
+                                name="date"
+                                [value]="stringify(date)"
+                                [checked]="isDateActive(date)"
+                            >
+                            <div class="categories__main">
+                                <span class="categories__background" [ngStyle]="{'background-color': '#00BA34'}"></span>
+                                <span class="categories__title">C {{ date.start_date | date: "dd.MM.yyyy HH:mm" }} по {{ date.finish_date | date: "dd.MM.yyyy HH:mm" }}</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-app-scheme-block
+        [html]="schem.schem"
+        [identical]="id$"
+    ></div>
+    <div class="row">
+        <div class="col col_6">
+            <div class="form-item">
+                <div class="form-item__main">
+                    <a href="#" class="btn btn_secondary" (click)="close($event)">Отмена</a>
+                </div>
+            </div>
+        </div>
+        <div class="col col_6">
+            <div class="form-item">
+                <div class="form-item__main">
+                    <button class="btn" (click)="save()">Применить изменения</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

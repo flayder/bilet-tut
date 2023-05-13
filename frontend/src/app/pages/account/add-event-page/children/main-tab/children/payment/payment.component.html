@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col col_4 col_tab-12" *ngFor="let payment of payments | keyvalue">
+        <div class="form-item">
+            <div class="form-item__main">
+                <div class="custom-check">
+                    <label class="custom-check__label">
+                        <input class="custom-check__input"
+                            type="radio"
+                            name="radio"
+                            [checked]="value == getValue(payment.value, 'id') ? value == getValue(payment.value, 'id') : isKey(payment.key, 0)"
+                            (change)="setValue(getValue(payment.value, 'id'))"
+                        >
+                        <svg class="custom-check__ico custom-check__ico_before">
+                            <use xlink:href="/assets/img/sprite.svg#radioBefore"></use>
+                        </svg>
+                        <svg class="custom-check__ico custom-check__ico_after">
+                            <use xlink:href="/assets/img/sprite.svg#radioAfter"></use>
+                        </svg>
+                        <strong class="custom-check__text">{{ getValue(payment.value, 'name') }}</strong>
+                    </label>
+                </div>
+            </div>
+        </div><!-- //form-item -->
+    </div>
+</div>

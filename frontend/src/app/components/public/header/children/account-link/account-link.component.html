@@ -1,0 +1,14 @@
+<div class="avatar__media media">
+    <a class="avatar__link" routerLink="/account/" *ngIf="user">
+        <div data-app-image
+            class="avatar__img"
+            [src]="getLogo()"
+        ></div>
+    </a>
+    <a class="avatar__link" routerLink="/auth/" *ngIf="!user">
+        <div data-app-image
+            class="avatar__img"
+            [src]="getLogo()"
+        ></div>
+    </a>
+</div>

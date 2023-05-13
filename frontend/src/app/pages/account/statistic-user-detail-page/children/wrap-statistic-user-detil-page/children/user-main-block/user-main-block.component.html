@@ -1,0 +1,43 @@
+<div class="detail" *ngIf="user_request">
+    <div class="row">
+        <div class="col col_4 col_hd-desktop-4 col_big-desktop-5 col_desktop-5 col_tab-12">
+            <div class="detail__group group">
+                <div class="group__media media">
+                    <div data-app-image
+                        class="media__img"
+                        [src]="getPhoto()"
+                    ></div>
+                </div>
+                <div class="group__main">
+                    <span class="group__value">Фамилия Имя</span>
+                    <span class="group__title">{{ getName() }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col col_2 col_hd-desktop-2 col_big-desktop-2 col_desktop-3 col_tab-6 col_mob-12">
+            <div class="detail__group group">
+                <div class="group__main">
+                    <span class="group__value">Почта</span>
+                    <span class="group__title">{{ user_request.email }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col col_4 col_hd-desktop-4 col_big-desktop-5 col_desktop-4 col_tab-6 col_mob-12">
+            <div class="detail__group group">
+                <div class="group__main">
+                    <span class="group__value">Телефон</span>
+                    <span class="group__title">{{ user_request.phone }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col col_2 col_hd-desktop-2 col_big-desktop-12">
+            <div class="detail__group group">
+                <div class="form-item w-100 mb-0">
+                    <div class="form-item__main">
+                        <span class="btn modal-init" (click)="edit()">Изменить</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

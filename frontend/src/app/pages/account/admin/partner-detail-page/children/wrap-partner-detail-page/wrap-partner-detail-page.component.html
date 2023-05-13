@@ -1,0 +1,316 @@
+<div class="layout__section section">
+    <div class="section__header">
+        <div class="row">
+            <div class="col col_7 col_big-desktop-12">
+                <div class="wysiwyg">
+                    <h1>Просмотр партнёра</h1>
+                </div>
+            </div>
+            <div class="col col_5 col_big-desktop-12">
+                <div class="buttons">
+                    <div class="buttons__list">
+                        <div class="buttons__item">
+                            <a href="#" (click)="setActive(true, $event)" class="btn">Активировать</a>
+                        </div>
+                        <div class="buttons__item">
+                            <a href="#" (click)="setActive(false, $event)" class="btn btn_tertiary">Деактивировать</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section__main">
+        <div class="account">
+            <div class="account__partners">
+                <div class="formular">
+                    <form class="search__form" [formGroup]="form">
+                        <div class="row">
+                            <div class="col col_10 col_tab-12">
+                                <div class="form__group group">
+                                    <div class="group__main">
+                                        <div class="row">
+                                            <div class="col col_6 col_mob-12">
+                                                <div class="form-item">
+                                                    <div class="form-item__header">
+                                                        <label class="form-item__title"
+                                                               for="partners__name">Имя</label>
+                                                    </div>
+                                                    <div class="form-item__main">
+                                                        <div class="form-item__field">
+                                                            <div data-app-input
+                                                                [defaultValue]="defaultValue"
+                                                                [submitSubject]="formSubmit"
+                                                                setClass="form-item__input"
+                                                                [inputErrors]="errors"
+                                                                [c]="form.controls.username"
+                                                                placeholder="Введите имя"
+                                                                formControlName="username"
+                                                            >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- //form-item -->
+                                            </div>
+                                            <div class="col col_6 col_mob-12">
+                                                <div class="form-item">
+                                                    <div class="form-item__header">
+                                                        <label class="form-item__title"
+                                                               for="partners__phone">Телефон</label>
+                                                    </div>
+                                                    <div class="form-item__main">
+                                                        <div class="form-item__field">
+                                                            <div data-app-input-phone
+                                                                [defaultValue]="defaultValue"
+                                                                [submitSubject]="formSubmit"
+                                                                setClass="form-item__input"
+                                                                [inputErrors]="errors"
+                                                                [c]="form.controls.phone"
+                                                                placeholder="Введите телефон"
+                                                                formControlName="phone"
+                                                            >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- //form-item -->
+                                            </div>
+                                            <div class="col col_6 col_mob-12">
+                                                <div class="form-item">
+                                                    <div class="form-item__header">
+                                                        <label class="form-item__title"
+                                                               for="partners__surname">Фамилия</label>
+                                                    </div>
+                                                    <div class="form-item__main">
+                                                        <div class="form-item__field">
+                                                            <div data-app-input
+                                                                [defaultValue]="defaultValue"
+                                                                [submitSubject]="formSubmit"
+                                                                setClass="form-item__input"
+                                                                [inputErrors]="errors"
+                                                                [c]="form.controls.surname"
+                                                                placeholder="Введите фамилия"
+                                                                formControlName="surname"
+                                                            >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- //form-item -->
+                                            </div>
+                                            <div class="col col_6 col_mob-12">
+                                                <div class="form-item">
+                                                    <div class="form-item__header">
+                                                        <label class="form-item__title"
+                                                               for="partners__email">Email</label>
+                                                    </div>
+                                                    <div class="form-item__main">
+                                                        <div class="form-item__field">
+                                                            <div data-app-input
+                                                                [defaultValue]="defaultValue"
+                                                                [submitSubject]="formSubmit"
+                                                                setClass="form-item__input"
+                                                                [inputErrors]="errors"
+                                                                [c]="form.controls.email"
+                                                                placeholder="Введите email"
+                                                                formControlName="email"
+                                                            >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- //form-item -->
+                                            </div>
+                                            <div class="col col_6 col_mob-12">
+                                                <div class="form-item">
+                                                    <div class="form-item__header">
+                                                        <label class="form-item__title"
+                                                               for="partners__parent">Отчество</label>
+                                                    </div>
+                                                    <div class="form-item__main">
+                                                        <div class="form-item__field">
+                                                            <div data-app-input
+                                                                [defaultValue]="defaultValue"
+                                                                [submitSubject]="formSubmit"
+                                                                setClass="form-item__input"
+                                                                [inputErrors]="errors"
+                                                                [c]="form.controls.lastname"
+                                                                placeholder="Введите данные"
+                                                                formControlName="lastname"
+                                                            >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- //form-item -->
+                                            </div>
+                                            <div class="col col_6 col_mob-12">
+                                                <div class="form-item">
+                                                    <div class="form-item__header">
+                                                        <label class="form-item__title"
+                                                               for="partners__procent">Комиссионный
+                                                            сбор</label>
+                                                    </div>
+                                                    <div class="form-item__main">
+                                                        <div class="form-item__field">
+                                                            <div data-app-input
+                                                                [defaultValue]="defaultValue"
+                                                                [submitSubject]="formSubmit"
+                                                                setClass="form-item__input"
+                                                                [inputErrors]="errors"
+                                                                type="number"
+                                                                [c]="form.controls.tax"
+                                                                placeholder="Введите данные"
+                                                                formControlName="tax"
+                                                            >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- //form-item -->
+                                            </div>
+                                            <div class="col col_3 col_mob-12">
+                                                <!-- Название организации -->
+                                                <div class="form-item">
+                                                    <div class="form-item__header">
+                                                        <label class="form-item__title"
+                                                               for="partners__organizations_main">Название
+                                                            организации</label>
+                                                    </div>
+                                                    <div class="form-item__main">
+                                                        <div class="form-item__field">
+                                                            <div data-app-select
+                                                                [defaultValue]="defaultValue"
+                                                                [submitSubject]="formSubmit"
+                                                                setClass="form-item__input"
+                                                                [inputErrors]="errors"
+                                                                [c]="form.controls.org_name_pref"
+                                                                formControlName="org_name_pref"
+                                                                [values]="getOrganisationSelectDefault()"
+                                                            >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- //form-item -->
+                                            </div>
+                                            <div class="col col_9 col_mob-12">
+                                                <!-- Название организации -->
+                                                <div class="form-item">
+                                                    <div class="form-item__header">
+                                                        <label class="form-item__title"
+                                                               for="partners__organizations_second">Название
+                                                            организации</label>
+                                                    </div>
+                                                    <div class="form-item__main">
+                                                        <div class="form-item__field">
+                                                            <div data-app-input
+                                                                [defaultValue]="defaultValue"
+                                                                [submitSubject]="formSubmit"
+                                                                setClass="form-item__input"
+                                                                [inputErrors]="errors"
+                                                                [c]="form.controls.organisation_name"
+                                                                placeholder="Введите данные"
+                                                                formControlName="organisation_name"
+                                                            >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- //form-item -->
+                                            </div>
+                                            <div class="col col_4 col_mob-12">
+                                                <!-- ОГРН -->
+                                                <div class="form-item">
+                                                    <div class="form-item__header">
+                                                        <label class="form-item__title"
+                                                               for="partners__ОГРН">ОГРН</label>
+                                                    </div>
+                                                    <div class="form-item__main">
+                                                        <div class="form-item__field">
+                                                            <div data-app-input
+                                                                [defaultValue]="defaultValue"
+                                                                [submitSubject]="formSubmit"
+                                                                setClass="form-item__input"
+                                                                [inputErrors]="errors"
+                                                                [c]="form.controls.ogrn"
+                                                                placeholder="Введите данные"
+                                                                formControlName="ogrn"
+                                                            >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- //form-item -->
+                                            </div>
+                                            <div class="col col_4 col_mob-12">
+                                                <!-- ИНН -->
+                                                <div class="form-item">
+                                                    <div class="form-item__header">
+                                                        <label class="form-item__title"
+                                                               for="partners__ИНН">ИНН</label>
+                                                    </div>
+                                                    <div class="form-item__main">
+                                                        <div class="form-item__field">
+                                                            <div data-app-input
+                                                                [defaultValue]="defaultValue"
+                                                                [submitSubject]="formSubmit"
+                                                                setClass="form-item__input"
+                                                                [inputErrors]="errors"
+                                                                [c]="form.controls.inn"
+                                                                placeholder="Введите данные"
+                                                                formControlName="inn"
+                                                            >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- //form-item -->
+                                            </div>
+                                            <div class="col col_4 col_mob-12">
+                                                <!-- ИНН -->
+                                                <div class="form-item">
+                                                    <div class="form-item__header">
+                                                        <label class="form-item__title"
+                                                               for="partners__КПП">КПП</label>
+                                                    </div>
+                                                    <div class="form-item__main">
+                                                        <div class="form-item__field">
+                                                            <div data-app-input
+                                                                [defaultValue]="defaultValue"
+                                                                [submitSubject]="formSubmit"
+                                                                setClass="form-item__input"
+                                                                [inputErrors]="errors"
+                                                                [c]="form.controls.kpp"
+                                                                placeholder="Введите данные"
+                                                                formControlName="kpp"
+                                                            >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- //form-item -->
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="group__footer">
+                                        <div class="row">
+                                            <div class="col col_12">
+                                                <div class="form-item">
+                                                    <div class="form-item__main">
+                                                        <div class="form-item__field">
+                                                            <button 
+                                                                type="button"
+                                                                class="btn"
+                                                                (click)="save()"
+                                                            >
+                                                                Сохранить
+                                                                изменения
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

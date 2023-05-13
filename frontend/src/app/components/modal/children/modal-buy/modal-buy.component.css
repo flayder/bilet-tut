@@ -1,0 +1,8 @@
+.timepicker__item.unactive {
+  opacity: .4;
+  
+}
+
+.timepicker__item.unactive .timepicker__text {
+   cursor: default;
+}

@@ -1,0 +1,125 @@
+<div class="layout__section section">
+    <div class="section__header">
+        <div class="wysiwyg">
+            <h1>Обложка</h1>
+        </div>
+    </div>
+    <div class="section__main">
+        <div class="account">
+            <div class="account__news">
+                <div class="formular">
+                    <form [formGroup]="form">
+                        <fieldset>
+                            <div class="form__group group">
+                                <div class="group__main">
+                                    <div class="form-item">
+                                        <div class="form-item__main">
+                                            <div data-app-photo-component
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.image"
+                                                formControlName="image"
+                                            ></div>
+                                        </div>
+                                    </div><!-- //form-item -->
+
+                                    <div class="form-item">
+                                        <div class="form-item__header">
+                                            <label class="form-item__title"
+                                                   for="news__name">Заголовок</label>
+                                        </div>
+                                        <div class="form-item__main">
+                                            <div class="form-item__field">
+                                                <div data-app-input
+                                                    [defaultValue]="defaultValue"
+                                                    [submitSubject]="formSubmit"
+                                                    setClass="form-item__input"
+                                                    [inputErrors]="errors"
+                                                    [c]="form.controls.title"
+                                                    placeholder="Введите данные"
+                                                    formControlName="title"
+                                                >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- //form-item -->
+
+                                    <div class="form-item">
+                                        <div class="form-item__header">
+                                            <label class="form-item__title"
+                                                   for="news__subname">Подзаголовок</label>
+                                        </div>
+                                        <div class="form-item__main">
+                                            <div class="form-item__field">
+                                                <div data-app-input
+                                                    [defaultValue]="defaultValue"
+                                                    [submitSubject]="formSubmit"
+                                                    setClass="form-item__input"
+                                                    [inputErrors]="errors"
+                                                    [c]="form.controls.subtitle"
+                                                    placeholder="Введите данные"
+                                                    formControlName="subtitle"
+                                                >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- //form-item -->
+                                    <div class="form-item">
+                                        <div class="form-item__header">
+                                            <label class="form-item__title"
+                                                   for="news__description">Текст новости</label>
+                                        </div>
+                                        <div class="form-item__main">
+                                            <div class="form-item__field">
+                                                <div data-app-input
+                                                    setClass="form-item__input_textarea"
+                                                    type="textarea"
+                                                    [defaultValue]="defaultValue"
+                                                    [submitSubject]="formSubmit"
+                                                    setClass="form-item__input"
+                                                    [inputErrors]="errors"
+                                                    [c]="form.controls.content"
+                                                    placeholder="Введите данные"
+                                                    formControlName="content"
+                                                >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- //form-item -->
+
+                                </div>
+                                <div class="group__footer">
+                                    <div class="row">
+                                        <div class="col col_3 col_tab-12">
+                                            <div class="form-item">
+                                                <div class="form-item__main">
+                                                    <div class="form-item__field">
+                                                        <button type="button" (click)="delete()" class="btn btn_tertiary">Удалить</button>
+                                                    </div>
+                                                </div>
+                                            </div><!-- //form-item -->
+                                        </div>
+                                        <div class="col col_9 col_tab-12">
+                                            <div class="form-item">
+                                                <div class="form-item__main">
+                                                    <div class="form-item__field">
+                                                        <button type="button" (click)="save()" class="btn">
+                                                            <span *ngIf="id == 0">Создать</span>
+                                                            <span *ngIf="id > 0">Обновить</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div><!-- //form-item -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

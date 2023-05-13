@@ -1,0 +1,35 @@
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item">{{ getName() }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap">{{ getRole() }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap">{{ item.date | date: "dd.MM.y" }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap">{{ item.date | date: "HH:mm" }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap">{{ item.action }}</span>
+        </div>
+    </div>
+</td>

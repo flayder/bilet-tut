@@ -1,0 +1,107 @@
+<div class="layout__section section">
+    <div class="section__header">
+        <div class="wysiwyg">
+            <h1 *ngIf="id == 0">Создание жанра</h1>
+            <h1 *ngIf="id > 0">Редактирование жанра</h1>
+        </div>
+    </div>
+    <div class="section__main">
+        <div class="account">
+            <div class="account__design design">
+                <div class="formular">
+                    <form [formGroup]="form">
+                        <fieldset>
+                            <div class="row">
+                                <div class="col col_10 col_tab-12">
+                                    <div class="form__group group">
+                                        <div class="group__header">
+                                            <div class="wysiwyg">
+                                                <h3>1. Название и код</h3>
+                                            </div>
+                                        </div>
+                                        <div class="group__main">
+                                            <div class="row">
+                                                <div class="col col_6 col_tab-12">
+                                                    <div class="form-item">
+                                                        <div class="form-item__header">
+                                                            <label class="form-item__title"
+                                                                   for="slide__name">Название жанра</label>
+                                                        </div>
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <div data-app-input
+                                                                    [defaultValue]="defaultValue"
+                                                                    [submitSubject]="formSubmit"
+                                                                    setClass="form-item__input"
+                                                                    [inputErrors]="errors"
+                                                                    [c]="form.controls.name"
+                                                                    placeholder="Введите данные"
+                                                                    formControlName="name"
+                                                                >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+                                                <div class="col col_6 col_tab-12">
+                                                    <div class="form-item form-item_after">
+                                                        <div class="form-item__header">
+                                                            <label class="form-item__title"
+                                                                   for="slide__date">Код жанра</label>
+                                                        </div>
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <div data-app-input
+                                                                    [defaultValue]="defaultValue"
+                                                                    [submitSubject]="formSubmit"
+                                                                    setClass="form-item__input"
+                                                                    [inputErrors]="errors"
+                                                                    [c]="form.controls.code"
+                                                                    placeholder="Введите данные"
+                                                                    formControlName="code"
+                                                                >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form__group group">
+                                        <div class="group__footer">
+                                            <div class="row">
+                                                <div class="col col_2 col_desktop-3 col_tab-6 col_mob-12">
+                                                    <div class="form-item">
+                                                        <div class="form-item__main">
+                                                            <button type="button" (click)="delete()" class="btn btn_tertiary">Удалить</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col col_10 col_desktop-10 col_tab-6 col_mob-12">
+                                                    <div class="form-item">
+                                                        <div class="form-item__main">
+                                                            <button type="button" (click)="save()" class="btn">
+                                                                <span *ngIf="id == 0">
+                                                                    Создать
+                                                                </span>
+                                                                <span *ngIf="id > 0">
+                                                                    Обновить
+                                                                </span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

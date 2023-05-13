@@ -1,0 +1,24 @@
+<div class="custom-check"> 
+  <label class="custom-check__label {{ setClass }}">
+    <input 
+      [id]="$id" 
+      [type]="type" 
+      class="custom-check__input" 
+      [ngClass]="{'ng-invalid ng-dirty': errors.length > 0, 'datepicker-ng': !is_count}" 
+      [disabled]="disabled" 
+      #input 
+      (change)="update(input.value)"
+      [checked]="value"
+    >
+    <svg class="custom-check__ico custom-check__ico_before">
+      <use xlink:href="/assets/img/sprite.svg#checkboxBefore"></use>
+    </svg>
+    <svg class="custom-check__ico custom-check__ico_after">
+      <use xlink:href="/assets/img/sprite.svg#checkboxAfter"></use>
+    </svg>
+    <span class="custom-check__text">{{ placeholder }}</span>
+    <div class="col_12" *ngIf="errors.length > 0">
+      <div class="col_12" style="color: red" *ngFor="let error of errors">{{ error }}</div>
+    </div>
+  </label>
+</div>

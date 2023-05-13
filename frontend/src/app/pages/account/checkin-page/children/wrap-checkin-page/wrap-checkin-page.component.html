@@ -1,0 +1,42 @@
+<div class="layout__section section">
+    <div class="section__header">
+        <div class="row">
+            <div class="col col_9 col_big-desktop-8 col_tab-12">
+                <div class="wysiwyg">
+                    <h1>Чекин</h1>
+                </div>
+            </div>
+            <div class="col col_3 col_big-desktop-4 col_tab-12">
+                <span class="btn modal-init" (click)="openModal()">Создать проверяющиего</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="section__main">
+        <div class="account">
+            <div class="account__checkin">
+                <!-- // ТАБЛИЦА ЧЕКИНА -->
+                <div class="table">
+                    <table class="table_custom table_check" *ngIf="items.length > 0">
+                        <thead>
+                        <tr>
+                            <th>Проверяющий</th>
+                            <th>Телефон</th>
+                            <th>Email</th>
+                            <th>Логин</th>
+                            <th>Действия</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-app-user-checker-item
+                                [item]="item" 
+                                *ngFor="let item of items"
+                            ></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

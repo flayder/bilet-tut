@@ -1,0 +1,105 @@
+<div class="layout__section section">
+    <div class="section__header">
+        <div class="wysiwyg">
+            <h1>Партнёры</h1>
+        </div>
+    </div>
+    <div class="section__main">
+        <div class="account">
+            <div class="account__partners">
+                <div class="formular">
+                    <form class="search__form" [formGroup]="form">
+                        <div class="row">
+                            <div class="col col_10 col_desktop-9 col_tab-8 col_mob-12">
+                                <div class="form-item form-item_before">
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <input class="form-item__input" 
+                                                type="text"
+                                                placeholder="Поиск мероприятия..."
+                                                formControlName="search" 
+                                            >
+                                        </div>
+                                        <div class="form-item__media media">
+                                            <svg class="media__ico">
+                                                <use xlink:href="/assets/img/sprite.svg#search"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                            <div class="col col_2 col_desktop-3 col_tab-4 col_mob-12">
+                                <div class="form-item form-item_m-tiny">
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <button class="btn" type="button" (click)="search()">Поиск</button>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="tabs">
+                    <div class="tabs__header">
+                        <div class="tabs__list">
+                            <div class="tabs__item" (click)="setType('user')" [ngClass]="{tabs__item_active: type == 'user'}">
+                                <div class="tabs__title title">
+                                    <span class="title__text">Все партнёры</span>
+                                </div>
+                            </div><!-- //item -->
+                            <div class="tabs__item" (click)="setType('search')" [ngClass]="{tabs__item_active: type == 'search'}">
+                                <div class="tabs__title title"><span
+                                        class="title__text">Результаты поиска</span>
+                                </div>
+                            </div><!-- //item -->
+
+                        </div>
+                    </div><!-- //tabs-header -->
+                    <div class="tabs__body">
+                        <div class="tabs__list">
+                            <div class="tabs__item" [ngClass]="{tabs__item_active: type == 'user'}">
+                                <table class="table_custom table_partners" *ngIf="items.length > 0">
+                                    <thead>
+                                    <tr>
+                                        <th class="no-wrap">Фамилия Имя</th>
+                                        <th class="no-wrap">Телефон</th>
+                                        <th class="no-wrap">Email</th>
+                                        <th class="no-wrap">Действия</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr data-app-wrap-partner-page-item
+                                        *ngFor="let item of items"
+                                        [item]="item"
+                                    ></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- tabs item 2 -->
+                            <div class="tabs__item" [ngClass]="{tabs__item_active: type == 'search'}">
+                                <table class="table_custom table_partners" *ngIf="searchs.length > 0">
+                                    <thead>
+                                    <tr>
+                                        <th class="no-wrap">Фамилия Имя</th>
+                                        <th class="no-wrap">Телефон</th>
+                                        <th class="no-wrap">Email</th>
+                                        <th class="no-wrap">Действия</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr data-app-wrap-partner-page-item
+                                        *ngFor="let item of searchs"
+                                        [item]="item"
+                                    ></tr>
+                                    </tbody>
+                                </table>
+                                <h3 *ngIf="searchs.length == 0">Не найден не один результат</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

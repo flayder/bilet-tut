@@ -1,0 +1,42 @@
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap">№ {{ item.id }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap">{{ item.date | date: "dd.MM.Y" }}, {{ item.date | date: "HH:mm" }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main" *ngIf="item.event.length > 0">
+            <span class="group__item" *ngFor="let ev of item.event">{{ ev.name }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item">{{ item.type }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item text-center no-wrap">{{ item.user_list.length }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="btn modal-init" (click)="openModal()">Список</span>
+        </div>
+    </div>
+</td>

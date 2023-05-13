@@ -1,0 +1,3 @@
+<div data-app-menu-user *ngIf="getRole('viewer')"></div>
+<div data-app-menu-orginiser *ngIf="getRole('manager')"></div>
+<div data-app-menu-admin *ngIf="getRole('admin')"></div>

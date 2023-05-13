@@ -1,0 +1,40 @@
+<div class="events__item">
+    <!-- events media -->
+    <div class="events__header">
+        <div class="events__media">
+            <a class="media__link" [routerLink]="['/event', item.id]">
+                <div data-app-image [src]="item.preview.image.medium"></div>
+            </a>
+        </div>
+        <div data-app-favorite setClass="events__favorite" [item]="item"></div>
+        <div class="events__date date" *ngIf="item.start_date != 0">
+            <span class="date__day">{{ item.start_date | date: "d" }}</span>
+            <span class="date__month">{{ getMonth(item.start_date | date: "M") }}</span>
+        </div>
+        <div class="event-block">
+            <div class="events__type events__type_concert type" *ngIf="item.type">
+                <span class="type__text">{{ item.type.name }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="events__main">
+        <div class="events__price price">
+            <span class="price__text" *ngIf="item.status.code == 'active'">от {{ item.price[0] }} р</span>
+            <span class="price__text" *ngIf="item.status.code == 'sold-out'">билетов нет</span>
+        </div>
+        <div class="events__title title">
+            <a class="title__text" [routerLink]="['/event', item.id]"
+               [title]="item.name">{{ item.name }}</a>
+        </div>
+        <div class="events__location location">
+            <div class="location__media media" [ngClass]="{active: item.favorite}">
+                <svg class="media__ico">
+                    <use xlink:href="/assets/img/sprite.svg#location"></use>
+                </svg>
+            </div>
+            <div class="location__title title">
+                <span class="title__text">{{ item.city.name }}</span>
+            </div>
+        </div>
+    </div>
+</div>

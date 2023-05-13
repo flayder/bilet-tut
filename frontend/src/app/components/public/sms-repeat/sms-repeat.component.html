@@ -1,0 +1,29 @@
+<div class="form-item__main">
+    <div class="form-item__field">
+        <input id="user__email" 
+            class="form-item__input"
+            type="text"
+            placeholder="Введите код из смс"
+            (keyup)="setCode($event)"
+        >
+    </div>
+</div>
+<br/>
+<br/>
+<div class="form-item__main">
+    <div class="form-item__field">
+        <button type="button" (click)="send()" class="btn">Отправить</button>
+    </div>
+</div>
+<div class="form-item__main" *ngIf="timer == 0">
+    <br/>
+    <div class="form-item__field">
+        <button type="button" (click)="sendAgain()" class="btn btn_secondary">Отправить пароль снова</button>
+    </div>
+</div>
+
+<div class="form-item__main" *ngIf="timer > 0">
+    <div class="form-item__field" style="margin: 15px 0; width: 100%; text-align: center;">
+        <strong><p>Отправить пароль повторно можно через: {{ timer }} сек</p></strong>
+    </div>
+</div>

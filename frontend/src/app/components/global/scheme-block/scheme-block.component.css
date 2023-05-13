@@ -1,0 +1,29 @@
+.pre-busy {
+    -webkit-animation: fadeInFromNone 2s infinite;
+    -moz-animation: fadeInFromNone 2s infinite;
+    -o-animation: fadeInFromNone 2s infinite;
+    animation: fadeInFromNone 2s infinite;
+}
+
+.busy {
+    cursor: default !important;
+    fill: #EE2828 !important;
+    -webkit-animation: fadeInFromNone 2s infinite !important;
+    -moz-animation: fadeInFromNone 2s infinite !important;
+    -o-animation: fadeInFromNone 2s infinite !important;
+    animation: fadeInFromNone 2s infinite !important;
+}
+
+@keyframes fadeInFromNone {
+    0% {
+        opacity: .3;
+    }
+
+    50% {
+        opacity: .6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

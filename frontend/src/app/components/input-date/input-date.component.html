@@ -1,0 +1,14 @@
+<input 
+  [class]="setClass" 
+  [ngClass]="{'ng-invalid ng-dirty': errors.length > 0, 'datepicker-ng': !is_count}" 
+  [id]="$id" 
+  #input 
+  type="text" 
+  [placeholder]="placeholder"
+  (change)="update(input.value)"
+  (focus)="focus()"
+  [disabled]="disabled"
+>
+<div class="col_12" *ngIf="errors.length > 0">
+  <div class="col_12" style="color: red" *ngFor="let error of errors">{{ error }}</div>
+</div>

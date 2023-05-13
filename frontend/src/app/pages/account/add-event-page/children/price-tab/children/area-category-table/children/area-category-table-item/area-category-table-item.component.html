@@ -1,0 +1,58 @@
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item">{{ item.name }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap">{{ item.price }} р.</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap">{{ item.count }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__color" [ngStyle]="{backgroundColor: item.color}">
+        </div>
+    </div>
+</td>
+
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <div class="toggle toggle_empty">
+                <label class="toggle__label">
+                    <input class="toggle__input"
+                           type="checkbox"
+                           name="toggle" [checked]="item.active" (change)="changeCheckbox($event)">
+                    <span class="toggle__text"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <a href="#"
+               class="btn btn_secondary no-wrap" (click)="edit(item.id, $event)">Редактировать</a>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <a href="#"
+               class="btn btn_quaternary no-wrap" (click)="delete(item.id, $event)">Удалить</a>
+        </div>
+    </div>
+</td>

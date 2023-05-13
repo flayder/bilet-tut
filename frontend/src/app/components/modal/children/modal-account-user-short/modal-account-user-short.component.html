@@ -1,0 +1,220 @@
+<div class="modal__header">
+    <div class="modal__title title">
+        <span class="title__text h3">Изменить данные</span>
+    </div>
+    <div class="modal__action action" (click)="close($event)">
+        <svg class="action__icon">
+            <use xlink:href="/assets/img/sprite.svg#close"></use>
+        </svg>
+    </div>
+</div>
+<!-- modal content -->
+<div class="modal__main">
+    <div class="formular">
+        <form [formGroup]="form">
+            <fieldset>
+                <div class="form__group group">
+                    <div class="group__main">
+                        <div class="row">
+                            <div class="col col_6 col_mob-12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="user__name">Имя</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.username"
+                                                placeholder="Введите данные"
+                                                formControlName="username"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                            <div class="col col_6 col_mob-12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="user__surname">Фамилия</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.surname"
+                                                placeholder="Введите данные"
+                                                formControlName="surname"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+
+                            <div class="col col_6 col_mob-12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="user__phone">Телефон</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input-phone
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.phone"
+                                                placeholder="Введите данные"
+                                                formControlName="phone"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                            <div class="col col_6 col_mob-12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="user__email">Email</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.email"
+                                                placeholder="Введите данные"
+                                                formControlName="email"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                            <div class="col col_6 col_mob-12">
+                            <div class="form-item">
+                                <div class="form-item__header">
+                                    <label class="form-item__title"
+                                           for="user__kpp">КПП</label>
+                                </div>
+                                <div class="form-item__main">
+                                    <div class="form-item__field">
+                                        <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.kpp"
+                                                placeholder="Введите данные"
+                                                formControlName="kpp"
+                                            >
+                                            </div>
+                                    </div>
+                                </div>
+                            </div><!-- //form-item -->
+                        </div>
+                            <div class="col col_6 col_mob-12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="user__ipp">ИНН</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.inn"
+                                                placeholder="Введите данные"
+                                                formControlName="inn"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                            <div class="col col_6 col_mob-12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="user__name">Название компании</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.organisation_name"
+                                                placeholder="Введите данные"
+                                                formControlName="organisation_name"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                            <div class="col col_6 col_mob-12">
+                                <div class="form-item">
+                                    <div class="form-item__header">
+                                        <label class="form-item__title"
+                                               for="user__address">Юридическией адрес</label>
+                                    </div>
+                                    <div class="form-item__main">
+                                        <div class="form-item__field">
+                                            <div data-app-input
+                                                [defaultValue]="defaultValue"
+                                                [submitSubject]="formSubmit"
+                                                setClass="form-item__input"
+                                                [inputErrors]="errors"
+                                                [c]="form.controls.legal_address"
+                                                placeholder="Введите данные"
+                                                formControlName="legal_address"
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- //form-item -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<div class="modal__footer">
+    <div class="row">
+        <div class="col col_6">
+            <div class="form-item">
+                <div class="form-item__main">
+                    <button type="button" (click)="close($event)" class="btn btn_secondary modal__action">Отмена</button>
+                </div>
+            </div>
+        </div>
+        <div class="col col_6">
+            <div class="form-item">
+                <div class="form-item__main">
+                    <button type="button" (click)="save()" class="btn">Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

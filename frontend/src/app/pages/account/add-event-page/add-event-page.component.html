@@ -1,0 +1,25 @@
+<div data-app-header class="account-menu"></div>
+<div class="layout layout_account">
+    <main class="layout__main">
+        <div data-app-sidebar class="layout__sidebar sidebar"></div>
+        <!-- partial -->
+        <div class="layout__content">
+            <!-- СЕКЦИЯ ДОБАВЛЕНИЯ ЭВЕНТА -->
+            <div class="layout__section section">
+                <div class="section__header">
+                    <div class="wysiwyg">
+                        <h1 *ngIf="!event">Добавить мероприятие</h1>
+                        <h1 *ngIf="event > 0">Редактирование мероприятия</h1>
+                    </div>
+                </div>
+                <div class="section__main">
+                    <div class="account">
+                        <div class="account__eventAdd">
+                            <div data-app-wrap-tab></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

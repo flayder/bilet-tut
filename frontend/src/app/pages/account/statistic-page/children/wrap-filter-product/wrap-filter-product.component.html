@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col col_3 col_hd-desktop-12">
+        <div class="account__filter filter">
+            <div class="filter__header">
+                <div class="form-item">
+                    <div class="form-item__main">
+                        <div class="form-item__field">
+                            <div data-app-select
+                                [values]="ordering"
+                                placeholder="Сортировать"
+                                (data)="getOrder($event)"
+                            ></div>
+                        </div>
+                    </div>
+                </div><!-- //form-item -->
+            </div>
+            <div data-app-accordion-filter-block
+                [items]="items"
+            ></div>
+        </div>
+    </div>
+    <div class="col col_9 col_hd-desktop-12">
+        <div data-app-tags-filter-block
+        ></div>
+
+        <div class="events" *ngIf="items.length > 0">
+            <div class="events__list">
+                <div class="row">
+                    <div class="col col_4 col_full-hd-desktop-6 col_hd-desktop-4 col_big-desktop-6 col_mob-12" *ngFor="let item of items">
+                        <div data-app-statistic-event-item [user]="user" [item]="item"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div 
+            *ngIf="response"
+            data-app-pagination 
+            dataType="events"
+            [parameters]="params"
+            [response]="response"
+            [elements]="elements"
+        ></div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<!-- СЕКЦИЯ ГАЛЕРЕИ -->
+<div class="layout__section section">
+    <div class="section__header">
+        <div class="container">
+            <div class="row">
+                <div class="col col_6 col_big-desktop-8 col_tab-12">
+                    <div class="wysiwyg">
+                        <h1>Галерея</h1>
+                    </div>
+                </div>
+                <div class="col col_6 col_big-desktop-4 col_tab-12">
+                    <div class="section__action"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section__main">
+        <div class="container">
+            <div class="gallery">
+                <div class="gallery__list gallery__list_carousel" [id]="$id">
+                    <div class="gallery__slide" *ngFor="let item of items">
+                        <div class="gallery__item">
+                            <div class="gallery__media media">
+                                <a class="media__link" href="#" target="_blank">
+                                    <div 
+                                        class="media__img"
+                                        data-app-image
+                                        [src]="item.image.large"
+                                    ></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

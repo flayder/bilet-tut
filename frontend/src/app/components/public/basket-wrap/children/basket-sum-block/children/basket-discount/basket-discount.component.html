@@ -1,0 +1,47 @@
+<div class="payment__formular">
+    <form [formGroup]="form" class="form">
+        <fieldset>
+            <!-- //text -->
+            <div class="form__group group">
+                <div class="group__main">
+                    <div class="row">
+                        <div class="col col_12">
+                            <div class="form-item">
+                                <div class="form-item__header">
+                                    <label class="form-item__title"
+                                           for="basket__promocode">Промокод</label>
+                                </div>
+                                <div class="form-item__main">
+                                    <div class="form-item__field">
+                                        <div data-app-input
+                                            [defaultValue]="defaultValue"
+                                            [submitSubject]="formSubmit"
+                                            setClass="form-item__input"
+                                            [inputErrors]="errors"
+                                            [c]="form.controls.discount"
+                                            placeholder="Введите данные"
+                                            formControlName="discount"
+                                        >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col_12">
+                            <div class="form-item">
+                                <div class="form-item__main">
+                                    <div class="form-item__field">
+                                        <button (click)="save()" type="button"
+                                                class="btn btn_secondary">
+                                            Применить
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

@@ -1,0 +1,222 @@
+{% load lazy_text %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://bilet-tut.ru/assets/css/main.css">
+    <style>
+        body {
+            width: 900px;
+            margin: 0 auto;
+        }
+        .event__print {
+          background: #fff;
+        }
+        .event__print * {
+          background: transparent !important;
+        }
+        .event__print .print__type.print__type_concert .type__text {
+          background-color: #FAAD14 !important;
+        }
+        .row {
+            display: block;
+            position: relative;
+        }
+        .col {
+            display: block;
+        }
+        .print__group * {
+            display: inline-block !important;
+        }
+        .print__group {
+            display: block;
+        }
+        .drag {
+          display: block !important; 
+          width: 100%; 
+          min-height: 0 !important; 
+          text-align: left !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="event__print print">
+        <div class="print__header">
+          <div class="print__logo">
+            <a href="https://bilet-tut.ru/">
+              <img src="https://bilet-tut.ru/assets/img/logo.jpg" width="129" height="40" alt="">
+            </a>
+          </div>
+          {% if user.phone %}
+            <div class="print__phone phone">
+              <span class="phone__text">{{ user.phone }}</span>
+            </div>
+          {% endif %}
+        </div>
+        {% if order and basket and user %}
+          <div class="print__options options">
+            <div class="options__list" style="display: block;">
+              <div class="options__item" style="display: inline-block;">
+                <span class="options__title">№ билтета:</span>
+                <span class="options__value">{{ basket.pk }}</span>
+              </div>
+              <div class="options__item" style="display: inline-block; white-space: nowrap;">
+                <span class="options__title">№: Заказа</span>
+                <span class="options__value">{{ order.pk }}</span>
+              </div>
+              <br/>
+              <div class="options__item" style="display: inline-block; white-space: nowrap;">
+                <span class="options__title">Покупатель:</span>
+                <span class="options__value">{{ user.get_name_info }}</span>
+              </div>
+              <br/>
+              <div class="options__item" style="display: inline-block; white-space: nowrap;">
+                <span class="options__title">Дата оформления:</span>
+                <span class="options__value">{{ date }}</span>
+              </div>
+              <div class="options__item" style="display: inline-block;">
+                <span class="options__title">Стоимость:</span>
+                <span class="options__value">
+                {{ basket.get_total_price }}
+                р.</span>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+        {% if event %}
+          <div class="print__main" style="height: 120px;">
+            <div class="row">
+              <div class="col col_3 col_mob-12" style="position: absolute; top: 0; left: 0;">
+                <div class="print__group">
+                  <div class="print__type print__type_concert type" style="width: 100%;">
+                    {% if event.type %}
+                      <span class="type__text">{{ event.type.name }}</span>
+                    {% endif %}
+                  </div>
+                  {% if event.age %}
+                    <div class="print__age age">
+                      <span class="age__text" style="margin-top: 10px;">{{ event.age }}</span>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+              <div class="col col_6 col_mob-12" style="position: absolute; top: 0; left: 25%;">
+                <div class="print__group" style="display: block;">
+                  <div class="print__title title">
+                    <div class="title__text">{{ event.name }} ajhshdhj ajs kajhks jdahj </div>
+                  </div>
+                  <div class="print__subtitle subtitle">
+                    <div class="subtitle__text">{{ event.area.address }}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col col_3 col_mob-12" style="width: 76px; position: absolute; top: 0; right: 0;">
+                <div class="print__group" style="position: relative;">
+                  {% if qr %}
+                    <div class="print__code code">
+                      <img class="code__img" src="{{ qr }}" alt="">
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+        {% if template %}
+          {% if template_photo %}
+            <div class="form__group group">
+              <div class="group__header">
+                <div class="wysiwyg">
+                  <h3>Изображение афиши</h3>
+                </div>
+              </div>
+              <div class="group__main">
+                <div class="form-item">
+                  <div class="form-item__main">
+                    <div class="form-item__field">
+                      <img class="media__img" src="{{ template_photo }}" style="width: 100%; height: auto;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          {% endif %}
+          <!---->
+          {% if template.is_attention and template.attention %}
+            <div class="form__group group">
+              <div class="group__header">
+                <div class="wysiwyg">
+                  <h3>Блок “Внимание”</h3>
+                </div>
+              </div>
+              <div class="group__main">
+                <div class="form-item">
+                  <div class="form-item__main">
+                    <div class="form-item__field">
+                      <div class="attach">
+                        <div class="attach attach__file attach__file_single">
+                          <div data-listname="listPoster" class="attach__drag drag"> {{ template.attention | lazy_text | safe }} </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+          <!---->
+          {% if template.is_returning and template.returning %}
+            <div class="form__group group">
+              <div class="group__header">
+                <div class="wysiwyg">
+                  <h3>Организатор, продавец, запреты, инструкция по складыванию</h3>
+                </div>
+              </div>
+              <div class="group__main">
+                <div class="form-item">
+                  <div class="form-item__main">
+                    <div class="form-item__field">
+                      <div class="attach">
+                        <div class="attach attach__file attach__file_single">
+                          <div data-listname="listPoster" class="attach__drag drag"> {{ template.returning | lazy_text | safe }} </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+          <!---->
+          {% if template.is_description and template.description %}
+            <div class="form__group group">
+              <div class="group__header">
+                <div class="wysiwyg">
+                  <h3>О событии</h3>
+                </div>
+              </div>
+              <div class="group__main">
+                <div class="form-item">
+                  <div class="form-item__main">
+                    <div class="form-item__field">
+                      <div class="attach">
+                        <div class="attach attach__file attach__file_single">
+                          <div data-listname="listPoster" class="attach__drag drag"> {{ template.description | lazy_text | safe }} </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+          <!---->
+        {% endif %}
+      </div>
+</body>
+</html>

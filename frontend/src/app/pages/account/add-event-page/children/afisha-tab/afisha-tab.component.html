@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col col_10 col_tab-12">
+        <div class="formular">
+            <form action="#">
+                <fieldset>
+                    <div class="row">
+                        <div class="col col_6 col_tab-12">
+                            <div class="form__group group">
+                                <div class="group__header">
+                                    <div class="wysiwyg">
+                                        <h3>Афиша</h3>
+                                    </div>
+                                </div>
+                                <div class="group__main">
+                                    <div data-app-photo-component 
+                                        [value]="getAfisha()" 
+                                        (onFile)="afishaImage($event)" 
+                                        (onDelete)="afishaDelete($event)"
+                                    ></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col_6 col_tab-12">
+                            <div class="form__group group">
+                                <div class="group__header">
+                                    <div class="wysiwyg">
+                                        <h3>Анонс</h3>
+                                    </div>
+                                </div>
+                                <div class="group__main">
+                                    <div data-app-photo-component 
+                                        [value]="getPreview()" 
+                                        (onFile)="previewImage($event)" 
+                                        (onDelete)="previewDelete($event)"
+                                    ></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="group__footer">
+                        <button 
+                            type="button" 
+                            (click)="save()" 
+                            class="btn">Сохранить
+                            изменения
+                        </button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    
+</div>

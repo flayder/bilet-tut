@@ -1,0 +1,67 @@
+<td>
+    <div class="table__group group" *ngFor="let itm of item.products">
+        <div class="group__media media">
+            <a class="media__link" [routerLink]="['/event', itm.product.id]">
+                <div 
+                    data-app-image
+                    class="media__img"
+                    [src]="itm.product.preview.image.small"
+                ></div>
+            </a>
+        </div>
+        <div class="group__main">
+            <a class="group__item group__item_100" [routerLink]="['/event', itm.product.id]">
+                {{ itm.product.name }}
+            </a>
+            <span class="group__item group__item_300">
+                {{ getTypes(itm) }}
+            </span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group" *ngFor="let itm of item.products">
+        <div class="group__main">
+            <span class="group__item">{{ itm.date.start_date| date: "dd.MM.Y" }}</span>
+            <span class="group__item">{{ itm.date.start_date| date: "HH:mm" }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group" *ngFor="let itm of item.products">
+        <div class="group__main">
+            <!-- <span class="group__item">Манеж</span> -->
+            <span class="group__item group__item_300">{{ itm.product.area.city.name }}, {{ itm.product.area.address }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group" *ngFor="let itm of item.products">
+        <div class="group__main">
+            <span class="group__item">{{ itm.quantity }} взрослый</span>
+            <span class="group__item group__item_300">0 детский</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group" *ngFor="let itm of item.products">
+        <div class="group__main" *ngIf="getDiscount(itm) > 0">
+            <span class="group__item discount"><strong>{{ getPrice(itm) }} р.</strong></span>
+            <span class="group__item">{{ getDiscount(itm) }} р.</span>
+            <span class="group__item group__item_500">{{ item.status.name }}</span>
+        </div>
+        <div class="group__main" *ngIf="getDiscount(itm) == 0">
+            <span class="group__item">{{ getPrice(itm) }} р.</span>
+            <span class="group__item group__item_500">{{ item.status.name }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main" *ngIf="item.status.code == 'paid'">
+            <button class="btn btn_secondary" (click)="repeatBilets($event)">Повторить отправку билетов</button>
+            <br/>
+            <button class="btn btn_tertiary" *ngIf="item.payment.code != 'free'" (click)="refundOrder($event)">Возврат оплаты</button>
+        </div>
+    </div>
+</td>

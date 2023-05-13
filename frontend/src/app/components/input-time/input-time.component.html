@@ -1,0 +1,12 @@
+<input 
+  [class]="setClass" [ngClass]="{'ng-invalid ng-dirty': errors.length > 0}" 
+  #input 
+  [type]="type" 
+  [placeholder]="placeholder" 
+  [value]="value"
+  [id]="$id"
+  [disabled]="disabled"
+>
+<div class="col_12" *ngIf="errors.length > 0">
+  <div class="col_12" style="color: red" *ngFor="let error of errors">{{ error }}</div>
+</div>

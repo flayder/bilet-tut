@@ -1,0 +1,196 @@
+<div class="layout">
+    <div data-app-header></div>
+
+    <div class="layout__main">
+        <!-- partial:parts/_breadcrumbs.html -->
+        <!-- // ХЛЕБНЫЕ КРОШКИ -->
+        <div data-app-breadcrumbs></div>
+        <!-- partial -->
+
+        <!-- СЕКЦИЯ ОБЫТИЙ -->
+        <div class="layout__section section" *ngIf="item">
+            <div class="section__main">
+                <div class="container">
+                    <div class="event">
+                        <div class="row">
+                            <div class="col col_12">
+                                <div class="event__banner banner">
+                                    <div class="banner__media media">
+                                        <div data-app-image class="media__img" 
+                                            [src]="item.afisha.image.url"></div>
+                                    </div>
+                                    <div class="banner__layout">
+                                        <div class="banner__header">
+                                            <div class="banner__type-block">
+                                                <div class="banner__type banner__type_concert type" *ngIf="item.type">
+                                                    <span class="type__text">{{ item.type.name }}</span>
+                                                </div>
+                                            </div>
+                                            <div data-app-favorite setClass="banner__favorite" [item]="item"></div>
+                                        </div>
+                                        <div class="banner__main">
+                                            <div class="banner__content">
+                                                <div class="wysiwyg">
+                                                    <h1>«{{ item.name }}»</h1>
+                                                    <!-- <p>
+                                                        
+                                                    </p> -->
+                                                </div>
+                                            </div>
+                                            <div class="banner__data data">
+                                                <div class="data__list">
+                                                    <div class="row">
+                                                        <div class="col col_4 col_big-desktop-6 col_mob-12"  *ngIf="item.start_date != 0">
+                                                            <div class="data__item">
+                                                                <div class="data__media">
+                                                                    <svg class="media__ico">
+                                                                        <use xlink:href="/assets/img/sprite.svg#date"></use>
+                                                                    </svg>
+                                                                </div>
+                                                                <div class="data__main">
+                                                                    <div class="wysiwyg">
+                                                                        <p *ngIf="!isDateSame()">с {{ item.start_date | date: "dd.MM.Y" }} по {{ item.finish_date | date: "dd.MM.Y" }}</p>
+                                                                        <p *ngIf="isDateSame()">{{ item.start_date | date: "dd.MM.Y" }}</p>
+                                                                        <p *ngIf="!isDateSame()">{{ item.start_date | date: "HH:mm" }}-{{ item.finish_date | date: "HH:mm" }}</p>
+                                                                        <p *ngIf="isDateSame()">{{ item.start_date | date: "HH:mm" }}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col col_4 col_big-desktop-6 col_mob-12">
+                                                            <div class="data__item">
+                                                                <div class="data__media">
+                                                                    <svg class="media__ico">
+                                                                        <use xlink:href="/assets/img/sprite.svg#location"></use>
+                                                                    </svg>
+                                                                </div>
+                                                                <div class="data__main">
+                                                                    <div class="wysiwyg">
+                                                                        <p>{{ item.area.name }}</p>
+                                                                        <p>{{ item.area.city.name }}, {{ item.area.address }}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="banner__footer" *ngIf="item.status.code == 'active' && item.start_date != 0">
+                                            <div class="banner__action action">
+                                                <span data-buy-btn
+                                                    [data]="item"
+                                                    setClass="action__btn btn modal-init"
+                                                    [text]="'Купить билет от ' + item.price[0] +  ' р.'"
+                                                ></span>
+                                            </div>
+                                        </div>
+                                        <div class="banner__footer" *ngIf="item.status.code == 'sold-out'">
+                                            <div class="banner__action action">
+                                                билетов нет
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col_9 col_big-desktop-8 col_mob-12">
+                                <div class="event__layout">
+                                    <div class="event__main">
+                                        <div class="wysiwyg" [innerHTML]="setHtml()"></div>
+                                    </div>
+                                    <div class="event__footer">
+                                        <div class="event__data data">
+                                            <div class="data__list">
+                                                <div class="data__item">
+                                                    <div class="row">
+                                                        <div class="col col_5 col_big-desktop-12">
+                                                            <div class="wysiwyg">
+                                                                <p><strong>Организатор мероприятия:</strong></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col col_7 col_big-desktop-12">
+                                                            <div class="wysiwyg">
+                                                                <p>{{ item.user.kor_name }} {{ item.user.legal_first_name }} {{ item.user.legal_name }} {{ item.user.legal_last_name }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="data__item" *ngIf="item.user.inn || item.user.ogrn">
+                                                    <div class="row">
+                                                        <div class="col col_5 col_big-desktop-12">
+                                                            <div class="wysiwyg">
+                                                                <p><strong>ИНН/ОГРН:</strong></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col col_7 col_big-desktop-12">
+                                                            <div class="wysiwyg">
+                                                                <p>{{ item.user.inn }}/{{ item.user.ogrn }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col_3 col_big-desktop-4 col_mob-12">
+                                <aside class="event__sidebar sidebar" *ngIf="promotion">
+                                    <div class="sidebar__header">
+                                        <div class="sidebar__title title">
+                                            <span class="title__text">Действует акция {{ getPromotionName() }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="sidebar__main">
+                                        <div class="wysiwyg">
+                                            <p>{{ getPromotionDescription() }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="sidebar__media">
+                                        <div data-app-image 
+                                            src="/assets/img/content/event/event__banner01.png"
+                                            class="media__img"
+                                        ></div>
+                                    </div>
+                                </aside>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- СЕКЦИЯ КАРТЫ -->
+        <div class="layout__section section">
+            <div class="section__header">
+                <div class="container">
+                    <div class="wysiwyg">
+                        <h1>Место проведения</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="section__main" *ngIf="item && getLatitude() && getLongtitude()">
+                <div class="container">
+                    <div class="row">
+                        <div class="col col_9 col_big-desktop-8 col_mob-12">
+                            <div style="width: 100%; height: 500px;">
+                              <ya-map [center]="[getLatitude(), getLongtitude()]" [zoom]="12">
+                                <ya-placemark [geometry]="[getLatitude(), getLongtitude()]"></ya-placemark>
+                              </ya-map>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div data-app-event-gallery *ngIf="item" [items]="getGallery()"></div>
+
+    </div>
+
+    <div data-app-footer></div>
+</div>

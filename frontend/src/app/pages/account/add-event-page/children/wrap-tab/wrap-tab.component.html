@@ -1,0 +1,73 @@
+<div class="tabs">
+    <div class="tabs__header">
+        <div class="tabs__list">
+            <div class="tabs__item" [ngClass]="{tabs__item_active: tab == 'main'}" (click)="setTab('main')">
+                <div class="tabs__title title"><span class="title__text">Основное</span>
+                </div>
+            </div><!-- //item -->
+            <div class="tabs__item" [ngClass]="{tabs__item_active: tab == 'afisha'}" (click)="setTab('afisha')">
+                <div class="tabs__title title"><span class="title__text">Афиша</span></div>
+            </div><!-- //item -->
+            <div class="tabs__item" [ngClass]="{tabs__item_active: tab == 'date'}" (click)="setTab('date')">
+                <div class="tabs__title title"><span
+                        class="title__text">Дата, время, место</span></div>
+            </div><!-- //item -->
+            <div class="tabs__item" [ngClass]="{tabs__item_active: tab == 'scene'}" (click)="setTab('scene')">
+                <div class="tabs__title title"><span class="title__text">Сцена</span></div>
+            </div><!-- //item -->
+            <div class="tabs__item" [ngClass]="{tabs__item_active: tab == 'price'}" (click)="setTab('price')">
+                <div class="tabs__title title"><span
+                        class="title__text">Цена и промокоды</span></div>
+            </div><!-- //item -->
+            <div class="tabs__item" style="display: none;" [ngClass]="{tabs__item_active: tab == 'vidget'}" (click)="setTab('vidget')">
+                <div class="tabs__title title"><span class="title__text">Виджет</span></div>
+            </div><!-- //item -->
+            <div class="tabs__item" [ngClass]="{tabs__item_active: tab == 'print'}" (click)="setTab('print')">
+                <div class="tabs__title title"><span
+                        class="title__text">Печать билета</span></div>
+            </div><!-- //item -->
+            <div class="tabs__item" style="display: none;" [ngClass]="{tabs__item_active: tab == 'dis'}" (click)="setTab('dis')">
+                <div class="tabs__title title"><span
+                        class="title__text">Распространители</span></div>
+            </div><!-- //item -->
+        </div>
+    </div><!-- //tabs-header -->
+    <div class="tabs__body">
+        <div class="tabs__list">
+            <div class="tabs__item" [ngClass]="{tabs__item_active: tab == 'main'}">
+                <div data-app-main-tab></div>
+            </div>
+            <!-- tabs item 2 -->
+            <div class="tabs__item" [ngClass]="{tabs__item_active: tab == 'afisha'}">
+                <div data-app-afisha-tab></div>
+            </div>
+            <!-- tabs item 3 -->
+            <div class="tabs__item" [ngClass]="{tabs__item_active: tab == 'date'}">
+                <div data-app-date-tab></div>
+            </div>
+            <!-- tabs item 4 -->
+            <div class="tabs__item" [ngClass]="{tabs__item_active: tab == 'scene'}">
+                <div data-app-scene-tab></div>
+            </div>
+            <!-- tabs item 5 -->
+            <div class="tabs__item" [ngClass]="{tabs__item_active: tab == 'price'}">
+                <div data-app-price-tab></div>
+            </div>
+
+            <!-- tabs item 6 -->
+            <div class="tabs__item" [ngClass]="{tabs__item_active: tab == 'vidget'}">
+                <div data-app-vidget-tab></div>
+            </div>
+
+            <!-- tabs item 7 -->
+            <div class="tabs__item" [ngClass]="{tabs__item_active: tab == 'print'}">
+                <div data-app-print-tab></div>
+            </div>
+
+            <!-- tabs item 8 -->
+            <div class="tabs__item" [ngClass]="{'tabs__item_active': tab == 'dis'}">
+                <div data-app-distribute-tab></div>
+            </div>
+        </div>
+    </div>
+</div>

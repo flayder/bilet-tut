@@ -1,0 +1,25 @@
+<div data-app-header></div>
+<div class="layout" *ngIf="page">
+    <main class="layout__main">
+        <!-- partial:parts/_breadcrumbs.html -->
+        <!-- // ХЛЕБНЫЕ КРОШКИ -->
+        <div data-app-breadcrumbs></div>
+        <!-- partial -->
+        <!-- СЕКЦИЯ ОФОРМЛЕНИЯ ЗАКАЗА -->
+        <div class="layout__section section">
+            <div class="section__header">
+                <div class="row">
+                    <div class="col col_7 col_desktop-9 col_mob-12">
+                        <div class="wysiwyg">
+                            <h1>{{ page.h1 }}</h1>
+                            <div [innerHTML]="page.content"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-app-wrap-feedback-page></div>
+        </div>
+    </main><!-- //middle -->
+</div>
+
+<div data-app-footer></div>

@@ -1,0 +1,68 @@
+<div class="sidebar__group">
+    <div class="sidebar__nav nav">
+    <div class="nav__list">
+        <div class="nav__item" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="nav__item_active">
+            <a class="nav__link" routerLink="/">
+                <div class="nav__media media">
+                    <svg class="media__ico"><use xlink:href="/assets/img/sprite.svg#menu-ico01"></use></svg>
+                </div>
+                <div class="nav__title title"><span class="title__text">Главная</span></div>
+            </a>
+        </div>
+        <div class="nav__item" routerLinkActive="nav__item_active">
+            <a class="nav__link" routerLink="/account/orders">
+                <div class="nav__media media">
+                    <svg class="media__ico"><use xlink:href="/assets/img/sprite.svg#menu-ico03"></use></svg>
+                </div>
+                <div class="nav__title title"><span class="title__text">Заказы</span></div>
+            </a>
+        </div>
+        <div class="nav__item" routerLinkActive="nav__item_active">
+            <a class="nav__link" routerLink="/account/favorite">
+                <div class="nav__media media">
+                    <svg class="media__ico"><use xlink:href="/assets/img/sprite.svg#menu-ico15"></use></svg>
+                </div>
+                <div class="nav__title title"><span class="title__text">Избранное</span></div>
+            </a>
+        </div>
+        <div class="nav__item" routerLinkActive="nav__item_active">
+            <a class="nav__link" routerLink="/account/return">
+                <div class="nav__media media">
+                    <svg class="media__ico"><use xlink:href="/assets/img/sprite.svg#menu-ico09"></use></svg>
+                </div>
+                <div class="nav__title title"><span class="title__text">Возврат билетов</span></div>
+            </a>
+        </div>
+        <div class="nav__item" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="nav__item_active">
+            <a class="nav__link" routerLink="/account">
+                <div class="nav__media media">
+                    <svg class="media__ico"><use xlink:href="/assets/img/sprite.svg#menu-ico12"></use></svg>
+                </div>
+                <div class="nav__title title"><span class="title__text">Настройки</span></div>
+            </a>
+        </div>
+    </div>
+    </div>
+</div>
+<div class="sidebar__group">
+    <div class="sidebar__nav nav">
+    <div class="nav__list">
+        <div class="nav__item" style="display: none;">
+            <a class="nav__link" href="#">
+                <div class="nav__media media">
+                    <svg class="media__ico"><use xlink:href="/assets/img/sprite.svg#menu-ico13"></use></svg>
+                </div>
+                <div class="nav__title title"><span class="title__text">Регистрация</span></div>
+            </a>
+        </div>
+        <div class="nav__item">
+            <a class="nav__link" href="#" (click)="logout($event)">
+                <div class="nav__media media">
+                    <svg class="media__ico"><use xlink:href="/assets/img/sprite.svg#menu-ico14"></use></svg>
+                </div>
+                <div class="nav__title title"><span class="title__text">Выход</span></div>
+            </a>
+        </div>
+    </div>
+    </div>
+</div>

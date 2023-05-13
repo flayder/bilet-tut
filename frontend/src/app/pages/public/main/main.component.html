@@ -1,0 +1,17 @@
+<div class="layout">
+  <div data-app-header></div>
+
+  <!-- ОСНОВНОЙ СЛАЙДЕР -->
+  <div data-app-top-slider pageType="search"></div>
+
+  <main class="layout__main">
+
+    <div data-app-main-slider [item]="item" *ngFor="let item of rubrics"></div>
+    
+    <!-- СЕКЦИЯ БАНЕРА -->
+    <div data-app-bottom-banner></div>
+
+  </main><!-- //middle -->
+
+  <div data-app-footer></div>
+</div>

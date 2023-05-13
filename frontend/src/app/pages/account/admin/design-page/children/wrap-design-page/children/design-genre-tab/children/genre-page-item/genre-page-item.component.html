@@ -1,0 +1,28 @@
+<div class="genres__group group">
+    <div class="group__header">
+        <div class="group__title title">
+            <span class="title__text">{{ item.key }}</span>
+        </div>
+    </div>
+    <div class="group__main">
+        <div class="group__item" *ngFor="let i of item.value">
+            <div class="group__title title">
+                <span class="title__text">{{ i.name }}</span>
+            </div>
+            <div class="group__actions actions">
+                <div class="actions__list">
+                    <div class="actions__item actions__item_edit" (click)="getDetail(i)">
+                        <svg class="actions__ico">
+                            <use xlink:href="/assets/img/sprite.svg#edit"></use>
+                        </svg>
+                    </div>
+                    <div class="actions__item actions__item_basket" (click)="delete(i)">
+                        <svg class="actions__ico">
+                            <use xlink:href="/assets/img/sprite.svg#basket"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

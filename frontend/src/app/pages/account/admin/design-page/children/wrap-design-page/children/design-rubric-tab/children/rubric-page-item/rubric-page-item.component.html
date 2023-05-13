@@ -1,0 +1,43 @@
+<div class="events__item">
+    <!-- events media -->
+    <div class="events__header">
+        <div class="events__media">
+            <a class="media__link" href="#" (click)="getDetail($event)">
+                <div data-app-image
+                    class="media__img"
+                    [src]="item.image.image.medium"
+                ></div>
+            </a>
+        </div>
+        <div class="events__favorite favorite action" (click)="delete()">
+            <svg class="favorite__ico action__ico" style="stroke: #EE2828;">
+                <use xlink:href="/assets/img/sprite.svg#basket"></use>
+            </svg>
+        </div>
+        <!-- <div class="events__date date">
+            <span class="date__day">3</span>
+            <span class="date__month">Авг</span>
+        </div>
+        <div class="events__type events__type_concert type">
+            <span class="type__text">Концерт</span>
+        </div> -->
+    </div>
+    <div class="events__main">
+        <div class="events__price price" style="display: none;">
+            <span class="price__text">от 1000 р</span>
+        </div>
+        <div class="events__title title">
+            <a class="title__text" href="#" (click)="getDetail($event)">{{ item.name }}</a>
+        </div>
+        <div class="events__location location" style="display: none;">
+            <div class="location__media media">
+                <svg class="media__ico">
+                    <use xlink:href="/assets/img/sprite.svg#location"></use>
+                </svg>
+            </div>
+            <div class="location__title title">
+                <span class="title__text">Место проведения концерта</span>
+            </div>
+        </div>
+    </div>
+</div>

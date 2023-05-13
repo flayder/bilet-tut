@@ -1,0 +1,211 @@
+<div class="section__main">
+    <div class="formular">
+        <div class="row">
+            <div class="col col_7 col_desktop-9 col_mob-12">
+                <form [formGroup]="form">
+                    <fieldset>
+                        <!-- //text -->
+                        <div class="form__group group">
+                            <div class="group__main">
+                                <div class="row">
+                                    <div class="col col_6 col_tab-12">
+                                        <div class="form-item">
+                                            <div class="form-item__header">
+                                                <label class="form-item__title" for="feedback-main">Категория
+                                                    вопроса</label>
+                                            </div>
+                                            <div class="form-item__main">
+                                                <div class="form-item__field">
+                                                    <div data-app-select
+                                                        sugg_url="/api/questions/"
+                                                        [get_data]="{
+                                                            name: 'name',
+                                                            value: 'id'
+                                                        }"
+                                                        [defaultValue]="defaultValue"
+                                                        [submitSubject]="formSubmit"
+                                                        setClass="form-item__input"
+                                                        [inputErrors]="errors"
+                                                        [c]="form.controls.question"
+                                                        placeholder="Введите данные"
+                                                        formControlName="question"
+                                                    >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!-- //form-item -->
+                                    </div>
+                                    <div class="col col_6 col_tab-12">
+                                        <div class="form-item">
+                                            <div class="form-item__header">
+                                                <label class="form-item__title" for="feedback-theme">Тема
+                                                    вопроса</label>
+                                            </div>
+                                            <div class="form-item__main">
+                                                <div class="form-item__field">
+                                                    <div data-app-input
+                                                        [defaultValue]="defaultValue"
+                                                        [submitSubject]="formSubmit"
+                                                        setClass="form-item__input"
+                                                        [inputErrors]="errors"
+                                                        [c]="form.controls.theme"
+                                                        placeholder="Введите данные"
+                                                        formControlName="theme"
+                                                    >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!-- //form-item -->
+                                    </div>
+                                    <div class="col col_12">
+                                        <div class="form-item">
+                                            <div class="form-item__main">
+                                                <div class="form-item__field">
+                                                    <div data-app-input
+                                                        [defaultValue]="defaultValue"
+                                                        [submitSubject]="formSubmit"
+                                                        setClass="form-item__input"
+                                                        [inputErrors]="errors"
+                                                        type="textarea"
+                                                        [c]="form.controls.text"
+                                                        placeholder="Опишите ваш вопрос"
+                                                        formControlName="text"
+                                                    >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!-- //form-item -->
+                                    </div>
+                                    <div class="col col_6 col_tab-12">
+                                        <div class="form-item">
+                                            <div class="form-item__header">
+                                                <label class="form-item__title" for="feedback-number">Номер
+                                                    заказа</label>
+                                            </div>
+                                            <div class="form-item__main">
+                                                <div class="form-item__field">
+                                                    <div data-app-input
+                                                        [defaultValue]="defaultValue"
+                                                        [submitSubject]="formSubmit"
+                                                        setClass="form-item__input"
+                                                        [inputErrors]="errors"
+                                                        type="number"
+                                                        [c]="form.controls.order"
+                                                        placeholder="Введите данные"
+                                                        formControlName="order"
+                                                    >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!-- //form-item -->
+                                    </div>
+                                    <div class="col col_6 col_tab-12">
+                                        <div class="form-item">
+                                            <div class="form-item__header">
+                                                <label class="form-item__title" for="feedback-title">Название
+                                                    мероприятия</label>
+                                            </div>
+                                            <div class="form-item__main">
+                                                <div class="form-item__field">
+                                                    <div data-app-input
+                                                        [defaultValue]="defaultValue"
+                                                        [submitSubject]="formSubmit"
+                                                        setClass="form-item__input"
+                                                        [inputErrors]="errors"
+                                                        [c]="form.controls.event_name"
+                                                        placeholder="Введите данные"
+                                                        formControlName="event_name"
+                                                    >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!-- //form-item -->
+                                    </div>
+                                    <div class="col col_6 col_tab-12">
+                                        <div class="form-item">
+                                            <div class="form-item__header">
+                                                <label class="form-item__title" for="feedback-name">Ваше
+                                                    имя</label>
+                                            </div>
+                                            <div class="form-item__main">
+                                                <div class="form-item__field">
+                                                    <div data-app-input
+                                                        [defaultValue]="defaultValue"
+                                                        [submitSubject]="formSubmit"
+                                                        setClass="form-item__input"
+                                                        [inputErrors]="errors"
+                                                        [c]="form.controls.name"
+                                                        placeholder="Введите данные"
+                                                        formControlName="name"
+                                                    >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!-- //form-item -->
+                                    </div>
+                                    <div class="col col_6 col_tab-12">
+                                        <div class="form-item">
+                                            <div class="form-item__header">
+                                                <label class="form-item__title"
+                                                       for="feedback-email">Email</label>
+                                            </div>
+                                            <div class="form-item__main">
+                                                <div class="form-item__field">
+                                                    <div data-app-input
+                                                        [defaultValue]="defaultValue"
+                                                        [submitSubject]="formSubmit"
+                                                        setClass="form-item__input"
+                                                        [inputErrors]="errors"
+                                                        [c]="form.controls.email"
+                                                        placeholder="Введите данные"
+                                                        formControlName="email"
+                                                    >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!-- //form-item -->
+                                    </div>
+                                    <div class="col col_12">
+                                        <!-- Правила -->
+                                        <div class="form-item">
+                                            <div class="form-item__main">
+                                                <div class="custom-check">
+                                                    <label class="custom-check__label">
+                                                        <input id="feedback__checkbox"
+                                                               class="custom-check__input"
+                                                               type="checkbox"
+                                                               name="chekbox" (change)="isChecked($event)" checked>
+                                                        <svg class="custom-check__ico custom-check__ico_before">
+                                                            <use xlink:href="/assets/img/sprite.svg#checkboxBefore"></use>
+                                                        </svg>
+                                                        <svg class="custom-check__ico custom-check__ico_after">
+                                                            <use xlink:href="/assets/img/sprite.svg#checkboxAfter"></use>
+                                                        </svg>
+                                                        <span class="custom-check__text">Я согласен(а) с <a
+                                                                routerLink="/public-offert">договором-офертой</a></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="group__footer">
+                                <div class="row">
+                                    <div class="col col_12">
+                                        <!-- Отправка формы -->
+                                        <div class="form-item">
+                                            <div class="form-item__main">
+                                                <button type="button" (click)="save()" class="btn">Отправить</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

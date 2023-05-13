@@ -1,0 +1,68 @@
+<div data-app-header class="account-menu"></div>
+<div class="layout layout_account">
+    <main class="layout__main">
+        <div data-app-sidebar class="layout__sidebar sidebar"></div>
+        <!-- partial -->
+        <div class="layout__content">
+            <!-- СЕКЦИЯ ИЗБРАННОЕ -->
+            <div class="layout__section section">
+                <div class="section__header">
+                    <div class="row">
+                        <div class="col col_7 col_hd-desktop-6 col_big-desktop-12">
+                            <div class="wysiwyg">
+                                <h1>Избранное</h1>
+                            </div>
+                        </div>
+                        <div class="col col_5 col_hd-desktop-6 col_big-desktop-12">
+                            <div class="row">
+                                <div class="col col_7 col_mob-12">
+                                    <div class="form-item form-item_before">
+                                        <div class="form-item__main">
+                                            <div class="form-item__field">
+                                                <input class="form-item__input" type="text"
+                                                       placeholder="Поиск" (keyup)="search($event)">
+                                            </div>
+                                            <div class="form-item__media media">
+                                                <svg class="media__ico">
+                                                    <use xlink:href="/assets/img/sprite.svg#search"></use>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col_5 col_mob-12">
+                                    <div class="form-item">
+                                        <div class="form-item__main">
+                                            <div class="form-item__field">
+                                                <div data-app-select 
+                                                    [values]="categories" 
+                                                    (data)="setCategory($event)"
+                                                    placeholder="Категории"
+                                                ></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section__main">
+                    <div class="account">
+                        <div class="account__favorites">
+                            <div class="events">
+                                <div class="events__list">
+                                    <div class="row">
+                                        <div class="col col_3 col_hd-desktop-4 col_tab-6 col_mob-12" *ngFor="let item of items">
+                                            <div data-app-event-block [item]="item"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main><!-- //middle -->
+</div>

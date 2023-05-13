@@ -1,0 +1,133 @@
+<main class="layout">
+    <div data-app-header></div>
+    <div class="layout__section section">
+        <div class="section__media media">
+            <div class="container container_tertiary">
+                <div data-app-image 
+                    class="media__img"
+                    src="/assets/img/content/authorization/authorization__img02.png"
+                ></div>
+            </div>
+        </div>
+        <div class="section__header" *ngIf="type == 'email'">
+            <div class="container container_tertiary">
+                <div class="wysiwyg text-center">
+                    <h2>Восстановление пароля</h2>
+                    <p>
+                        Введите свой электронный адрес, и мы вышлем вам ссылку для восстановления пароля
+                    </p>
+                </div>
+            </div>
+            <div class="container container_tertiary">
+                <button type="button" (click)="setType('phone')" class="btn">Восстановить через телефон</button>
+            </div>
+        </div>
+        <div class="section__header" *ngIf="type == 'phone'">
+            <div class="container container_tertiary">
+                <div class="wysiwyg text-center">
+                    <h2>Восстановление пароля</h2>
+                    <p>
+                        Мы позвоним вам или отправим SMS,
+                        чтобы подтвердить номер телефона
+                    </p>
+                </div>
+            </div>
+            <div class="container container_tertiary">
+                <button type="button" (click)="setType('email')" class="btn">Восстановить через почту</button>
+            </div>
+        </div>
+        <div class="section__main">
+            <div class="container container_tertiary">
+                <div class="authorization">
+                    <div class="authorization__formular">
+                        <form [formGroup]="form" class="authorization__form" *ngIf="type == 'email'">
+                            <fieldset>
+                                <!-- //text -->
+                                <div class="form__group group">
+                                    <div class="group__main">
+                                        <div class="row">
+                                            <div class="col col_12">
+                                                <!-- Почта или телефон -->
+                                                <div class="form-item">
+                                                    <div class="form-item__header">
+                                                        <label class="form-item__title" for="user__email">Электронная почта</label>
+                                                    </div>
+                                                    <div class="form-item__main">
+                                                        <div class="form-item__field">
+                                                            <div data-app-input 
+                                                                [submitSubject]="authFormSubmit"
+                                                                [c]="form.controls.email" 
+                                                                setClass="form-item__input" 
+                                                                placeholder="Введите данные" 
+                                                                formControlName="email" 
+                                                            ></div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- //form-item -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="group__footer">
+                                        <div class="row">
+                                            <div class="col col_12">
+                                                <!-- Отправка формы -->
+                                                <div class="form-item">
+                                                    <div class="form-item__main">
+                                                        <button type="button" (click)="submit()" class="btn">Восстановить пароль</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+
+                        <form [formGroup]="formPhone" class="authorization__form" *ngIf="type == 'phone'">
+                            <fieldset>
+                                <!-- //text -->
+                                <div class="form__group group">
+                                    <div class="group__main">
+                                        <div class="row">
+                                            <div class="col col_12">
+                                                <!-- Почта или телефон -->
+                                                <div class="form-item">
+                                                    <div class="form-item__header">
+                                                        <label class="form-item__title" for="user__email">Номер телефона</label>
+                                                    </div>
+                                                    <div class="form-item__main">
+                                                        <div class="form-item__field">
+                                                            <div data-app-input-phone
+                                                                [submitSubject]="authFormPhoneSubmit"
+                                                                [c]="formPhone.controls.phone" 
+                                                                setClass="form-item__input" 
+                                                                placeholder="Введите данные" 
+                                                                formControlName="phone" 
+                                                            ></div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- //form-item -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="group__footer">
+                                        <div class="row">
+                                            <div class="col col_12">
+                                                <!-- Отправка формы -->
+                                                <div class="form-item">
+                                                    <div class="form-item__main">
+                                                        <button type="button" (click)="submitPhone()" class="btn">Восстановить пароль</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

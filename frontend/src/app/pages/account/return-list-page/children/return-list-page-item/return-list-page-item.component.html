@@ -1,0 +1,46 @@
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap">{{ item.id }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item">{{ item.reason.name }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="badge badge_400 no-wrap" 
+                [ngClass]="{
+                    badge_400: item.status.id == 2,
+                    badge_300: item.status.id == 1
+                }">{{ item.status.name }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap">{{ item.date | date: "d.MM.y" }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item no-wrap">{{ item.checkout.total_price }} р.</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <a href="#" class="btn btn_secondary no-wrap" (click)="edit($event)">Подробнее</a>
+        </div>
+    </div>
+</td>

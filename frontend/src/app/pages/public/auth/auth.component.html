@@ -1,0 +1,161 @@
+<main class="layout">
+    <div data-app-header></div>
+    <!-- СЕКЦИЯ ВХОДА -->
+    <div class="layout__section section">
+        <div class="section__media media">
+            <div class="container container_tertiary">
+                <div data-app-image class="media__img" src="/assets/img/content/authorization/authorization__img01.png"></div>
+            </div>
+        </div>
+        <div class="section__header">
+            <div class="container container_tertiary">
+                <div class="wysiwyg text-center">
+                    <h2>С возвращением!</h2>
+                    <p>
+                        Мы позвоним вам или отправим SMS,
+                        чтобы подтвердить номер телефона
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="section__main">
+            <div class="container container_tertiary">
+                <div class="account">
+                    <div class="account__formular">
+                        <form action="#" class="account__form" [formGroup]="form" (ngSubmit)="submit()">
+                            <fieldset>
+                                <!-- //text -->
+                                <div class="form__group group">
+                                    <div class="group__main">
+                                        <div class="row">
+                                            <div class="col col_12">
+                                                <!-- Почта или телефон -->
+                                                <div class="form-item">
+                                                    <div class="form-item__header">
+                                                        <label class="form-item__title" for="user__email">Электронная
+                                                            почта
+                                                            или телефон</label>
+                                                    </div>
+                                                    <div class="form-item__main">
+                                                        <div class="form-item__field">
+                                                            <div data-app-input 
+                                                                [submitSubject]="authFormSubmit"
+                                                                [c]="form.controls.login" 
+                                                                setClass="form-item__input" 
+                                                                placeholder="Введите почту или телефон" 
+                                                                formControlName="login" 
+                                                            ></div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- //form-item -->
+                                            </div>
+                                            <div class="col col_12">
+                                                <!-- Пароль -->
+                                                <div class="form-item form-item_after">
+                                                    <div class="form-item__header">
+                                                        <label class="form-item__title"
+                                                               for="user__password">Пароль</label>
+                                                    </div>
+                                                    <div class="form-item__main">
+                                                        <div class="form-item__field">
+                                                            <div data-app-input 
+                                                                [submitSubject]="authFormSubmit"
+                                                                [c]="form.controls.password"
+                                                                setClass="form-item__input"
+                                                                placeholder="Введите пароль"
+                                                                formControlName="password"
+                                                                type="password"
+                                                            ></div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- //form-item -->
+                                            </div>
+                                            <div class="col col_6">
+                                                <!-- Правила -->
+                                                <div class="form-item">
+                                                    <div class="form-item__main">
+                                                        <div class="custom-check">
+                                                            <label class="custom-check__label">
+                                                                <input id="user__checkbox"
+                                                                       class="custom-check__input"
+                                                                       type="checkbox"
+                                                                       name="chekbox" required checked>
+                                                                <svg class="custom-check__ico custom-check__ico_before">
+                                                                    <use xlink:href="/assets/img/sprite.svg#checkboxBefore"></use>
+                                                                </svg>
+                                                                <svg class="custom-check__ico custom-check__ico_after">
+                                                                    <use xlink:href="/assets/img/sprite.svg#checkboxAfter"></use>
+                                                                </svg>
+                                                                <span class="custom-check__text">Запомнить меня</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col col_6">
+                                                <!-- Забыли пароль -->
+                                                <div class="form-item">
+                                                    <div class="wysiwyg text-right">
+                                                        <p><strong><a routerLink="/recovery">Забыли пароль</a></strong></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="group__footer">
+                                        <div class="row">
+                                            <div class="col col_12">
+                                                <!-- Отправка формы -->
+                                                <div class="form-item">
+                                                    <div class="form-item__main">
+                                                        <button type="submit" class="btn">Войти</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="account__socials socials">
+                        <div class="socials__header">
+                            <div class="title" style="width: 100%; text-align: center;">
+                                <a class="title__text" routerLink="/signup" style="font-weight: bold; color: #00BA34;">регистрация</a>
+                            </div>
+                            <br/>
+                            <div class="socials__title title">
+                                <span class="title__text">или войдите через ваш аккаунт</span>
+                            </div>
+                        </div>
+                        <div class="socials__main">
+                            <div class="socials__list justify-center">
+                                <div class="socials__item">
+                                    <a class="socials__link" href="#">
+                                        <svg class="socials__ico">
+                                            <use xlink:href="/assets/img/sprite.svg#telegram"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="socials__item">
+                                    <a class="socials__link" href="#">
+                                        <svg class="socials__ico">
+                                            <use xlink:href="/assets/img/sprite.svg#whatsapp"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="socials__item">
+                                    <a class="socials__link" href="#">
+                                        <svg class="socials__ico">
+                                            <use xlink:href="/assets/img/sprite.svg#vk"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

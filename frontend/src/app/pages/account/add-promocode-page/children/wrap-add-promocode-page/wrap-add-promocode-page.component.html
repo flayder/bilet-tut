@@ -1,0 +1,454 @@
+<div class="layout__section section">
+    <div class="section__header">
+        <div class="wysiwyg">
+            <h1>Новая промоакция</h1>
+        </div>
+    </div>
+    <div class="section__main">
+        <div class="account">
+            <div class="account__promotions promotions">
+                <div class="formular">
+                    <form [formGroup]="form" class="promotions__form">
+                        <fieldset>
+                            <div class="row">
+                                <div class="col col_8 col_big-desktop-12">
+                                    <div class="form__group group">
+                                        <div class="group__main">
+                                            <div class="row">
+                                                <div class="col col_12 col_tab-12">
+                                                    <div class="form-item">
+                                                        <div class="form-item__header">
+                                                            <label class="form-item__title"
+                                                                   for="report__type">Название промокода</label>
+                                                        </div>
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <div data-app-input
+                                                                    [defaultValue]="defaultValue"
+                                                                    [submitSubject]="formSubmit"
+                                                                    setClass="form-item__input"
+                                                                    [inputErrors]="errors"
+                                                                    [c]="form.controls.name"
+                                                                    formControlName="name"
+                                                                    placeholder="Выберите данные"
+                                                                >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+                                                <div class="col col_12 col_tab-12">
+                                                    <div class="form-item">
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <div data-app-input-checkbox
+                                                                    [defaultValue]="defaultValue"
+                                                                    [submitSubject]="formSubmit"
+                                                                    [inputErrors]="errors"
+                                                                    [c]="form.controls.active"
+                                                                    formControlName="active"
+                                                                    placeholder="Активный"
+                                                                >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+                                                <div class="col col_6 col_tab-12">
+                                                    <div class="form-item">
+                                                        <div class="form-item__header">
+                                                            <label class="form-item__title"
+                                                                   for="report__type">Выберете мероприятие</label>
+                                                        </div>
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <div data-app-select
+                                                                    [defaultValue]="defaultValue"
+                                                                    [submitSubject]="formSubmit"
+                                                                    setClass="form-item__input"
+                                                                    [inputErrors]="errors"
+                                                                    [c]="form.controls.event"
+                                                                    formControlName="event"
+                                                                    placeholder="Выберите данные"
+                                                                    [values]="events"
+                                                                >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+                                                <div class="col col_6 col_tab-12">
+                                                    <div class="form-item form-item_after">
+                                                        <div class="form-item__header">
+                                                            <label class="form-item__title" for="promotion__end">Тип данных</label>
+                                                        </div>
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <div data-app-select
+                                                                    [defaultValue]="defaultValue"
+                                                                    [submitSubject]="formSubmit"
+                                                                    setClass="form-item__input"
+                                                                    [inputErrors]="errors"
+                                                                    [c]="form.controls.point"
+                                                                    formControlName="point"
+                                                                    placeholder="Выберите данные"
+                                                                    [values]="type"
+                                                                >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+                                                <div class="col col_6 col_tab-12">
+                                                    <div class="form-item form-item_after">
+                                                        <div class="form-item__header">
+                                                            <label class="form-item__title" for="promotion__start">Дата начала</label>
+                                                        </div>
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <div data-app-input-date
+                                                                    [defaultValue]="defaultValue"
+                                                                    [submitSubject]="formSubmit"
+                                                                    setClass="form-item__input"
+                                                                    [inputErrors]="errors"
+                                                                    [c]="form.controls.start_date"
+                                                                    formControlName="start_date"
+                                                                    placeholder="Выберите данные"
+                                                                >
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-item__media media">
+                                                                <svg class="media__ico">
+                                                                    <use xlink:href="/assets/img/sprite.svg#date"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+                                                <div class="col col_6 col_tab-12">
+                                                    <div class="form-item form-item_after">
+                                                        <div class="form-item__header">
+                                                            <label class="form-item__title" for="promotion__end">Дата окончания</label>
+                                                        </div>
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <div data-app-input-date
+                                                                    [defaultValue]="defaultValue"
+                                                                    [submitSubject]="formSubmit"
+                                                                    setClass="form-item__input"
+                                                                    [inputErrors]="errors"
+                                                                    [c]="form.controls.finish_date"
+                                                                    formControlName="finish_date"
+                                                                    placeholder="Выберите данные"
+                                                                >
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-item__media media">
+                                                                <svg class="media__ico">
+                                                                    <use xlink:href="/assets/img/sprite.svg#date"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+                                                <div class="col col_6 col_tab-12">
+                                                    <div class="form-item form-item_after">
+                                                        <div class="form-item__header">
+                                                            <label class="form-item__title" for="promotion__end">Количество использований</label>
+                                                        </div>
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <div data-app-input
+                                                                    [defaultValue]="defaultValue"
+                                                                    [submitSubject]="formSubmit"
+                                                                    setClass="form-item__input"
+                                                                    [inputErrors]="errors"
+                                                                    [c]="form.controls.count"
+                                                                    formControlName="count"
+                                                                    placeholder="Выберите данные"
+                                                                    type="number"
+                                                                >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+                                                <div class="col col_6 col_tab-12">
+                                                    <div class="form-item form-item_after">
+                                                        <div class="form-item__header">
+                                                            <label class="form-item__title" for="promotion__end">Размер скидки</label>
+                                                        </div>
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <div data-app-input
+                                                                    [defaultValue]="defaultValue"
+                                                                    [submitSubject]="formSubmit"
+                                                                    setClass="form-item__input"
+                                                                    [inputErrors]="errors"
+                                                                    [c]="form.controls.value"
+                                                                    formControlName="value"
+                                                                    placeholder="Выберите данные"
+                                                                    type="number"
+                                                                >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="group__main">
+                                            <div class="promotions__list" style="display: none;">
+                                                <div class="row">
+                                                    <div class="col col_4 col_tab-12">
+                                                        <div class="promotions__item">
+                                                            <div class="promotions__header">
+                                                                <div class="form-item mb-0">
+                                                                    <div class="form-item__main">
+                                                                        <div class="custom-check">
+                                                                            <label class="custom-check__label">
+                                                                                <input
+                                                                                       class="custom-check__input"
+                                                                                       type="radio"
+                                                                                       name="radio" required
+                                                                                       checked>
+                                                                                <svg class="custom-check__ico custom-check__ico_before">
+                                                                                    <use xlink:href="img/sprite.svg#radioBefore"></use>
+                                                                                </svg>
+                                                                                <svg class="custom-check__ico custom-check__ico_after">
+                                                                                    <use xlink:href="img/sprite.svg#radioAfter"></use>
+                                                                                </svg>
+                                                                                <strong class="custom-check__text">Фиксированная</strong>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- //form-item -->
+                                                            </div>
+                                                            <div class="promotions__main">
+                                                                <div class="row">
+                                                                    <div class="col col_12">
+                                                                        <div class="form-item">
+                                                                            <div class="form-item__header">
+                                                                                <label class="form-item__title"
+                                                                                       for="promotions__size">Размер скидки</label>
+                                                                            </div>
+                                                                            <div class="form-item__main">
+                                                                                <div class="form-item__field">
+                                                                                    <input id="promotions__size" class="form-item__input" type="text"
+                                                                                           placeholder="Процент или сумма" required>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div><!-- //form-item -->
+                                                                    </div>
+                                                                    <div class="col col_12">
+                                                                        <div class="form-item">
+                                                                            <div class="form-item__header">
+                                                                                <label class="form-item__title"
+                                                                                       for="promotions__length">Количество билетов</label>
+                                                                            </div>
+                                                                            <div class="form-item__main">
+                                                                                <div class="form-item__field">
+                                                                                    <input id="promotions__length" class="form-item__input" type="text"
+                                                                                           placeholder="Количество" required>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div><!-- //form-item -->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col col_4 col_tab-12">
+                                                        <div class="promotions__item">
+                                                            <div class="promotions__header">
+                                                                <div class="form-item mb-0">
+                                                                    <div class="form-item__main">
+                                                                        <div class="custom-check">
+                                                                            <label class="custom-check__label">
+                                                                                <input
+                                                                                        class="custom-check__input"
+                                                                                        type="radio"
+                                                                                        name="radio" required
+                                                                                        checked>
+                                                                                <svg class="custom-check__ico custom-check__ico_before">
+                                                                                    <use xlink:href="img/sprite.svg#radioBefore"></use>
+                                                                                </svg>
+                                                                                <svg class="custom-check__ico custom-check__ico_after">
+                                                                                    <use xlink:href="img/sprite.svg#radioAfter"></use>
+                                                                                </svg>
+                                                                                <strong class="custom-check__text">Динамическая</strong>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- //form-item -->
+                                                            </div>
+                                                            <div class="promotions__main">
+                                                                <div class="row">
+                                                                    <div class="col col_12">
+                                                                        <div class="form-item">
+                                                                            <div class="form-item__header">
+                                                                                <label class="form-item__title"
+                                                                                       for="promotions__summ">Сумма заказа от</label>
+                                                                            </div>
+                                                                            <div class="form-item__main">
+                                                                                <div class="form-item__field">
+                                                                                    <input id="promotions__summ" class="form-item__input" type="text"
+                                                                                           placeholder="Процент или сумма" required>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div><!-- //form-item -->
+                                                                    </div>
+                                                                    <div class="col col_12">
+                                                                        <div class="form-item">
+                                                                            <div class="form-item__header">
+                                                                                <label class="form-item__title"
+                                                                                       for="promotions__length2">Количество билетов</label>
+                                                                            </div>
+                                                                            <div class="form-item__main">
+                                                                                <div class="form-item__field">
+                                                                                    <input id="promotions__length2" class="form-item__input" type="text"
+                                                                                           placeholder="Количество" required>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div><!-- //form-item -->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col col_4 col_tab-12">
+                                                        <div class="promotions__item">
+                                                            <div class="promotions__header">
+                                                                <div class="form-item mb-0">
+                                                                    <div class="form-item__main">
+                                                                        <div class="custom-check">
+                                                                            <label class="custom-check__label">
+                                                                                <input
+                                                                                        class="custom-check__input"
+                                                                                        type="radio"
+                                                                                        name="radio" required
+                                                                                        checked>
+                                                                                <svg class="custom-check__ico custom-check__ico_before">
+                                                                                    <use xlink:href="img/sprite.svg#radioBefore"></use>
+                                                                                </svg>
+                                                                                <svg class="custom-check__ico custom-check__ico_after">
+                                                                                    <use xlink:href="img/sprite.svg#radioAfter"></use>
+                                                                                </svg>
+                                                                                <strong class="custom-check__text">Шаблонная</strong>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- //form-item -->
+                                                            </div>
+                                                            <div class="promotions__main">
+                                                                <div class="row">
+                                                                    <div class="col col_6">
+                                                                        <div class="form-item">
+                                                                            <div class="form-item__main">
+                                                                                <div class="custom-check">
+                                                                                    <label class="custom-check__label">
+                                                                                        <input
+                                                                                                class="custom-check__input"
+                                                                                                type="radio"
+                                                                                                name="template" required
+                                                                                                checked>
+                                                                                        <svg class="custom-check__ico custom-check__ico_before">
+                                                                                            <use xlink:href="img/sprite.svg#radioBefore"></use>
+                                                                                        </svg>
+                                                                                        <svg class="custom-check__ico custom-check__ico_after">
+                                                                                            <use xlink:href="img/sprite.svg#radioAfter"></use>
+                                                                                        </svg>
+                                                                                        <strong class="custom-check__text">2 + 1</strong>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div><!-- //form-item -->
+                                                                    </div>
+                                                                    <div class="col col_6">
+                                                                        <div class="form-item">
+                                                                            <div class="form-item__main">
+                                                                                <div class="custom-check">
+                                                                                    <label class="custom-check__label">
+                                                                                        <input
+                                                                                                class="custom-check__input"
+                                                                                                type="radio"
+                                                                                                name="template" required
+                                                                                                checked>
+                                                                                        <svg class="custom-check__ico custom-check__ico_before">
+                                                                                            <use xlink:href="img/sprite.svg#radioBefore"></use>
+                                                                                        </svg>
+                                                                                        <svg class="custom-check__ico custom-check__ico_after">
+                                                                                            <use xlink:href="img/sprite.svg#radioAfter"></use>
+                                                                                        </svg>
+                                                                                        <strong class="custom-check__text">3+1</strong>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div><!-- //form-item -->
+                                                                    </div>
+                                                                    <div class="col col_12">
+                                                                        <div class="form-item">
+                                                                            <div class="form-item__header">
+                                                                                <label class="form-item__title"
+                                                                                       for="promotions__textarea">Описание</label>
+                                                                            </div>
+                                                                            <div class="form-item__main">
+                                                                                <div class="form-item__field">
+                                                                                    <textarea class="form-item__input form-item__input_textarea"
+                                                                                              id="promotions__textarea"></textarea>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div><!-- //form-item -->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="group__main">
+                                            <div class="row">
+                                                <div class="col col_4 col_tab-12">
+                                                    <div class="form-item form-item_after">
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field" *ngIf="id > 0">
+                                                                <button type="button" class="btn btn_tertiary w-md-auto" (click)="delete()">Удалить</button>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+                                                <div class="col col_4 col_tab-12">
+                                                    <div class="form-item form-item_after">
+                                                        <div class="form-item__main" style="display: none;">
+                                                            <div class="form-item__field">
+                                                                <button type="button" class="btn btn_secondary">Добавить условие</button>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+                                                <div class="col col_4 col_tab-12">
+                                                    <div class="form-item form-item_after">
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <button type="button" class="btn" (click)="save()">Сохранить</button>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

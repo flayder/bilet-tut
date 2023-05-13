@@ -1,0 +1,34 @@
+<td>
+    <div class="table__group group">
+        <div class="group__media media">
+            <a class="media__link" (click)="getDetail($event)" href="#">
+                <div data-app-image
+                    class="media__img"
+                    [src]="item.photo?.image?.small ?? ''"
+                ></div>
+            </a>
+        </div>
+        <div class="group__main">
+            <a class="group__item group__item_100" (click)="getDetail($event)" href="#">
+                {{ getUserName() }}
+            </a>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item">{{ item.email }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <div class="table__group group">
+        <div class="group__main">
+            <span class="group__item">{{ item.phone }}</span>
+        </div>
+    </div>
+</td>
+<td>
+    <a (click)="getDetail($event)" href="#" class="btn btn_secondary">Подробнее</a>
+</td>

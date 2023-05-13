@@ -1,0 +1,54 @@
+<div class="layout__section section">
+    <div class="section__header">
+        <div class="wysiwyg">
+            <h1>Дизайн</h1>
+        </div>
+    </div>
+    <div class="section__main">
+        <div class="account">
+            <div class="account__design design">
+                <div class="tabs">
+                    <div class="tabs__header">
+                        <div class="tabs__list">
+                            <div class="tabs__item" (click)="setType('slide')" [ngClass]="{tabs__item_active: tabType == 'slide'}">
+                                <div class="tabs__title title"><span class="title__text">Слайды</span>
+                                </div>
+                            </div><!-- //item -->
+                            <div class="tabs__item" (click)="setType('banner')" [ngClass]="{tabs__item_active: tabType == 'banner'}">
+                                <div class="tabs__title title"><span class="title__text">Баннеры</span>
+                                </div>
+                            </div><!-- //item -->
+                            <div class="tabs__item" (click)="setType('genre')" [ngClass]="{tabs__item_active: tabType == 'genre'}">
+                                <div class="tabs__title title">
+                                    <span class="title__text">Жанры</span></div>
+                            </div><!-- //item -->
+                            <div class="tabs__item" (click)="setType('rubric')" [ngClass]="{tabs__item_active: tabType == 'rubric'}">
+                                <div class="tabs__title title">
+                                    <span class="title__text">Рубрики</span></div>
+                            </div><!-- //item -->
+                        </div>
+                    </div><!-- //tabs-header -->
+                    <div class="tabs__body">
+                        <div class="tabs__list">
+                            <div class="tabs__item" [ngClass]="{tabs__item_active: tabType == 'slide'}">
+                                <div data-app-design-slide-tab></div>
+                            </div>
+                            <!-- tabs item 2 -->
+                            <div class="tabs__item" [ngClass]="{tabs__item_active: tabType == 'banner'}">
+                                <div data-app-design-banner-tab></div>
+                            </div>
+                            <!-- tabs item 3 -->
+                            <div class="tabs__item" [ngClass]="{tabs__item_active: tabType == 'genre'}">
+                                <div data-app-design-genre-tab></div>
+                            </div>
+                            <!-- tabs item 4 -->
+                            <div class="tabs__item" [ngClass]="{tabs__item_active: tabType == 'rubric'}">
+                                <div data-app-design-rubric-tab></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

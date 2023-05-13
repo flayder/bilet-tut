@@ -1,0 +1,19 @@
+<div class="slides__item">
+    <div class="slides__header">
+        <div class="slides__media media">
+            <a href="#" (click)="getDetail($event)" class="media__link">
+                <div data-app-image [src]="item.image.image.medium" class="media__img"></div>
+            </a>
+        </div>
+        <div class="slides__action action" (click)="delete()">
+            <svg class="action__ico">
+                <use xlink:href="/assets/img/sprite.svg#basket"></use>
+            </svg>
+        </div>
+    </div>
+    <div class="slides__main">
+        <div class="slides__title title">
+            <a class="title__text" href="#" (click)="getDetail($event)">{{ item.name }}</a>
+        </div>
+    </div>
+</div>

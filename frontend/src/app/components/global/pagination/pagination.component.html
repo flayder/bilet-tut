@@ -1,0 +1,43 @@
+<div class="section__footer" *ngIf="count > 0">
+    <div class="container">
+        <div class="section__navigation navigation">
+            <div class="navigation__main">
+                <div class="navigation__data data">
+                    <span class="data__text">Показано {{ getShow() }} из {{ count }}</span>
+                </div>
+                <div class="navigation__pagination pagination" *ngIf="ifNeedPag()">
+                    <div class="pagination__list">
+                        <div class="pagination__item" *ngIf="ifPrev()">
+                            <a class="pagination__link" href="#" (click)="prev($event)">
+                                <svg class="pagination__ico">
+                                    <use xlink:href="/assets/img/sprite.svg#arrowLeft"></use>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="pagination__item" *ngIf="begin > 0"><a class="pagination__link" href="#" (click)="setPage(1, $event)">1</a></div>
+                        <div class="pagination__item" *ngIf="begin > 0"><a class="pagination__link">...</a></div>
+                        
+                        <div class="pagination__item" [ngClass]="{pagination__item_active: isActive(item)}" *ngFor="let item of items">
+                            <a class="pagination__link" href="#" (click)="setPage(item, $event)">{{ item }}</a>
+                        </div>
+
+                        <div class="pagination__item" *ngIf="last > 0"><a class="pagination__link">...</a></div>
+                        <div class="pagination__item" *ngIf="last > 0"><a class="pagination__link" href="#" (click)="setPage(last, $event)">{{ last }}</a></div>
+                        <div class="pagination__item" *ngIf="ifNext()">
+                            <a class="pagination__link" href="#" (click)="next($event)">
+                                <svg class="pagination__ico">
+                                    <use xlink:href="/assets/img/sprite.svg#arrowRight"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="navigation__second">
+                <div class="navigation__request request">
+                    <span class="request__text btn btn_secondary">Загрузить ещё</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

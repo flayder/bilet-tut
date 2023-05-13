@@ -1,0 +1,47 @@
+<div style="position: relative;">
+  <input 
+    [class]="setClass" [ngClass]="{'ng-invalid ng-dirty': errors.length > 0}"
+    [id]="$id"
+    #input 
+    [type]="passwordShowing ? 'text' : type" 
+    [placeholder]="placeholder" 
+    (keyup)="update(input.value, $event)" 
+    [value]="value"
+    [disabled]="disabled"
+    *ngIf="type != 'textarea'"
+  >
+  <textarea 
+    [class]="'form-item__input form-item__input_textarea ' + setClass" [ngClass]="{'ng-invalid ng-dirty': errors.length > 0}"
+    [id]="$id"
+    #input 
+    [placeholder]="placeholder" 
+    (keyup)="update(input.value, $event)" 
+    [disabled]="disabled"
+    *ngIf="type == 'textarea'"
+  >{{ value }}</textarea>
+  <div style="position: relative; width: 100%;" *ngIf="suggestions.length > 0">
+    <div class="jcf-select-drop jcf-select-jcf-hidden jcf-unselectable" style="width: 100%;">
+      <div class="jcf-select-drop-content">
+        <span class="jcf-list">
+          <span class="jcf-list-content">
+            <ul>
+              <li class="listing-option" *ngFor="let li of suggestions" (click)="getSuggestion(li)">
+                <span class="jcf-option">
+                  {{ li.name }}
+                </span>
+              </li>
+            </ul>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="col_12" *ngIf="errors.length > 0">
+    <div class="col_12" style="color: red" *ngFor="let error of errors">{{ error }}</div>
+  </div>
+  <div class="form-item__media media" *ngIf="type === 'password'" (click)="showPassword(!passwordShowing)">
+    <svg class="media__ico">
+        <use xlink:href="/assets/img/sprite.svg#eye"></use>
+    </svg>
+</div>
+</div>

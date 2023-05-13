@@ -1,0 +1,36 @@
+<div class="footer__section section">
+    <div class="section__header">
+      <div class="section__title title">
+        <span class="title__text">Контакты</span>
+      </div>
+      <div class="section__media media">
+        <svg class="media__ico">
+          <use xlink:href="/assets/img/sprite.svg#arrowBottom"></use>
+        </svg>
+      </div>
+    </div>
+    <div class="section__main" *ngIf="item">
+      <div class="wysiwyg" [innerHTML]="item.content"></div>
+      <div class="footer__socials socials" *ngIf="item.elements.length > 0">
+        <div class="socials__list">
+          <div class="socials__item" *ngFor="let elem of item.elements">
+            <a class="socials__link" target="_blank" [href]="elem.html_field" *ngIf="elem.field == 'telegram'">
+              <svg class="socials__ico">
+                <use xlink:href="/assets/img/sprite.svg#telegram"></use>
+              </svg>
+            </a>
+            <a class="socials__link" target="_blank" [href]="elem.html_field" *ngIf="elem.field == 'whatsapp'">
+              <svg class="socials__ico">
+                <use xlink:href="/assets/img/sprite.svg#whatsapp"></use>
+              </svg>
+            </a>
+            <a class="socials__link" target="_blank" [href]="elem.html_field" *ngIf="elem.field == 'vk'">
+              <svg class="socials__ico">
+                <use xlink:href="/assets/img/sprite.svg#vk"></use>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

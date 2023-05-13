@@ -1,0 +1,237 @@
+<div class="layout__section section">
+    <div class="section__header">
+        <div class="row">
+            <div class="col col_9 col_big-desktop-8 col_tab-12">
+                <div class="wysiwyg">
+                    <h1>Новая рассылка</h1>
+                </div>
+            </div>
+            <div class="col col_3 col_big-desktop-4 col_tab-12">
+                <a class="btn attach__init" routerLink="/account/iexport">Загрузить базу клиентов</a>
+            </div>
+        </div>
+    </div>
+    <div class="section__main">
+        <div class="account">
+            <div class="account__mailing mailing">
+                <div class="row">
+                    <div class="col col_9 col_tab-12">
+                        <div class="formular">
+                            <form [formGroup]="form" class="mailing__form">
+                                <fieldset>
+                                    <!-- //text -->
+                                    <div class="form__group group">
+                                        <div class="group__main">
+                                            <div class="row">
+                                                <div class="col col_6 col_tab-12">
+                                                    <div class="form-item form-item_before">
+                                                        <div class="form-item__header">
+                                                            <label class="form-item__title"
+                                                                   for="mailing__date">Дата</label>
+                                                        </div>
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <div data-app-input-date
+                                                                    [defaultValue]="defaultValue"
+                                                                    [submitSubject]="formSubmit"
+                                                                    setClass="form-item__input"
+                                                                    [inputErrors]="errors"
+                                                                    [c]="form.controls.date"
+                                                                    placeholder="Введите данные"
+                                                                    formControlName="date"
+                                                                >
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-item__media media">
+                                                                <svg class="media__ico">
+                                                                    <use xlink:href="/assets/img/sprite.svg#date"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col col_6 col_tab-12">
+                                                    <div class="form-item  form-item_before">
+                                                        <div class="form-item__header">
+                                                            <label class="form-item__title"
+                                                                   for="mailing__time">Время</label>
+                                                        </div>
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <div data-app-select
+                                                                    [defaultValue]="defaultValue"
+                                                                    [submitSubject]="formSubmit"
+                                                                    setClass="form-item__input"
+                                                                    [inputErrors]="errors"
+                                                                    [c]="form.controls.time"
+                                                                    placeholder="Время"
+                                                                    formControlName="time"
+                                                                    [values]="time"
+                                                                >
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-item__media media">
+                                                                <svg class="media__ico">
+                                                                    <use xlink:href="/assets/img/sprite.svg#location"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+
+                                                <div class="col col_6 col_tab-12">
+                                                    <div class="form-item">
+                                                        <div class="form-item__header">
+                                                            <label class="form-item__title"
+                                                                   for="mailing__event">Выберете
+                                                                мероприятие</label>
+                                                        </div>
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <div data-app-select
+                                                                    [defaultValue]="defaultValue"
+                                                                    [submitSubject]="formSubmit"
+                                                                    [multiple]="true"
+                                                                    setClass="form-item__input"
+                                                                    [inputErrors]="errors"
+                                                                    [c]="form.controls.events"
+                                                                    placeholder="Выберите мероприятие"
+                                                                    formControlName="events"
+                                                                    [values]="events"
+                                                                >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+                                                <div class="col col_6 col_tab-12">
+                                                    <div class="form-item">
+                                                        <div class="form-item__header">
+                                                            <label class="form-item__title"
+                                                                   for="mailing__genres">Тип сообщения</label>
+                                                        </div>
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <div data-app-select
+                                                                    [defaultValue]="defaultValue"
+                                                                    [submitSubject]="formSubmit"
+                                                                    setClass="form-item__input"
+                                                                    [inputErrors]="errors"
+                                                                    [c]="form.controls.type"
+                                                                    formControlName="type"
+                                                                    [values]="type"
+                                                                >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+
+                                                <div class="col col_6 col_tab-12">
+                                                    <div class="form-item">
+                                                        <div class="form-item__main">
+                                                            <div class="custom-check">
+                                                                <div data-app-input-checkbox
+                                                                    [defaultValue]="defaultValue"
+                                                                    [submitSubject]="formSubmit"
+                                                                    [inputErrors]="errors"
+                                                                    [c]="form.controls.toeveryone"
+                                                                    formControlName="toeveryone"
+                                                                    placeholder="Разослать всем пользователям"
+                                                                >
+                                                                </div>
+                                                        
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col col_12" *ngIf="!toeveryone && users.length > 0">
+                                                    <div class="form-item">
+                                                        <div class="form-item__header">
+                                                            <label class="form-item__title"
+                                                                   for="mailing__genres">Выберете
+                                                                пользователей</label>
+                                                        </div>
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <div data-app-select
+                                                                    [defaultValue]="defaultValue"
+                                                                    [submitSubject]="formSubmit"
+                                                                    setClass="form-item__input"
+                                                                    [inputErrors]="errors"
+                                                                    [c]="form.controls.user_list"
+                                                                    formControlName="user_list"
+                                                                    placeholder="Пользователь"
+                                                                    [multiple]="true"
+                                                                    [values]="users"
+                                                                >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+
+                                                <div class="col col_12">
+                                                    <div 
+                                                        data-app-photo-component
+                                                        [defaultValue]="defaultValue"
+                                                        [submitSubject]="formSubmit"
+                                                        [inputErrors]="errors"
+                                                        [multiple]="true"
+                                                        [c]="form.controls.files"
+                                                        formControlName="files"
+                                                    ></div>
+                                                </div>
+
+
+                                                <div class="col col_12">
+                                                    <div class="form-item">
+                                                        <div class="form-item__header">
+                                                            <label class="form-item__title"
+                                                                   for="mailing__genres">Текст
+                                                                сообщения</label>
+                                                        </div>
+                                                        <div class="form-item__main">
+                                                            <div class="form-item__field">
+                                                                <div data-app-input
+                                                                    [defaultValue]="defaultValue"
+                                                                    [submitSubject]="formSubmit"
+                                                                    setClass="form-item__input form-item__input_textarea"
+                                                                    [inputErrors]="errors"
+                                                                    [c]="form.controls.text"
+                                                                    formControlName="text"
+                                                                    type="textarea"
+                                                                    placeholder="Введите данные"
+                                                                >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- //form-item -->
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="group__footer">
+                                            <div class="row">
+                                                <div class="col col_12">
+                                                    <!-- Отправка формы -->
+                                                    <div class="form-item">
+                                                        <div class="form-item__main">
+                                                            <button type="button" class="btn" (click)="save()">Создать</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

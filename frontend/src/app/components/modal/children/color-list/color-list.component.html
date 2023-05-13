@@ -1,0 +1,12 @@
+<div class="form-item__colour colour">
+    <div class="colour__list">
+        <div class="colour__item" *ngFor="let col of colors">
+            <div class="custom-check">
+                <label class="custom-check__label">
+                    <input class="custom-check__input" type="radio" name="chekbox" [checked]="color == col" (click)="setColor(col)">
+                    <span class="custom-check__background" [ngStyle]="{backgroundColor: col}"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

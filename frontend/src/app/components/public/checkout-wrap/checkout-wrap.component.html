@@ -1,0 +1,525 @@
+<div class="section__main">
+    <div class="container">
+        <div class="checkout">
+            <div class="row">
+                <div class="col col_8 col_tab-12">
+                    <div class="checkout__main">
+                        <div class="checkout__header">
+                            <div class="row">
+                                <div class="col col_9">
+                                    <div class="wysiwyg">
+                                        <h3>1. Плательщик</h3>
+                                    </div>
+                                </div>
+                                <div class="col col_3" *ngIf="!auth">
+                                    <div class="checkout__action action">
+                                        <div class="form-item form-item_tiny mb-0">
+                                            <div class="form-item__main">
+                                                <div class="form-item__field">
+                                                    <a class="action__btn btn btn_secondary" href="#" (click)="haveAccount($event)">У меня
+                                                        есть аккаунт</a>
+                                                </div>
+                                            </div>
+                                        </div><!-- //form-item -->
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tabs">
+                            <div class="tabs__header">
+                                <div class="tabs__list">
+                                    <div class="tabs__item" [ngClass]="{tabs__item_active: type == 'phys'}" (click)="changeType('phys')">
+                                        <div class="tabs__title title">
+                                            <span class="title__text">Физическое лицо</span>
+                                        </div>
+                                    </div><!-- //item -->
+                                    <div class="tabs__item" [ngClass]="{tabs__item_active: type == 'legal'}" (click)="changeType('legal')">
+                                        <div class="tabs__title title">
+                                            <span class="title__text">Юридическое лицо</span>
+                                        </div>
+                                    </div><!-- //item -->
+                                </div>
+                            </div><!-- //tabs-header -->
+                            <div class="tabs__body">
+                                <div class="tabs__list">
+                                    <div class="tabs__item" [ngClass]="{tabs__item_active: type == 'phys'}">
+                                        <form [formGroup]="physicForm" class="form">
+                                            <fieldset>
+                                                <!-- *ngIf="!auth" -->
+                                                <div class="form__group group">
+                                                    <div class="group__header">
+                                                        <div class="wysiwyg">
+                                                            <h3>2. Контактные данные</h3>
+                                                            <p>Все персональные данные хранятся в тайне и не
+                                                                передаются третьим лицам</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="group__main">
+                                                        <div class="row">
+                                                            <!-- //text -->
+                                                            <div class="col col_6 col_mob-12">
+                                                                <div class="form-item">
+                                                                    <div class="form-item__header">
+                                                                        <label class="form-item__title"
+                                                                               for="checkout__name">Имя</label>
+                                                                    </div>
+                                                                    <div class="form-item__main">
+                                                                        <div class="form-item__field">
+                                                                            <div data-app-input
+                                                                                [submitSubject]="formSubmit"
+                                                                                [defaultValue]="defaultPsyhValue"
+                                                                                setClass="form-item__input"
+                                                                                [inputErrors]="errors"
+                                                                                [c]="physicForm.controls.username"
+                                                                                placeholder="Введите имя"
+                                                                                formControlName="username"
+                                                                            >
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- //form-item -->
+                                                            </div>
+                                                            <div class="col col_6 col_mob-12">
+                                                                <div class="form-item">
+                                                                    <div class="form-item__header">
+                                                                        <label class="form-item__title"
+                                                                               for="checkout__phone">Телефон</label>
+                                                                    </div>
+                                                                    <div class="form-item__main">
+                                                                        <div class="form-item__field">
+                                                                            <div data-app-input-phone
+                                                                                [disabled]="auth"
+                                                                                [submitSubject]="formSubmit"
+                                                                                [defaultValue]="defaultPsyhValue"
+                                                                                [inputErrors]="errors"
+                                                                                setClass="form-item__input"
+                                                                                [c]="physicForm.controls.phone"
+                                                                                formControlName="phone">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- //form-item -->
+                                                            </div>
+                                                            <div class="col col_6 col_mob-12">
+                                                                <div class="form-item">
+                                                                    <div class="form-item__header">
+                                                                        <label class="form-item__title"
+                                                                               for="checkout__surname">Фамилия</label>
+                                                                    </div>
+                                                                    <div class="form-item__main">
+                                                                        <div class="form-item__field">
+                                                                            <div data-app-input
+                                                                                [submitSubject]="formSubmit"
+                                                                                [defaultValue]="defaultPsyhValue"
+                                                                                [inputErrors]="errors"
+                                                                                setClass="form-item__input"
+                                                                                [c]="physicForm.controls.surname"
+                                                                                placeholder="Введите фамилию"
+                                                                                formControlName="surname">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- //form-item -->
+                                                            </div>
+                                                            <div class="col col_6 col_mob-12">
+                                                                <div class="form-item">
+                                                                    <div class="form-item__header">
+                                                                        <label class="form-item__title"
+                                                                               for="checkout__email">Email</label>
+                                                                    </div>
+                                                                    <div class="form-item__main">
+                                                                        <div class="form-item__field">
+                                                                            <div data-app-input
+                                                                                [submitSubject]="formSubmit"
+                                                                                [defaultValue]="defaultPsyhValue"
+                                                                                [inputErrors]="errors"
+                                                                                [disabled]="auth"
+                                                                                setClass="form-item__input"
+                                                                                [c]="physicForm.controls.email"
+                                                                                placeholder="Введите email"
+                                                                                formControlName="email">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- //form-item -->
+                                                            </div>
+                                                            <div class="col col_6 col_mob-12" *ngIf="!auth">
+                                                                <div class="form-item form-item_after">
+                                                                    <div class="form-item__header">
+                                                                        <label class="form-item__title"
+                                                                               for="checkout__password">Придумайте
+                                                                            пароль</label>
+                                                                    </div>
+                                                                    <div class="form-item__main">
+                                                                        <div class="form-item__field">
+                                                                            <div data-app-input
+                                                                                [submitSubject]="formSubmit"
+                                                                                [defaultValue]="defaultPsyhValue"
+                                                                                [inputErrors]="errors"
+                                                                                type="password"
+                                                                                setClass="form-item__input"
+                                                                                [c]="physicForm.controls.password"
+                                                                                placeholder="Придумайте пароль"
+                                                                                formControlName="password">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- //form-item -->
+                                                            </div>
+                                                            <div class="col col_6 col_mob-12" *ngIf="!auth">
+                                                                <div class="form-item form-item_after">
+                                                                    <div class="form-item__header">
+                                                                        <label class="form-item__title"
+                                                                               for="checkout__password-repeat">Повторите
+                                                                            пароль</label>
+                                                                    </div>
+                                                                    <div class="form-item__main">
+                                                                        <div class="form-item__field">
+                                                                            <div data-app-input
+                                                                                [submitSubject]="formSubmit"
+                                                                                [defaultValue]="defaultPsyhValue"
+                                                                                [inputErrors]="errors"
+                                                                                type="password"
+                                                                                setClass="form-item__input"
+                                                                                [c]="physicForm.controls.confirmPassword"
+                                                                                placeholder="Повторите пароль"
+                                                                                formControlName="confirmPassword">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- //form-item -->
+                                                            </div>
+                                                            <div class="col col_6 col_mob-12">
+                                                                <div class="form-item">
+                                                                    <div class="form-item__main">
+                                                                        <div class="custom-check">
+                                                                            <label class="custom-check__label">
+                                                                                <input id="checkout__save"
+                                                                                       class="custom-check__input"
+                                                                                       type="checkbox"
+                                                                                       formControlName="abilet"
+                                                                                       required checked>
+                                                                                <svg class="custom-check__ico custom-check__ico_before">
+                                                                                    <use xlink:href="/assets/img/sprite.svg#checkboxBefore"></use>
+                                                                                </svg>
+                                                                                <svg class="custom-check__ico custom-check__ico_after">
+                                                                                    <use xlink:href="/assets/img/sprite.svg#checkboxAfter"></use>
+                                                                                </svg>
+                                                                                <span class="custom-check__text">Сохранить билеты в личном кабинете</span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- //form-item -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div 
+                                                    data-app-payment 
+                                                    (submit)="physicFormSubmit($event)"
+                                                    (payment)="setPayment($event)"
+                                                ></div>
+                                            </fieldset>
+                                        </form>
+                                    </div><!-- //Физическое лицо -->
+                                    <div class="tabs__item" [ngClass]="{tabs__item_active: type == 'legal'}">
+                                        <form [formGroup]="legalForm" class="form">
+                                            <fieldset>
+                                                <div class="form__group group">
+                                                    <div class="group__header">
+                                                        <div class="wysiwyg">
+                                                            <h3>2. Контактные данные</h3>
+                                                            <p>Все персональные данные хранятся в тайне и не
+                                                                передаются третьим лицам</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="group__main">
+                                                        <div class="row">
+                                                            <!-- //text -->
+                                                            <div class="col col_6 col_mob-12">
+                                                                <div class="form-item">
+                                                                    <div class="form-item__header">
+                                                                        <label class="form-item__title"
+                                                                               for="checkout__company">Название компании</label>
+                                                                    </div>
+                                                                    <div class="form-item__main">
+                                                                        <div class="form-item__field">
+                                                                            <div data-app-input
+                                                                                [defaultValue]="defaultLegalValue"
+                                                                                [submitSubject]="legalSubmit"
+                                                                                setClass="form-item__input"
+                                                                                [inputErrors]="errorsLegal"
+                                                                                [c]="legalForm.controls.organisation_name"
+                                                                                placeholder="Введите название компании"
+                                                                                formControlName="organisation_name"
+                                                                            >
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- //form-item -->
+                                                            </div>
+                                                            <div class="col col_6 col_mob-12">
+                                                                <div class="form-item">
+                                                                    <div class="form-item__header">
+                                                                        <label class="form-item__title"
+                                                                               for="checkout__representative-name">Имя представителя</label>
+                                                                    </div>
+                                                                    <div class="form-item__main">
+                                                                        <div class="form-item__field">
+                                                                            <div data-app-input
+                                                                                [defaultValue]="defaultLegalValue"
+                                                                                [submitSubject]="legalSubmit"
+                                                                                setClass="form-item__input"
+                                                                                [inputErrors]="errorsLegal"
+                                                                                [c]="legalForm.controls.legal_name"
+                                                                                placeholder="Введите имя представителя"
+                                                                                formControlName="legal_name"
+                                                                            >
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- //form-item -->
+                                                            </div>
+                                                            <div class="col col_6 col_mob-12">
+                                                                <div class="form-item">
+                                                                    <div class="form-item__header">
+                                                                        <label class="form-item__title"
+                                                                               for="checkout__address">Юридическией адрес</label>
+                                                                    </div>
+                                                                    <div class="form-item__main">
+                                                                        <div class="form-item__field">
+                                                                        
+                                                                            <div data-app-input
+                                                                                [defaultValue]="defaultLegalValue"
+                                                                                [submitSubject]="legalSubmit"
+                                                                                setClass="form-item__input"
+                                                                                [inputErrors]="errorsLegal"
+                                                                                [c]="legalForm.controls.legal_address"
+                                                                                placeholder="Введите адрес"
+                                                                                formControlName="legal_address"
+                                                                            >
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- //form-item -->
+                                                            </div>
+                                                            <div class="col col_6 col_mob-12">
+                                                                <div class="form-item">
+                                                                    <div class="form-item__header">
+                                                                        <label class="form-item__title"
+                                                                               for="checkout__representative-surname">Фамилия представителя</label>
+                                                                    </div>
+                                                                    <div class="form-item__main">
+                                                                        <div class="form-item__field">
+                                                                        
+                                                                            <div data-app-input
+                                                                                [defaultValue]="defaultLegalValue"
+                                                                                [submitSubject]="legalSubmit"
+                                                                                setClass="form-item__input"
+                                                                                [inputErrors]="errorsLegal"
+                                                                                [c]="legalForm.controls.legal_first_name"
+                                                                                placeholder="Введите фамилию представителя"
+                                                                                formControlName="legal_first_name"
+                                                                            >
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- //form-item -->
+                                                            </div>
+                                                            <div class="col col_6 col_mob-12">
+                                                                <div class="form-item">
+                                                                    <div class="form-item__header">
+                                                                        <label class="form-item__title"
+                                                                               for="checkout__kpp">КПП</label>
+                                                                    </div>
+                                                                    <div class="form-item__main">
+                                                                        <div class="form-item__field">
+                                                                            
+                                                                            <div data-app-input
+                                                                                [defaultValue]="defaultLegalValue"
+                                                                                [submitSubject]="legalSubmit"
+                                                                                setClass="form-item__input"
+                                                                                [inputErrors]="errorsLegal"
+                                                                                [c]="legalForm.controls.kpp"
+                                                                                placeholder="Введите КПП"
+                                                                                formControlName="kpp"
+                                                                            >
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- //form-item -->
+                                                            </div>
+                                                            <div class="col col_6 col_mob-12">
+                                                                <div class="form-item">
+                                                                    <div class="form-item__header">
+                                                                        <label class="form-item__title"
+                                                                               for="checkout__email-2">Email</label>
+                                                                    </div>
+                                                                    <div class="form-item__main">
+                                                                        <div class="form-item__field">
+                                                                            
+                                                                            <div data-app-input
+                                                                                [defaultValue]="defaultLegalValue"
+                                                                                [submitSubject]="legalSubmit"
+                                                                                setClass="form-item__input"
+                                                                                [inputErrors]="errorsLegal"
+                                                                                [c]="legalForm.controls.email"
+                                                                                placeholder="Введите email"
+                                                                                formControlName="email"
+                                                                                [disabled]="auth"
+                                                                            >
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- //form-item -->
+                                                            </div>
+                                                            <div class="col col_6 col_mob-12">
+                                                                <div class="form-item">
+                                                                    <div class="form-item__header">
+                                                                        <label class="form-item__title"
+                                                                               for="checkout__inn">ИНН</label>
+                                                                    </div>
+                                                                    <div class="form-item__main">
+                                                                        <div class="form-item__field">
+                                                                            
+                                                                            <div data-app-input
+                                                                                [defaultValue]="defaultLegalValue"
+                                                                                [submitSubject]="legalSubmit"
+                                                                                setClass="form-item__input"
+                                                                                [inputErrors]="errorsLegal"
+                                                                                [c]="legalForm.controls.inn"
+                                                                                placeholder="Введите ИНН"
+                                                                                formControlName="inn"
+                                                                            >
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- //form-item -->
+                                                            </div>
+                                                            <div class="col col_6 col_mob-12">
+                                                                <div class="form-item">
+                                                                    <div class="form-item__header">
+                                                                        <label class="form-item__title"
+                                                                               for="checkout__phone2">Телефон</label>
+                                                                    </div>
+                                                                    <div class="form-item__main">
+                                                                        <div class="form-item__field">
+                                                                            
+                                                                            <div data-app-input-phone
+                                                                                [defaultValue]="defaultLegalValue"
+                                                                                [submitSubject]="legalSubmit"
+                                                                                setClass="form-item__input"
+                                                                                [inputErrors]="errorsLegal"
+                                                                                [c]="legalForm.controls.phone"
+                                                                                formControlName="phone"
+                                                                                [disabled]="auth"
+                                                                            >
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- //form-item -->
+                                                            </div>
+                                                            <div class="col col_6 col_mob-12" *ngIf="!auth">
+                                                                <div class="form-item form-item_after">
+                                                                    <div class="form-item__header">
+                                                                        <label class="form-item__title"
+                                                                               for="checkout__phone2">Придумайте пароль</label>
+                                                                    </div>
+                                                                    <div class="form-item__main">
+                                                                        <div class="form-item__field">
+                                                                            
+                                                                            <div data-app-input
+                                                                                [defaultValue]="defaultLegalValue"
+                                                                                [submitSubject]="legalSubmit"
+                                                                                setClass="form-item__input"
+                                                                                [inputErrors]="errorsLegal"
+                                                                                placeholder="Придумайте пароль"
+                                                                                type="password"
+                                                                                [c]="legalForm.controls.password"
+                                                                                formControlName="password"
+                                                                            >
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- //form-item -->
+                                                            </div>
+                                                            <div class="col col_6 col_mob-12" *ngIf="!auth">
+                                                                <div class="form-item form-item_after">
+                                                                    <div class="form-item__header">
+                                                                        <label class="form-item__title"
+                                                                               for="checkout__phone2">Повторите пароль</label>
+                                                                    </div>
+                                                                    <div class="form-item__main">
+                                                                        <div class="form-item__field">
+                                                                            
+                                                                            <div data-app-input
+                                                                                [defaultValue]="defaultLegalValue"
+                                                                                [submitSubject]="legalSubmit"
+                                                                                setClass="form-item__input"
+                                                                                [inputErrors]="errorsLegal"
+                                                                                placeholder="Повторите пароль"
+                                                                                type="password"
+                                                                                [c]="legalForm.controls.confirmPassword"
+                                                                                formControlName="confirmPassword"
+                                                                            >
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- //form-item -->
+                                                            </div>
+                                                            <div class="col col_6 col_mob-12">
+                                                                <div class="form-item">
+                                                                    <div class="form-item__main">
+                                                                        <div class="custom-check">
+                                                                            <label class="custom-check__label">
+                                                                                <input id="checkout__save2"
+                                                                                       class="custom-check__input"
+                                                                                       type="checkbox"
+                                                                                       name="chekbox"
+                                                                                       formControlName="abilet"
+                                                                                       checked
+                                                                                    >
+                                                                                <svg class="custom-check__ico custom-check__ico_before">
+                                                                                    <use xlink:href="/assets/img/sprite.svg#checkboxBefore"></use>
+                                                                                </svg>
+                                                                                <svg class="custom-check__ico custom-check__ico_after">
+                                                                                    <use xlink:href="/assets/img/sprite.svg#checkboxAfter"></use>
+                                                                                </svg>
+                                                                                <span class="custom-check__text">Сохранить билеты в личном кабинете</span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- //form-item -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div 
+                                                    data-app-payment
+                                                    *ngIf="items.length > 0"
+                                                    [items]="items"
+                                                    (submit)="legalFormSubmit($event)"
+                                                    (payment)="setPayment($event)"
+                                                ></div>
+
+                                            </fieldset>
+                                        </form>
+                                    </div><!-- //Юридическое лицо -->
+                                </div>
+                            </div><!-- //tabs-body -->
+                        </div><!-- //tabs -->
+                    </div>
+                </div>
+                <div class="col col_4 col_tab-12">
+                    <div 
+                        data-app-basket-sum-block
+                        [is_basket]="false"
+                        [items]="items"
+                    ></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

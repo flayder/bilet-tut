@@ -1,0 +1,24 @@
+<div class="layout">
+    <div data-app-header></div>
+    <div class="layout__main"> 
+        <!-- <div data-app-breadcrumbs></div> -->
+        <div class="layout__section section">
+            <br/>
+            <br/>
+            <div class="col col-12 text-center">
+                <svg class="media__ico">
+                    <use xlink:href="/assets/img/sprite.svg#notificationSucces"></use>
+                </svg>
+                <br/>
+                <br/>
+                <p *ngIf="id > 0">
+                    Ваш заказ #{{ id }}<br/>
+                    успешно оплачен
+                </p>
+            </div>
+            <br/>
+            <br/>
+        </div>
+    </div>
+    <div data-app-footer></div>
+</div>

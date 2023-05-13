@@ -1,0 +1,69 @@
+<div class="layout__section section">
+    <div class="section__header">
+        <div class="wysiwyg">
+            <h1>Запросы на возврат</h1>
+        </div>
+    </div>
+    <div class="section__main">
+        <div class="account">
+            <div class="account__return return">
+                <div class="formular">
+                    <form class="return__form">
+                        <fieldset>
+                            <div class="form__group group">
+                                <div class="group__main">
+                                    <div class="row">
+                                        <div class="col col_12">
+                                            <div class="form-item">
+                                                <div class="form-item__header">
+                                                    <label class="form-item__title"
+                                                           for="report__type">Выберете мероприятие</label>
+                                                </div>
+                                                <div class="form-item__main">
+                                                    <div class="form-item__field">
+                                                        <div data-app-select
+                                                            *ngIf="user"
+                                                            [values]="products"
+                                                            (data)="getCheckout($event)"
+                                                            placeholder="Выберите мероприятие"
+                                                        >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- //form-item -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="table" *ngIf="items.length > 0">
+                    <table class="table_custom table_return">
+                        <thead>
+                        <tr>
+                            <th class="no-wrap">№ Билета</th>
+                            <th class="no-wrap">Причина</th>
+                            <th class="no-wrap">Статус</th>
+                            <th class="no-wrap">Дата</th>
+                            <th class="no-wrap">Сумма</th>
+                            <th class="no-wrap">Действия</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-app-return-list-page-item
+                                *ngFor="let item of items"
+                                [item]="item"
+                            >
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="wysiwyg text-right">
+                        <p>Общая сумма возвратов: <strong>{{ getTotalPrice() }} р.</strong></p>
+                    </div>
+                </div>
+                <h3 *ngIf="items.length == 0">Список запросов на возврат пуст</h3>
+            </div>
+        </div>
+    </div>
+</div>

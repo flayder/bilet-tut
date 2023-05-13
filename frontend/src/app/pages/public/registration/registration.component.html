@@ -1,0 +1,519 @@
+<div class="layout">
+  <div data-app-header></div>
+
+  <main class="layout__main">
+    <!-- СЕКЦИЯ РЕГИСТРАЦИИ -->
+    <div class="layout__section section">
+      <div class="section__header section__header_second">
+        <div class="container container_second">
+          <div class="section__title title">
+            <span class="title__text h1">Регистрация пользователя</span>
+          </div>
+        </div>
+      </div>
+      <div class="section__main">
+        <div class="container container_second">
+            <div class="authorization">
+                <div class="tabs">
+                    <div class="tabs__header">
+                        <div class="tabs__list">
+                            <div class="tabs__item" [ngClass]="{'tabs__item_active': typing == 'email'}" (click)="setType('email')">
+                                <div class="tabs__title title">
+                                    <span class="title__text">Регистрация по E-mail</span>
+                                </div>
+                            </div><!-- //item -->
+                            <div class="tabs__item" [ngClass]="{'tabs__item_active': typing == 'phone'}" (click)="setType('phone')">
+                                <div class="tabs__title title">
+                                    <span class="title__text">Регистрация по телефону</span>
+                                </div>
+                            </div><!-- //item -->
+                            <div class="tabs__item" [ngClass]="{'tabs__item_active': typing == 'soc'}" (click)="setType('soc')">
+                                <div class="tabs__title title">
+                                    <span class="title__text">Регистрация через соц. сети</span>
+                                </div>
+                            </div><!-- //item -->
+                        </div>
+                    </div><!-- //tabs-header -->
+                    <div class="tabs__body">
+                        <div class="tabs__list">
+                            <div class="tabs__item" [ngClass]="{'tabs__item_active': typing == 'email'}">
+                                <div class="authorization__formular">
+                                    <form class="authorization__form" [formGroup]="registerFormEmail" (ngSubmit)="emailFormSubmit()">
+                                        <fieldset>
+                                            <div class="form__group group">
+                                                <div class="group__main">
+                                                    <div class="row">
+                                                        <div class="col col_12">
+                                                            <div class="form-item">
+                                                                <div class="form-item__main">
+                                                                    <div class="switcher">
+                                                                        <div class="switcher__list">
+                                                                            <div class="switcher__item">
+                                                                                <label class="switcher__label">
+                                                                                    <input class="switcher__input"
+                                                                                      type="radio"
+                                                                                      [checked]="role == 'viewer'"
+                                                                                      (change)="setRole('viewer')"
+                                                                                      name="switcher"
+                                                                                    >
+                                                                                           
+                                                                                    <span class="switcher__text">Зритель</span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="switcher__item">
+                                                                                <label class="switcher__label">
+                                                                                    <input class="switcher__input"
+                                                                                           type="radio"
+                                                                                           [checked]="role == 'manager'"
+                                                                                          (change)="setRole('manager')"
+                                                                                           name="switcher">
+                                                                                    <span class="switcher__text">Организатор</span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col col_6 col_mob-12">
+                                                            <!-- Имя -->
+                                                            <div class="form-item">
+                                                                <div class="form-item__header">
+                                                                    <label class="form-item__title" for="user__name">Имя</label>
+                                                                </div>
+                                                                <div class="form-item__main">
+                                                                    <div class="form-item__field">
+                                                                        <div data-app-input
+                                                                            [submitSubject]="registerFormEmailSubmit"
+                                                                            setClass="form-item__input"
+                                                                            [c]="registerFormEmail.controls.username"
+                                                                            placeholder="Введите Ваше имя"
+                                                                            formControlName="username"
+                                                                        ></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- //form-item -->
+                                                            <!-- Фамилия -->
+                                                            <div class="form-item">
+                                                                <div class="form-item__header">
+                                                                    <label class="form-item__title"
+                                                                           for="user__surname">Фамилия</label>
+                                                                </div>
+                                                                <div class="form-item__main">
+                                                                    <div class="form-item__field">
+                                                                        <div data-app-input
+                                                                            [submitSubject]="registerFormEmailSubmit"
+                                                                            [inputErrors]="errorsRegister"
+                                                                            setClass="form-item__input"
+                                                                            [c]="registerFormEmail.controls.surname"
+                                                                            placeholder="Введите Вашу фамилию"
+                                                                            formControlName="surname"
+                                                                        ></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- //form-item -->
+                                                            <!-- Дата рождения -->
+                                                            <div class="form-item form-item_after">
+                                                                <div class="form-item__header">
+                                                                    <label class="form-item__title" for="user__date">Дата
+                                                                        рождения</label>
+                                                                </div>
+                                                                <div class="form-item__main">
+                                                                    <div class="form-item__field">
+                                                                        <div data-app-input-date
+                                                                            [submitSubject]="registerFormEmailSubmit"
+                                                                            [inputErrors]="errorsRegister"
+                                                                            [dateIsOpen]="true"
+                                                                            setClass="form-item__input"
+                                                                            [c]="registerFormEmail.controls.birthday"
+                                                                            placeholder="Введите дату рождения"
+                                                                            formControlName="birthday">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-item__media media">
+                                                                        <svg class="media__ico">
+                                                                            <use xlink:href="/assets/img/sprite.svg#date"></use>
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- //form-item -->
+                                                        </div>
+                                                        <div class="col col_6 col_mob-12">
+                                                            <!-- Почта -->
+                                                            <div class="form-item">
+                                                                <div class="form-item__header">
+                                                                    <label class="form-item__title"
+                                                                           for="user__email">Email</label>
+                                                                </div>
+                                                                <div class="form-item__main">
+                                                                    <div class="form-item__field">
+                                                                        <div data-app-input
+                                                                            [submitSubject]="registerFormEmailSubmit"
+                                                                            [inputErrors]="errorsRegister"
+                                                                            setClass="form-item__input"
+                                                                            [c]="registerFormEmail.controls.email"
+                                                                            placeholder="Введите электронную почту"
+                                                                            formControlName="email">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- //form-item -->
+                                                            <!-- Пароль -->
+                                                            <div class="form-item form-item_after">
+                                                                <div class="form-item__header">
+                                                                    <label class="form-item__title"
+                                                                           for="user__password">Придумайте пароль</label>
+                                                                </div>
+                                                                <div class="form-item__main">
+                                                                    <div class="form-item__field">
+                                                                        <div data-app-input
+                                                                            [submitSubject]="registerFormEmailSubmit"
+                                                                            setClass="form-item__input"
+                                                                            [c]="registerFormEmail.controls.password"
+                                                                            placeholder="Придумайте пароль"
+                                                                            type="password"
+                                                                            formControlName="password">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- //form-item -->
+                                                            <!-- Повторите пароль -->
+                                                            <div class="form-item form-item_after">
+                                                                <div class="form-item__header">
+                                                                    <label class="form-item__title"
+                                                                           for="user__passwoed-repeat">Повторите пароль</label>
+                                                                </div>
+                                                                <div class="form-item__main">
+                                                                    <div class="form-item__field">
+                                                                        <div data-app-input
+                                                                            [submitSubject]="registerFormEmailSubmit"
+                                                                            [inputErrors]="errorsRegister"
+                                                                            setClass="form-item__input"
+                                                                            [c]="registerFormEmail.controls.confirmPassword"
+                                                                            placeholder="Введите пароль повторно"
+                                                                            formControlName="confirmPassword"
+                                                                            type="password"
+                                                                            >
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- //form-item -->
+                                                        </div>
+                                                        <div class="col col_12">
+                                                            <!-- Правила -->
+                                                            <div class="form-item">
+                                                                <div class="form-item__main">
+                                                                    <div class="custom-check">
+                                                                        <label class="custom-check__label">
+                                                                            <input class="custom-check__input"
+                                                                                   type="checkbox"
+                                                                                   name="chekbox" formControlName="policy" checked>
+                                                                            <svg class="custom-check__ico custom-check__ico_before">
+                                                                                <use xlink:href="/assets/img/sprite.svg#checkboxBefore"></use>
+                                                                            </svg>
+                                                                            <svg class="custom-check__ico custom-check__ico_after">
+                                                                                <use xlink:href="/assets/img/sprite.svg#checkboxAfter"></use>
+                                                                            </svg>
+                                                                            <span class="custom-check__text">Даю  согласие  на обработку персональных данных, а так же принимаю   <a
+                                                                                    href="#">правила пользования сервисом</a></span>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="group__footer">
+                                                    <div class="row">
+                                                        <div class="col col_12">
+                                                            <!-- Отправка формы -->
+                                                            <div class="form-item">
+                                                                <div class="form-item__main">
+                                                                    <button type="submit" class="btn">Зарегистрироваться
+                                                                    </button>
+                                                                    <br/>
+                                                                    <br/>
+                                                                    <div class="title" style="width: 100%; text-align: center;">
+                                                                        <a class="title__text" routerLink="/auth" style="font-weight: bold; color: #00BA34;">войти</a>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div><!-- //tabs-body__item -->
+                            <div class="tabs__item" [ngClass]="{'tabs__item_active': typing == 'phone'}">
+                                <div class="authorization__formular">
+                                    
+
+                                  <div data-app-sms-repeat 
+                                    (repeat)="repeatSms($event)"
+                                    (submit)="sendSms($event)"
+                                    *ngIf="smscode"
+                                  ></div>
+
+
+                                  <form class="authorization__form" [formGroup]="authFormEmail" (ngSubmit)="authFormSubmit()" *ngIf="!smscode">
+                                    <fieldset>
+                                        <div class="form__group group">
+                                            <div class="group__main">
+                                                <div class="row">
+                                                    <div class="col col_12">
+                                                        <div class="form-item">
+                                                            <div class="form-item__main">
+                                                                <div class="switcher">
+                                                                    <div class="switcher__list">
+                                                                        <div class="switcher__item">
+                                                                            <label class="switcher__label">
+                                                                                <input class="switcher__input"
+                                                                                    type="radio"
+                                                                                    [checked]="role == 'viewer'"
+                                                                                    (change)="setRole('viewer')"
+                                                                                    name="switcher">
+                                                                                       
+                                                                                <span class="switcher__text">Зритель</span>
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="switcher__item">
+                                                                            <label class="switcher__label">
+                                                                                <input class="switcher__input"
+                                                                                    type="radio"
+                                                                                    [checked]="role == 'manager'"
+                                                                                    (change)="setRole('manager')"
+                                                                                    name="switcher">
+                                                                                <span class="switcher__text">Организатор</span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col col_6 col_mob-12">
+                                                        <!-- Имя -->
+                                                        <div class="form-item">
+                                                            <div class="form-item__header">
+                                                                <label class="form-item__title" for="user__name">Имя</label>
+                                                            </div>
+                                                            <div class="form-item__main">
+                                                                <div class="form-item__field">
+                                                                    <div data-app-input
+                                                                        [submitSubject]="authFormEmailSubmit"
+                                                                        setClass="form-item__input"
+                                                                        [c]="authFormEmail.controls.username"
+                                                                        placeholder="Введите Ваше имя"
+                                                                        formControlName="username"
+                                                                    ></div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- //form-item -->
+                                                        <!-- Фамилия -->
+                                                        <div class="form-item">
+                                                            <div class="form-item__header">
+                                                                <label class="form-item__title"
+                                                                       for="user__surname">Фамилия</label>
+                                                            </div>
+                                                            <div class="form-item__main">
+                                                                <div class="form-item__field">
+                                                                    <div data-app-input
+                                                                        [submitSubject]="authFormEmailSubmit"
+                                                                        [inputErrors]="errorsAuth"
+                                                                        setClass="form-item__input"
+                                                                        [c]="authFormEmail.controls.surname"
+                                                                        placeholder="Введите Вашу фамилию"
+                                                                        formControlName="surname"
+                                                                    ></div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- //form-item -->
+                                                        <!-- Дата рождения -->
+                                                        <div class="form-item form-item_after">
+                                                            <div class="form-item__header">
+                                                                <label class="form-item__title" for="user__date">Дата
+                                                                    рождения</label>
+                                                            </div>
+                                                            <div class="form-item__main">
+                                                                <div class="form-item__field">
+                                                                    <div data-app-input-date
+                                                                        [submitSubject]="authFormEmailSubmit"
+                                                                        [inputErrors]="errorsAuth"
+                                                                        [dateIsOpen]="true"
+                                                                        setClass="form-item__input"
+                                                                        [c]="authFormEmail.controls.birthday"
+                                                                        placeholder="Введите дату рождения"
+                                                                        formControlName="birthday">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-item__media media">
+                                                                    <svg class="media__ico">
+                                                                        <use xlink:href="/assets/img/sprite.svg#date"></use>
+                                                                    </svg>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- //form-item -->
+                                                    </div>
+                                                    <div class="col col_6 col_mob-12">
+                                                        <!-- Почта -->
+                                                        <div class="form-item">
+                                                            <div class="form-item__header">
+                                                                <label class="form-item__title"
+                                                                       for="user__email">Телефон</label>
+                                                            </div>
+                                                            <div class="form-item__main">
+                                                                <div class="form-item__field">
+                                                                    <div data-app-input-phone
+                                                                        [submitSubject]="authFormEmailSubmit"
+                                                                        [inputErrors]="errorsAuth"
+                                                                        setClass="form-item__input"
+                                                                        [c]="authFormEmail.controls.phone"
+                                                                        placeholder="+7 (900) 000-00-00"
+                                                                        formControlName="phone">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- //form-item -->
+                                                        <!-- Пароль -->
+                                                        <div class="form-item form-item_after">
+                                                            <div class="form-item__header">
+                                                                <label class="form-item__title"
+                                                                       for="user__password">Придумайте пароль</label>
+                                                            </div>
+                                                            <div class="form-item__main">
+                                                                <div class="form-item__field">
+                                                                    <div data-app-input
+                                                                        [submitSubject]="authFormEmailSubmit"
+                                                                        [inputErrors]="errorsAuth"
+                                                                        setClass="form-item__input"
+                                                                        [c]="authFormEmail.controls.password"
+                                                                        placeholder="Придумайте пароль"
+                                                                        formControlName="password"
+                                                                        type="password"
+                                                                        >
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- //form-item -->
+                                                        <!-- Повторите пароль -->
+                                                        <div class="form-item form-item_after">
+                                                            <div class="form-item__header">
+                                                                <label class="form-item__title"
+                                                                       for="user__passwoed-repeat">Повторите пароль</label>
+                                                            </div>
+                                                            <div class="form-item__main">
+                                                                <div class="form-item__field">
+                                                                    <div data-app-input
+                                                                        [submitSubject]="authFormEmailSubmit"
+                                                                        [inputErrors]="errorsAuth"
+                                                                        setClass="form-item__input"
+                                                                        [c]="authFormEmail.controls.confirmPassword"
+                                                                        placeholder="Введите пароль повторно"
+                                                                        formControlName="confirmPassword"
+                                                                        type="password"
+                                                                        >
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- //form-item -->
+                                                    </div>
+                                                    <div class="col col_12">
+                                                        <!-- Правила -->
+                                                        <div class="form-item">
+                                                            <div class="form-item__main">
+                                                                <div class="custom-check">
+                                                                    <label class="custom-check__label">
+                                                                        <input class="custom-check__input"
+                                                                               type="checkbox"
+                                                                               name="chekbox" formControlName="policy" checked>
+                                                                        <svg class="custom-check__ico custom-check__ico_before">
+                                                                            <use xlink:href="/assets/img/sprite.svg#checkboxBefore"></use>
+                                                                        </svg>
+                                                                        <svg class="custom-check__ico custom-check__ico_after">
+                                                                            <use xlink:href="/assets/img/sprite.svg#checkboxAfter"></use>
+                                                                        </svg>
+                                                                        <span class="custom-check__text">Даю  согласие  на обработку персональных данных, а так же принимаю   <a
+                                                                                href="#">правила пользования сервисом</a></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="group__footer">
+                                                <div class="row">
+                                                    <div class="col col_12">
+                                                        <!-- Отправка формы -->
+                                                        <div class="form-item">
+                                                            <div class="form-item__main">
+                                                                <button type="submit" class="btn">Зарегистрироваться
+                                                                </button>
+                                                                <br/>
+                                                                <br/>
+                                                                <div class="title" style="width: 100%; text-align: center;">
+                                                                    <a class="title__text" routerLink="/auth" style="font-weight: bold; color: #00BA34;">войти</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                                </div>
+                            </div><!-- //tabs-body__item -->
+                            <div class="tabs__item" [ngClass]="{'tabs__item_active': typing == 'soc'}">
+                                <div class="authorization__socials socials">
+                                    <div class="socials__header">
+                                        <div class="socials__title title">
+                                            <span class="title__text">выберите социальную сеть</span>
+                                        </div>
+                                    </div>
+                                    <div class="socials__main">
+                                        <div class="socials__list justify-center">
+                                            <div class="socials__item">
+                                                <span class="socials__link" data-app-telegram-auth>
+                                                    <svg class="socials__ico">
+                                                        <use xlink:href="/assets/img/sprite.svg#telegram"></use>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <!-- <div class="socials__item">
+                                                <a class="socials__link" href="#">
+                                                    <svg class="socials__ico">
+                                                        <use xlink:href="/assets/img/sprite.svg#whatsapp"></use>
+                                                    </svg>
+                                                </a>
+                                            </div> -->
+                                            
+                                            <div class="socials__item">
+                                                <span class="socials__link" data-app-vk-auth>
+                                                    <svg class="socials__ico">
+                                                        <use xlink:href="/assets/img/sprite.svg#vk"></use>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- //tabs-body__item -->
+                        </div>
+                    </div><!-- //tabs-body -->
+                </div><!-- //tabs -->
+            </div>
+        </div>
+    </div>
+    </div>
+  </main><!-- //middle -->
+
+  <div data-app-footer></div>
+</div>

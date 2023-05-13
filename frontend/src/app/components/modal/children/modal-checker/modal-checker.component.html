@@ -1,0 +1,173 @@
+<!-- modal header -->
+<div class="modal__header">
+    <div class="modal__title title">
+        <span class="title__text h3">Создание проверяющего</span>
+    </div>
+    <div class="modal__action action">
+        <svg class="action__icon" (click)="close($event)">
+            <use xlink:href="/assets/img/sprite.svg#close"></use>
+        </svg>
+    </div>
+</div>
+<!-- modal content -->
+<div class="modal__main">
+    <div class="formular">
+        <form [formGroup]="form">
+            <fieldset>
+                <div class="form__group group">
+                    <div class="group__main">
+                        <div class="form-item">
+                            <div class="form-item__header">
+                                <label class="form-item__title"
+                                       for="check__surname">Фамилия</label>
+                            </div>
+                            <div class="form-item__main">
+                                <div class="form-item__field">
+                                    <div data-app-input
+                                        [defaultValue]="defaultValue"
+                                        [submitSubject]="formSubmit"
+                                        setClass="form-item__input"
+                                        [inputErrors]="errors"
+                                        [c]="form.controls.surname"
+                                        placeholder="Введите данные"
+                                        formControlName="surname"
+                                    >
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- //form-item -->
+                        <div class="form-item">
+                            <div class="form-item__header">
+                                <label class="form-item__title"
+                                       for="check__name">Имя</label>
+                            </div>
+                            <div class="form-item__main">
+                                <div class="form-item__field">
+                                    <div data-app-input
+                                        [defaultValue]="defaultValue"
+                                        [submitSubject]="formSubmit"
+                                        setClass="form-item__input"
+                                        [inputErrors]="errors"
+                                        [c]="form.controls.username"
+                                        placeholder="Введите данные"
+                                        formControlName="username"
+                                    >
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- //form-item -->
+                        <div class="form-item">
+                            <div class="form-item__header">
+                                <label class="form-item__title"
+                                       for="check__parent">Отчество</label>
+                            </div>
+                            <div class="form-item__main">
+                                <div class="form-item__field">
+                                    <div data-app-input
+                                        [defaultValue]="defaultValue"
+                                        [submitSubject]="formSubmit"
+                                        setClass="form-item__input"
+                                        [inputErrors]="errors"
+                                        [c]="form.controls.lastname"
+                                        placeholder="Введите данные"
+                                        formControlName="lastname"
+                                    >
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- //form-item -->
+                        <div class="form-item">
+                            <div class="form-item__header">
+                                <label class="form-item__title"
+                                       for="check__tel">Телефон</label>
+                            </div>
+                            <div class="form-item__main">
+                                <div class="form-item__field">
+                                    <div data-app-input-phone
+                                        [defaultValue]="defaultValue"
+                                        [submitSubject]="formSubmit"
+                                        setClass="form-item__input"
+                                        [inputErrors]="errors"
+                                        [c]="form.controls.phone"
+                                        placeholder="Введите данные"
+                                        formControlName="phone"
+                                    >
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- //form-item -->
+                        <div class="form-item">
+                            <div class="form-item__header">
+                                <label class="form-item__title"
+                                       for="check__login">Логин</label>
+                            </div>
+                            <div class="form-item__main">
+                                <div class="form-item__field">
+                                    <div data-app-input
+                                        [defaultValue]="defaultValue"
+                                        [submitSubject]="formSubmit"
+                                        setClass="form-item__input"
+                                        [inputErrors]="errors"
+                                        [c]="form.controls.login"
+                                        placeholder="Введите данные"
+                                        formControlName="login"
+                                    >
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- //form-item -->
+                        <div class="form-item form-item_after">
+                            <div class="form-item__header">
+                                <label class="form-item__title" for="check__password">Email</label>
+                            </div>
+                            <div class="form-item__main">
+                                <div class="form-item__field">
+                                    <div data-app-input
+                                        [defaultValue]="defaultValue"
+                                        [submitSubject]="formSubmit"
+                                        setClass="form-item__input"
+                                        [inputErrors]="errors"
+                                        [c]="form.controls.email"
+                                        placeholder="Введите данные"
+                                        formControlName="email"
+                                    >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-item form-item_after">
+                            <div class="form-item__header">
+                                <label class="form-item__title" for="check__password">Пароль</label>
+                            </div>
+                            <div class="form-item__main">
+                                <div class="form-item__field">
+                                    <div data-app-input
+                                        [defaultValue]="defaultValue"
+                                        [submitSubject]="formSubmit"
+                                        setClass="form-item__input"
+                                        type="password"
+                                        [inputErrors]="errors"
+                                        [c]="form.controls.password"
+                                        placeholder="Введите данные"
+                                        formControlName="password"
+                                    >
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- //form-item -->
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<div class="modal__footer">
+    <div class="row">
+        <div class="col col_6">
+            <a href="#" class="btn btn_secondary modal__action" (click)="close($event)">Отмена</a>
+        </div>
+        <div class="col col_6">
+            <button type="button" class="btn" (click)="save()">Создать</button>
+        </div>
+    </div>
+</div>

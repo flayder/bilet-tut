@@ -1,0 +1,70 @@
+<div class="formular">
+    <div class="row">
+        <div class="col col_12">
+            <div class="form__group group">
+                <div class="group__main">
+                    <div class="form-item">
+                        <div class="form-item__main">
+                            <a routerLink="/account/design/rubric/add" class="btn">Создать</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col col_4 col_tab-12">
+            <div class="form-item form-item_before">
+                <div class="form-item__main">
+                    <div class="form-item__field">
+                        <input class="form-item__input" 
+                            type="text"
+                            placeholder="Поиск"
+                            (keyup)="getSearch($event)"
+                        >
+                    </div>
+                    <div class="form-item__media media">
+                        <svg class="media__ico">
+                            <use xlink:href="/assets/img/sprite.svg#search"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div><!-- //form-item -->
+        </div>
+        <div class="col col_4 col_tab-12">
+            <div class="form-item">
+                <div class="form-item__main">
+                    <div class="form-item__field">
+                        <div data-app-select
+                            [values]="genres"
+                            placeholder="Выберите жанр"
+                            (data)="getGenre($event)"
+                        ></div>
+                    </div>
+                </div>
+            </div><!-- //form-item -->
+        </div>
+        <div class="col col_4 col_tab-12">
+            <div class="form-item">
+                <div class="form-item__main">
+                    <div class="form-item__field">
+                        <div data-app-select
+                            [values]="sorting"
+                            placeholder="Сортировать по"
+                            (data)="getSort($event)"
+                        ></div>
+                    </div>
+                </div>
+            </div><!-- //form-item -->
+        </div>
+    </div>
+</div>
+<div class="events" *ngIf="items.length > 0">
+    <div class="events__list">
+        <div class="row">
+            <div class="col col_3 col_hd-desktop-4 col_tab-6 col_mob-12" *ngFor="let item of items">
+                <div data-app-rubric-page-item
+                    [item]="item"
+                ></div>
+            </div>
+        </div>
+    </div>
+</div>

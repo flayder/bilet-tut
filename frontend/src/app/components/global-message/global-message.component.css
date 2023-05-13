@@ -1,0 +1,54 @@
+.message-block {
+    position: fixed; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    z-index: 99999;
+}
+
+.message-ng {
+    padding: 15px;
+    margin-bottom: 10px;
+    opacity: .9;
+    position: relative;
+}
+
+.message-ng .wrap {
+    padding-right: 30px;
+    color: #16192C;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.close-ng {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    background: none;
+    color: #16192C;
+}
+
+.message-ng.danger {
+    background: #EE2828;
+}
+
+.message-ng.danger .wrap,
+.message-ng.danger .close-ng {
+    color: #fff;
+}
+
+.message-ng.success {
+    background: #00BA34;
+}
+
+.message-ng.success .wrap {
+    color: #fff;
+}
+
+.message-ng.warning {
+    background: yellow;
+}
